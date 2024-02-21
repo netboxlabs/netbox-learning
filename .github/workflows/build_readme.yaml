@@ -1,0 +1,55 @@
+name: Learning - template generator
+
+on:
+  # Allow us to fire it manually
+  workflow_dispatch:
+  # Allow us to regenerate the templates when the develop branch is updated
+  # Daily at 3am
+  schedule:
+    # 7 minutes past the hour
+    - cron: '* 3 * * *'
+  push:
+    branches:
+      - 'develop'
+    paths:
+      - '.learning-meta/**'
+  # Regenerate the templates when a new release is published
+  release:
+    types: [published]
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  generate_templates:
+    permissions:
+      contents: write
+      pull-requests: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+          token: ${{ secrets.ORB_CI_GH_TOKEN }}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+          cache: 'pip'
+          cache-dependency-path: '.learning-meta/requirements.txt'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .learning-meta/requirements.txt
+      - name: Generate from templates
+        run: |
+          python .learning-meta/regenerate.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.ORB_CI_GH_TOKEN }}
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: develop
+          commit_message: Regen on ${{ github.event_name }}
+          file_pattern: '*.md *.yaml *.yml'
