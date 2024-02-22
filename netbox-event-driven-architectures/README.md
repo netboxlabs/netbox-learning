@@ -17,22 +17,46 @@
 
 - Install requirements.txt
 ```
-pip install -r requirements.txt
+(venv) # pip install -r requirements.txt
 ```
 
 
-- Install NATs
+
+- Pull NATs Server Docker image and run it in daemon mode
 ```
-docker pull nats:latest
-docker run -p 4222:4222 -ti nats:latest
+(venv) # docker pull nats:latest
+(venv) # docker run -p 4222:4222 -d nats:latest
+```
+
+- Install the NATs CLI (Official documentation: [https://github.com/nats-io/natscli](https://github.com/nats-io/natscli))
+```
+(venv) # cd /tmp
+(venv) # curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh
+(venv) # mv ./nats /usr/bin # Or wherever you want to binary to live
+```
+
+- Create and confirm Nats contexts
+```
+(venv) #  nats context add localhost --description "Localhost"
+(venv) #  nats context ls
+╭──────────────────────────╮
+│      Known Contexts      │
+├────────────┬─────────────┤
+│ Name       │ Description │
+├────────────┼─────────────┤
+│ localhost* │ Localhost   │
+╰────────────┴─────────────╯
+
+# Nats stored its config in here
+~/.config/nats/context
 ```
 
 
 # Start the lab
 
 ```
-cd lab
-clab deploy
+(venv) # cd lab
+(venv) # clab deploy
 ```
 
 # Start the message bus (NATs)
