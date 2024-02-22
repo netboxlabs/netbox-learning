@@ -13,6 +13,7 @@ class FactsBackup():
     github_token = ""
     github_org = ""
     github_repo = ""
+    commit_filename = "facts"
 
     # Class Functions
     def load_environment(self):
@@ -29,8 +30,13 @@ class FactsBackup():
         gh = GitHubRepoHelper(self.github_token, self.github_org, self.github_repo)
         print(f"Created GitHub Helper object: {gh}")
 
+        commit_message = f"Device facts for {device_name} backed up by facts_backup agent 🚀"
+
         # Write to GitHub
-        commit = gh.write_config_to_gh(device_name, str(facts), str(facts))
+        commit = gh.write_config_to_gh(file_path=device_name,
+                                       file_name=self.commit_filename,
+                                       file_contents=str(facts),
+                                       commit_message=commit_message)
         print(f"Wrote device facts to GitHub. Commit: {commit}")
 
     async def message_handler(self, msg) -> None:

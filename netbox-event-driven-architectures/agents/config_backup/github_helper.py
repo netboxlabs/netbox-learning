@@ -35,21 +35,12 @@ class GitHubRepoHelper:
             return None
         
     # Functions
-    def write_config_to_gh(self, config_path, running_config, facts):
+    def write_config_to_gh(self, file_path, file_name, file_contents, commit_message):
         commit = None
 
         try:
             # Create a blob for each file
-            running_config_blob, facts_blob = [
-                self.repo.create_git_blob(
-                    content=running_config,
-                    encoding='utf-8',
-                ),
-                self.repo.create_git_blob(
-                    content=facts,
-                    encoding='utf-8',
-                ),
-            ]
+            facts_blob = self.repo.create_git_blob(content=file_contents, encoding='utf-8')
 
             # Get the GH tree for the current HEAD
             head_sha = self.repo.get_branch('main').commit.sha
@@ -59,13 +50,7 @@ class GitHubRepoHelper:
             new_tree = self.repo.create_git_tree(
                 tree=[
                     InputGitTreeElement(
-                        path=f"{config_path}/running_config",
-                        mode="100644",
-                        type="blob",
-                        sha=running_config_blob.sha,
-                    ),
-                    InputGitTreeElement(
-                        path=f"{config_path}/facts",
+                        path=f"{file_path}/{file_name}",
                         mode="100644",
                         type="blob",
                         sha=facts_blob.sha,
@@ -75,7 +60,7 @@ class GitHubRepoHelper:
             )
 
             parent = self.repo.get_git_commit(sha=head_sha)
-            commit = self.repo.create_git_commit("Scheduled backup courtesy of NetBox Labs 🚀", new_tree, [parent])
+            commit = self.repo.create_git_commit(commit_message, new_tree, [parent])
             master_ref = self.repo.get_git_ref('heads/main')
             master_ref.edit(sha=commit.sha)
             return commit
