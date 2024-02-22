@@ -1,1 +1,3 @@
 nats-py
+python-dotenv
+PyGithub
