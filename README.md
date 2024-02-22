@@ -17,21 +17,21 @@ This solution was presented by Rich Bibby at Cisco Live Amsterdam 2024 in the Ci
 ## 🚛 NetBox OSS releases
 
 
-- [v3.7.2 - 2024-02-05](https://github.com/netbox-community/netbox/releases/tag/v3.7.2) 🌟
+- [v3.7.3 - 2024-02-21](https://github.com/netbox-community/netbox/releases/tag/v3.7.3) 🌟
+- [v3.7.2 - 2024-02-05](https://github.com/netbox-community/netbox/releases/tag/v3.7.2)
 - [v3.7.1 - 2024-01-17](https://github.com/netbox-community/netbox/releases/tag/v3.7.1)
 - [v3.7.0 - 2023-12-29](https://github.com/netbox-community/netbox/releases/tag/v3.7.0)
 - [v3.6.9 - 2023-12-28](https://github.com/netbox-community/netbox/releases/tag/v3.6.9)
-- [v3.6.8 - 2023-12-27](https://github.com/netbox-community/netbox/releases/tag/v3.6.8)
 
 
 ## 📝 Latest blog articles
 
 
+- [NetBox Labs Introduces NetBox Event Streams: Pioneering Event-Driven Architectures for Network Automation](https://netboxlabs.com/blog/netbox-labs-introduces-netbox-event-streams/) by Mark Coleman.
 - [Getting Started With NetBox Reports](https://netboxlabs.com/blog/getting-started-with-netbox-reports/) by Rich Bibby.
 - [New NetBox Training Courses Available Today!](https://netboxlabs.com/blog/new-netbox-training-courses-available-today/) by Kris Beevers.
 - [Learning from a decade of DevOps: A retrospective at NetDevOps Days New York](https://netboxlabs.com/blog/learning-from-a-decade-of-devops/) by Kiley Nichols.
 - [Our Network Discovery and Assurance Partnerships and NetBox Labs’ Big Tent Philosophy](https://netboxlabs.com/blog/our-network-discovery-and-assurance-partnerships/) by Mark Coleman.
-- [NetBox v3.7.2 Released](https://netboxlabs.com/blog/netbox-v3-7-2-is-now-available/) by Jeremy Stretch.
 
 
 ## Youtube videos
