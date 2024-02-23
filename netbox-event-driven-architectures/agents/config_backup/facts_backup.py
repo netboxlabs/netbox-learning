@@ -30,6 +30,7 @@ class FactsBackup():
         gh = GitHubRepoHelper(self.github_token, self.github_org, self.github_repo)
         print(f"Created GitHub Helper object: {gh}")
 
+        # Create commit message
         commit_message = f"Device facts for {device_name} backed up by facts_backup agent 🚀"
 
         # Write to GitHub
@@ -42,16 +43,15 @@ class FactsBackup():
     async def message_handler(self, msg) -> None:
         subject = msg.subject
         data = msg.data.decode()
-        print(f"'msg.data' has type {type(msg.data)}")
-        print(f"'data' has type {type(data)}")
         print(f"Received a message on '{subject}': {data}")
 
         # Extract the device name
         device_name = json.loads(data)["hostname"]
 
+        # Write the device config to GitHub
         self.write_to_github(device_name, data)
 
-    async def subscribe_loop(self) -> None:
+    async def main_loop(self) -> None:
         # Create a NATS client
         nc = NATS()
         
@@ -75,4 +75,4 @@ class FactsBackup():
 if __name__ == "__main__":
     facts_backup = FactsBackup()
     facts_backup.load_environment()
-    asyncio.run(facts_backup.subscribe_loop())
+    asyncio.run(facts_backup.main_loop())

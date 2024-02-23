@@ -1,3 +1,6 @@
 nats-py
 python-dotenv
 PyGithub
+napalm
+pythonping
+ipaddress

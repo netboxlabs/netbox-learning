@@ -63,7 +63,10 @@ nats pub devices.facts '{"hostname": "TST-ROUTER-1", "fqdn": "TST-ROUTER-2", "ve
 (venv) # clab deploy
 ```
 
-# Start the message bus (NATs)
-
-
-
+# Install the SR Linux driver for NAPALM
+```
+(venv) # git clone https://github.com/napalm-automation-community/napalm-srlinux.git
+(venv) # cd napalm-srlinux
+(venv) # pip install -r requirements.txt
+(venv) # python3 setup.py install
+```
