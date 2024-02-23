@@ -4,3 +4,4 @@ PyGithub
 napalm
 pythonping
 ipaddress
+python-nmap
