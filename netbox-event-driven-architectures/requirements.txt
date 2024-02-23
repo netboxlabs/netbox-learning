@@ -5,3 +5,5 @@ napalm
 pythonping
 ipaddress
 python-nmap
+pynetbox
+prettytable
