@@ -1,0 +1,8 @@
+---
+inventory:
+  plugin: NetBoxInventory2
+  options:
+     ssl_verify: False
+
+logging:
+  enabled: False
