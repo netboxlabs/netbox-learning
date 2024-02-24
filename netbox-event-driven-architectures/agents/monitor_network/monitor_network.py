@@ -74,7 +74,7 @@ Monitoring Devices: {json.dumps(self.network_devices, indent=4)}""")
                 device_failed = True
 
 
-        await self.nc.publish(self.publish_subject, f"Device monitoring issues ⚠️ \n {table}".encode())
+        await self.nc.publish(self.publish_subject, f"Monitoring for devices in {self.netbox_url} \n {table}".encode())
         
         print(table)
 

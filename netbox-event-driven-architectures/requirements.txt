@@ -7,3 +7,4 @@ ipaddress
 python-nmap
 pynetbox
 prettytable
+slack_sdk
