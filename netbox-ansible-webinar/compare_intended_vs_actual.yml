@@ -1,0 +1,10 @@
+---
+- name: Compare intended state in NetBox to actual device state and show delta
+  hosts: sites_container_lab
+  gather_facts: false
+  connection: network_cli
+
+  roles:
+    - role: ACTUAL_STATE
+    - role: INTENDED_STATE
+    - role: COMPARE_STATES

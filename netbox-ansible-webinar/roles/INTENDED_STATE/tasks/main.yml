@@ -1,0 +1,36 @@
+---
+- name: 1 - Get device details from NetBox
+  uri:
+      url: "{{ netbox_url }}api/dcim/devices/?name={{ inventory_hostname }}"
+      method: GET
+      return_content: yes
+      headers:
+          accept: "application/json"
+          Authorization: "Token {{ netbox_token }}"
+  register: device
+
+- name: 2- Get intended state from NetBox based on device ID from play 1
+  uri:
+      url: "{{ netbox_url }}api/dcim/devices/{{ device.json.results.0['id'] }}/render-config/"
+      method: POST
+      return_content: yes
+      headers:
+          accept: "application/json"
+          Authorization: "Token {{ netbox_token }}"
+  register: intended_config
+
+- name: 3 - Ensure folder for intended configs exists
+  file:
+    path: "{{ intended_configs_root }}"
+    state: directory
+  run_once: yes
+
+- name: 4 - Ensure folder for each device's intended config exists
+  file:
+    path: "{{ intended_configs_root }}/{{ inventory_hostname }}"
+    state: directory
+
+- name: 5 - Copy intened config for each device to folder
+  copy:
+    content: "{{ intended_config.json.content }}"
+    dest: "{{ intended_configs_root }}/{{ inventory_hostname }}/{{ inventory_hostname }}_intended.conf"

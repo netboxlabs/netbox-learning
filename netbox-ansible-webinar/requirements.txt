@@ -1,0 +1,4 @@
+pynetbox
+ansible
+pytz
+ansible-pylibssh

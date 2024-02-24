@@ -1,0 +1,26 @@
+name: webinar
+
+mgmt:
+  network: webinar-net
+  ipv4-subnet: 172.21.21.0/24
+
+topology:
+
+  nodes:
+    ceos-sw-1:
+      kind: ceos
+      image: ceos:4.29.0.2F
+      mgmt-ipv4: 172.21.21.2
+    ceos-sw-2:
+      kind: ceos
+      image: ceos:4.29.0.2F
+      mgmt-ipv4: 172.21.21.3
+    ceos-sw-3:
+      kind: ceos
+      image: ceos:4.29.0.2F
+      mgmt-ipv4: 172.21.21.4
+
+  links:
+    - endpoints: ["ceos-sw-1:eth1", "ceos-sw-2:eth1"]
+    - endpoints: ["ceos-sw-1:eth2", "ceos-sw-3:eth1"]
+    - endpoints: ["ceos-sw-2:eth2", "ceos-sw-3:eth2"]
