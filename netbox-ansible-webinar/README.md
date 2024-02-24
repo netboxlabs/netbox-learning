@@ -15,7 +15,7 @@ For hassle-free access to NetBox you can either use the NetBox Labs demo site, o
 1. Clone the Git repo and change into the `netbox-ansible-webinar` directory:
     ```
     git clone https://github.com/netboxlabs/netbox-learning.git
-    cd netbox-ansible-webinar
+    cd netbox-learning/netbox-ansible-webinar
     ```
 2. Create and activate Python 3 virtual environment:
     ```

@@ -82,7 +82,7 @@ The four main elements of the integration are as follows:
 1. Clone the Git repo and change into the `netbox-ansible-cisco-cc` directory:
     ```
     git clone https://github.com/netboxlabs/netbox-learning.git
-    cd netbox-ansible-cisco-cc
+    cd netbox-learning/netbox-ansible-cisco-cc
     ```
 2. Create and activate Python 3 virtual environment:
     ```
