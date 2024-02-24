@@ -1,0 +1,21 @@
+---
+- name: 1 - Run 'show running-config' on remote devices
+  eos_command:
+    commands: "show running-config"
+  register: running_config
+
+- name: 2 - Ensure backup folder is created
+  file:
+    path: "{{ backup_root }}"
+    state: directory
+  run_once: yes
+
+- name: 3 - Ensure device folder is created
+  file:
+    path: "{{ backup_root }}/{{ inventory_hostname }}"
+    state: directory
+
+- name: 4 - Write the device configuration to file
+  copy:
+    content: "{{ running_config.stdout[0] }}"
+    dest: "{{ backup_root }}/{{ inventory_hostname }}/{{ inventory_hostname }}_running.conf"

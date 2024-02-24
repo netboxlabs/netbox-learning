@@ -1,0 +1,4 @@
+---
+actual_conf_dir: "./backups/{{ inventory_hostname }}"
+intended_conf_dir: "./intended_configs/{{ inventory_hostname }}"
+exclusion_pattern: "(^! Command:)|(^! device:)"

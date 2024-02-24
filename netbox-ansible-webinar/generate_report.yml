@@ -1,0 +1,15 @@
+---
+- name: Generate Device Report For Host, IP Address, OS, Version and Serial Numbers
+  hosts: sites_container_lab
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: 1 - Gather device facts for report
+      arista.eos.eos_facts:
+        gather_subset: all   
+
+    - name: 2- Generate markdown report using device facts
+      template:
+        src: "./reports/report_template.j2"
+        dest: "./reports/device_report.md"

@@ -1,0 +1,15 @@
+---
+- name: Show Version
+  hosts: sites_container_lab
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Run 'show version' command on remote devices
+      eos_command:
+        commands: "show version"
+      register: show_version
+
+    - name: debug
+      debug: 
+        var: show_version.stdout.0

@@ -1,0 +1,8 @@
+# Device Information Report
+
+| Hostname       | IPv4         | Model | OS    | Software Version                     | Serial Number                       |
+|----------------|--------------|-------|-------|--------------------------------------|-------------------------------------|
+{% for host in ansible_play_hosts %}
+{% set host_facts = hostvars[host] %}
+| {{ host }} | {{ host_facts['primary_ip4'] }} | {{ host_facts.ansible_net_model }} | {{ host_facts.ansible_net_system }} | {{ host_facts.ansible_net_version }} | {{ host_facts.ansible_net_serialnum }} |
+{% endfor %}

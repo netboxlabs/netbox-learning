@@ -1,0 +1,10 @@
+---
+- name: Gather Arista EOS Facts
+  hosts: ceos-sw-1
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: Gather all facts
+      arista.eos.eos_facts:
+        gather_subset: all
