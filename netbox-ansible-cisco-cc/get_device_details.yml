@@ -1,0 +1,43 @@
+---
+- name: Get Device Details From Cisco Catalyst Center
+  hosts: device_roles_distribution, device_roles_access
+  gather_facts: no
+  vars:
+    username: "devnetuser"
+    password: "Cisco123!"
+
+  tasks:
+    - name: Set Custom Fields as Facts for Cisco Catalyst Center host and Device UUID
+      set_fact:
+        cisco_catalyst_center: "{{ hostvars[inventory_hostname].custom_fields['cisco_catalyst_center'] }}"
+        ccc_device_id: "{{ hostvars[inventory_hostname].custom_fields['ccc_device_id'] }}"
+
+    - name: Get Auth Token
+      uri:
+        url: "https://{{ cisco_catalyst_center }}/dna/system/api/v1/auth/token"
+        method: POST
+        return_content: yes
+        validate_certs: no
+        headers:
+          Content-Type: "application/json"
+          Authorization: "Basic {{ ('%s:%s' | format(username, password)) | b64encode }}"
+        body_format: json
+      register: login_response
+      delegate_to: localhost
+
+    - name: Get Device Details
+      uri:
+        url: "https://{{ cisco_catalyst_center }}/dna/intent/api/v1/network-device/{{ ccc_device_id }}"
+        method: GET
+        return_content: yes
+        validate_certs: no
+        headers:
+          Content-Type: "application/json"
+          x-auth-token: "{{ login_response.json['Token'] }}"
+      register: device_details
+      delegate_to: localhost
+
+    - name: Print Device Details
+      debug:
+        var: device_details.json
+      delegate_to: localhost
