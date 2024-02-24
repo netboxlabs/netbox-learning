@@ -1,0 +1,16 @@
+---
+- name: Deploy VLANs From NetBox
+  connection: network_cli
+  hosts: sites_container-lab
+  gather_facts: False
+  become: true
+
+  vars:
+    ansible_user: admin
+    ansible_password: admin
+    ansible_become: yes
+    ansible_become_password: admin
+    ansible_network_os: arista.eos.eos
+
+  roles:
+    - role: deploy_vlans
