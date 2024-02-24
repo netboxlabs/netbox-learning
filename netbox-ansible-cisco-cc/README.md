@@ -14,19 +14,19 @@ The four main elements of the integration are as follows:
 
 - Custom Field 1 is called `cisco_catalyst_center`, and is a `Selection` type field that maps to the hostname of the Cisco Catalyst Center controller:
 
-  ![custom field](images/ccc_netbox_cf_1.png)
+    ![custom field](images/ccc_netbox_cf_1.png)
 
-  The Custom Field makes use of a `Choice Set` called `Cisco Catalyst Center Hosts` which is a drop-down menu of available Catalyst Center hosts:
+    The Custom Field makes use of a `Choice Set` called `Cisco Catalyst Center Hosts` which is a drop-down menu of available Catalyst Center hosts:
 
-  ![choice set](images/ccc_cf_choice_set.png)
+    ![choice set](images/ccc_cf_choice_set.png)
 
 - Custom Field 2 is called `ccc_device_id`, and is a `Text` type field that maps to the device UUID in the Cisco Catalyst Center controller
 
-  ![device ID](images/ccc_netbox_cf_2.png)
+    ![device ID](images/ccc_netbox_cf_2.png)
 
-2. Devices managed by the Cisco Catalyst Center are added to NetBox and the device data includes the custom field values:
+2. Devices managed by the Cisco Catalyst Center are added to NetBox and the device data includes the custom field values: 
 
-   ![netbox device](images/ccc_netbox_device_details.png)
+    ![netbox device](images/ccc_netbox_device_details.png)
 
 3. The [NetBox Inventory Plugin for Ansible](https://docs.ansible.com/ansible/latest/collections/netbox/netbox/nb_inventory_inventory.html) is used to dynamically generate the inventory from NetBox to be used in the Ansible playbook:
 
@@ -47,7 +47,7 @@ The four main elements of the integration are as follows:
      - sites
     ```
 
-4. The Ansible playbooks target hosts based on the `device_roles` as defined in NetBox and pulled from the dynamic inventory. They contain a `set_facts` task to map the values of the `ccc_device_id` and `cisco_catalyst_center` custom fields to the devices, so they can be used in later tasks per inventory device:
+4. The Ansible playbooks target hosts based on the `device_roles` as defined in NetBox and pulled from the dynamic inventory. They contain a `set_facts` task to map the values of the `ccc_device_id` and `cisco_catalyst_center` custom fields to the devices, so they can be used in later tasks per inventory device: 
 
     ```
     ---
@@ -81,7 +81,7 @@ The four main elements of the integration are as follows:
 
 1. Clone the Git repo and change into the `netbox-ansible-cisco-cc` directory:
     ```
-    git clone https://github.com/netboxlabs/netbox-ansible-cisco-cc.git
+    git clone https://github.com/netboxlabs/netbox-learning.git
     cd netbox-ansible-cisco-cc
     ```
 2. Create and activate Python 3 virtual environment:
