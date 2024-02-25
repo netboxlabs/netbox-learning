@@ -4,7 +4,7 @@ A simple NetBox integration that enables Ansible to automate devices managed by 
 
 This solution was presented by Rich Bibby at Cisco Live Amsterdam 2024 in the Cisco U. Theater. **Session ID CISCOU-1014 Integrating Cisco Catalyst Center with NetBox as Part of a Modern Network Automation Solution**
 
-
+[![netbox Cisco CC](https://img.youtube.com/vi/7Qv9OFriTrw/0.jpg)](https://www.youtube.com/watch?v=7Qv9OFriTrw)
 
 ## Integration Overview
 

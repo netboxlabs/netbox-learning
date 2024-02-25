@@ -1,8 +1,8 @@
 # nornir-netbox
 
-Code for the **Getting Started with Nornir and NetBox for Network Automation Webinar** hosted by NetBox Labs in October 2023
+Code for the **Getting Started with Nornir and NetBox for Network Automation Webinar** hosted by NetBox Labs in October 2023. The talk showed how to get started on your Network Automation journey with Nornir and NetBox and featured the nornir_netbox inventory plugin for Nornir.
 
-The talk showed how to get started on your Network Automation journey with Nornir and NetBox and featured the nornir_netbox inventory plugin for Nornir.
+[![nornir netbox webinar](https://img.youtube.com/vi/9kwfFgSwLNQ/0.jpg)](https://www.youtube.com/watch?v=9kwfFgSwLNQ)
 
 ## Getting Started
 
