@@ -67,6 +67,6 @@ This webinar shows you how to get started on your Network Automation journey wit
 
 ## Get involved
 
-Join the <NetDev> Community Slack - https://netdev.chat/
+Join the discussion in the [NetBox Learning Channel](https://netdev-community.slack.com/archives/C0453L6565C) on the NetDev Community Slack! If you aren't already a member then you can sign up for free [here](https://netdev.chat/).
 
-Attend a Netbox Community call - xxx
+Join the [NetBox Community](https://netboxlabs.com/join-the-netbox-community/)
