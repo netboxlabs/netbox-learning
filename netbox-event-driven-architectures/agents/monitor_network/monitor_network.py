@@ -27,6 +27,9 @@ class MonitorNetwork():
         self.netbox_url = os.getenv("NETBOX_URL")
         self.netbox_token = os.getenv("NETBOX_TOKEN")
 
+        self.network_cidr = "172.20.20.0/24"
+        self.ignore_ips = ['172.20.20.1']
+
         # Load devices from netbox
         self.network_devices = self.load_devices_from_netbox()
 
@@ -70,6 +73,32 @@ Monitoring Devices: {json.dumps(self.network_devices, indent=4)}""")
             table.add_row([device, ip, ping_status])
 
         await self.nc.publish(self.publish_subject, f"Monitoring for devices in {self.netbox_url} \n {table}".encode())
+
+        # Scan the subnet and figure out if any devices are there that shouldn't be
+        
+        # Initialise nmap PortScanner
+        nm = nmap.PortScanner()
+
+        # Scan the subnet
+        current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        print(f"{current_time}: Scanning {self.network_cidr}...")
+        nm.scan(hosts=self.network_cidr, arguments='-sn')
+
+        print(f"Found hosts: {nm.all_hosts()}")
+
+        for host in nm.all_hosts():
+            print(f"Comparing host {host} to ignored IPs: {self.ignore_ips} and known IPs: {self.network_devices}")
+            print(f"Available keys for {host}: {nm[host].keys()}")
+            if host in self.ignore_ips:
+                print(f"Ignoring host {host} as it is present in the IP ignore list {self.ignore_ips}")
+            elif host in list(self.network_devices.values()):
+                print(f"Ignoring host {host} as it is present in the NetBox inventory: {self.netbox_url}")
+            else:
+                # We do not know about this IP so alert on it
+                await self.nc.publish(self.publish_subject, f"Found unknown host in monitored subnet ({self.network_cidr}) Hostname: {nm[host].hostname()} IPAddress: {host}".encode())
+
+
+
         
         print(table)
 
