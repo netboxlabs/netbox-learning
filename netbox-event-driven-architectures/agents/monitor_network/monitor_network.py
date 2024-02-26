@@ -59,10 +59,8 @@ Monitoring Devices: {json.dumps(self.network_devices, indent=4)}""")
         data = msg.data.decode()
         print(f"Received a message on '{subject}': {data}")
 
-        table = PrettyTable(["Device Name", "IP", "Pingable?"])
-        
-
         # Ping all devices and output the results
+        table = PrettyTable(["Device Name", "IP", "Pingable?"])
         for device, ip in self.network_devices.items():
             device_failed = False
             ping_status = ping(ip,

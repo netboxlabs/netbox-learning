@@ -8,3 +8,5 @@ python-nmap
 pynetbox
 prettytable
 slack_sdk
+fastapi
+uvicorn
