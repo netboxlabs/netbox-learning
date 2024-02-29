@@ -50,11 +50,15 @@ Pulling inventory from NetBox: {self.netbox_url}""")
         # Get all active devices with an IPv4 management IP from NetBox
         print(f"Loading devices from NetBox instance at {self.netbox_url}")
         total_devices_count, elligible_devices_count, devices = self.load_devices_from_netbox()
-        print(f"Found {total_devices_count} devices. {elligible_devices_count} of which are elligible for monitoring.")
+        print(f"Found {total_devices_count} devices. {elligible_devices_count} of which are elligible.")
 
         # Get the running config for each device and publish it
         for device in devices:
             running_config = self.get_running_config(device)
+            if running_config == str(None):
+                print(f"Running config is {running_config}. Skipping...")
+                continue
+
             running_config_message = {}
             running_config_message["hostname"] = device.name
             running_config_message["ip"] = str(ipaddress.ip_interface(str(device.primary_ip4)).ip)
