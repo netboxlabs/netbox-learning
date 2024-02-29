@@ -1,5 +1,5 @@
 import logging
-from github.GithubException import BadCredentialsException, GithubException, UnknownObjectException
+from github.GithubException import BadCredentialsException, GithubException
 from github import Github, Auth, InputGitTreeElement
 
 class GitHubRepoHelper:

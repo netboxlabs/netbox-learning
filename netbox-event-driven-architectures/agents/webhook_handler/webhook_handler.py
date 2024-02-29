@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, APIRouter
-import os, asyncio
+import os
 from nats.aio.client import Client as NATS
 from dotenv import load_dotenv
 

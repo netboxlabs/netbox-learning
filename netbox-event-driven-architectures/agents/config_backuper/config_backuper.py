@@ -1,6 +1,4 @@
-import os
-import asyncio
-import json
+import os, asyncio, json
 from nats.aio.client import Client as NATS
 from dotenv import load_dotenv
 from agents.helpers.github_helper import GitHubRepoHelper
