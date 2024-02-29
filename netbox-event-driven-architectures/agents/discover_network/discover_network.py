@@ -1,9 +1,8 @@
-import os, asyncio, nmap, time, ipaddress, json
+import os, asyncio, nmap, time
 from nats.aio.client import Client as NATS
 from dotenv import load_dotenv
-from agents.helpers.netbox import NetBoxHelper
 
-class MonitorNetwork():
+class DiscoverNetwork():
 
     # Class Variables
     nats_server = ""
@@ -14,9 +13,8 @@ class MonitorNetwork():
     netbox_token = ""
     nc = None
 
-    # Class Functions
     def __init__(self):
-        # Load Environment Variables
+        # Load environment
         load_dotenv()
         self.nats_server = os.getenv("NATS_SERVER")
         self.publish_subject = os.getenv("PUBLISH_SUBJECT")
@@ -61,11 +59,6 @@ Ignoring IPs: {self.ignore_ips}""")
 
                 await self.nc.publish(self.publish_subject, str(valid_json_device).encode())
 
-
-
-        
-        #print(table)
-
     async def main_loop(self) -> None:
         # Create a NATS client
         self.nc = NATS()
@@ -88,5 +81,5 @@ Ignoring IPs: {self.ignore_ips}""")
 
 # Run the subscriber
 if __name__ == "__main__":
-    network_monitor = MonitorNetwork()
-    asyncio.run(network_monitor.main_loop())
+    discover_network = DiscoverNetwork()
+    asyncio.run(discover_network.main_loop())

@@ -30,6 +30,12 @@ class SlackAlerter():
          # Set up a Slack WebClient with the Slack OAuth token
         self.slack_webclient = WebClient(self.slack_token)
 
+        # Report environment
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Reading inventory from NetBox: {self.netbox_url}
+Writing device alerts to Slack channel: {self.slack_channel} with username: {self.slack_username}""")
+
     def load_devices_from_netbox(self) -> {str, str}:
         # Create NetBox Helper object
         nb = NetBoxHelper.getInstance(self.netbox_url, self.netbox_token)

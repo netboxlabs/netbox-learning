@@ -4,15 +4,7 @@ from dotenv import load_dotenv
 from agents.helpers.device_helper import NetworkDeviceHelper
 from agents.helpers.netbox import NetBoxHelper
 
-#class DeviceType:
-#    manufacturer = "Nokia"
-
-#class Device():
-#    device_type = DeviceType()
-#    primary_ip4 = "172.20.20.2/24"
-
-
-class GetDeviceFacts():
+class GetRunningConfig():
 
     # Class Functions
     def __init__(self):
@@ -26,7 +18,10 @@ class GetDeviceFacts():
         self.netbox_token = os.getenv("NETBOX_TOKEN")
 
         # Report environment
-        print(f"Loaded environment for {os.path.basename(__file__)}. \n NATs Server: {self.nats_server} \n Publishing to subject: {self.publish_subject}")
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Publishing to subject: {self.publish_subject}
+Pulling inventory from NetBox: {self.netbox_url}""")
 
     def load_devices_from_netbox(self) -> {str, str}:
         # Create NetBox Helper object
@@ -88,5 +83,5 @@ class GetDeviceFacts():
 
 # Run the subscriber
 if __name__ == "__main__":
-    device_facts_poller = GetDeviceFacts()
-    asyncio.run(device_facts_poller.main_loop())
+    get_running_config = GetRunningConfig()
+    asyncio.run(get_running_config.main_loop())

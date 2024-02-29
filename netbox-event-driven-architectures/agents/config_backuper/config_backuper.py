@@ -13,9 +13,8 @@ class ConfigBackuper():
     github_token = ""
     github_org = ""
     github_repo = ""
-    commit_filename = "running_config"
+    commit_filename = "facts"
 
-    # Class Functions
     def __init__(self):
         load_dotenv()
 
@@ -25,18 +24,23 @@ class ConfigBackuper():
         self.github_org = os.environ.get("GITHUB_ORG")
         self.github_repo = os.environ.get("GITHUB_REPO")
 
-    def write_to_github(self, device_name, running_config):
+        # Report environment
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Writing device configs to: {self.github_org}/{self.github_repo}""")
+
+    def write_to_github(self, device_name, facts):
         # Initialise the GitHub Helper
         gh = GitHubRepoHelper(self.github_token, self.github_org, self.github_repo)
         print(f"Created GitHub Helper object: {gh}")
 
         # Create commit message
-        commit_message = f"Running config for {device_name} backed up by config_backuper agent 🚀"
+        commit_message = f"Device facts for {device_name} backed up by facts_backup agent 🚀"
 
         # Write to GitHub
         commit = gh.write_config_to_gh(file_path=device_name,
                                        file_name=self.commit_filename,
-                                       file_contents=str(running_config),
+                                       file_contents=str(facts),
                                        commit_message=commit_message)
         print(f"Wrote device facts to GitHub. Commit: {commit}")
 
@@ -73,5 +77,5 @@ class ConfigBackuper():
 
 # Run the subscriber
 if __name__ == "__main__":
-    facts_backup = ConfigBackuper()
-    asyncio.run(facts_backup.main_loop())
+    config_backuper = ConfigBackuper()
+    asyncio.run(config_backuper.main_loop())

@@ -3,7 +3,7 @@ from nats.aio.client import Client as NATS
 from dotenv import load_dotenv
 from slack_sdk import WebClient
 
-class SlackAlerter():
+class PingAlerter():
 
     # Class Variables
     nats_server = ""
@@ -26,6 +26,11 @@ class SlackAlerter():
         
          # Set up a Slack WebClient with the Slack OAuth token
         self.slack_webclient = WebClient(self.slack_token)
+
+        # Report environment
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Writing ping alerts to Slack channel: {self.slack_channel} with username: {self.slack_username}""")
         
     async def message_handler(self, msg) -> None:
         subject = msg.subject
@@ -70,5 +75,5 @@ class SlackAlerter():
 
 # Run the subscriber
 if __name__ == "__main__":
-    network_monitor = SlackAlerter()
-    asyncio.run(network_monitor.main_loop())
+    ping_alerter = PingAlerter()
+    asyncio.run(ping_alerter.main_loop())

@@ -12,7 +12,6 @@ class WebhookHandler():
     router = None
     app = None
 
-    # Class Functions
     def __init__(self):
         
         # Load Environment Variables
@@ -31,7 +30,10 @@ class WebhookHandler():
         self.app.include_router(self.router)
 
         # Report environment
-        print(f"Loaded environment for {os.path.basename(__file__)}. \n NATs Server: {self.nats_server} \n Publishing to subject: {self.publish_subject}")
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Publishing to subject: {self.publish_subject}
+Pulling inventory from NetBox: {self.netbox_url}""")
 
     async def handle_webhook(self, payload: dict):
         try:

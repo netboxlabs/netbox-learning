@@ -19,7 +19,10 @@ class PingDevices():
         self.netbox_token = os.getenv("NETBOX_TOKEN")
 
         # Report environment
-        print(f"Loaded environment for {os.path.basename(__file__)}. \n NATs Server: {self.nats_server} \n Publishing to subject: {self.publish_subject}")
+        print(f"""Loaded environment for {os.path.basename(__file__)}
+NATs Server: {self.nats_server}
+Publishing to: {self.publish_subject}
+Pulling inventory from NetBox: {self.netbox_url}""")
 
     def load_devices_from_netbox(self) -> {str, str}:
         # Create NetBox Helper object
@@ -70,5 +73,5 @@ class PingDevices():
 
 # Run the subscriber
 if __name__ == "__main__":
-    device_facts_poller = PingDevices()
-    asyncio.run(device_facts_poller.main_loop())
+    ping_devices = PingDevices()
+    asyncio.run(ping_devices.main_loop())
