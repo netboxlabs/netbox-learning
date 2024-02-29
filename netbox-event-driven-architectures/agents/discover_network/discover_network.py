@@ -1,10 +1,7 @@
-import os, asyncio, nmap, time, sys, ipaddress, json
+import os, asyncio, nmap, time, ipaddress, json
 from nats.aio.client import Client as NATS
 from dotenv import load_dotenv
 from netbox import NetBoxHelper
-from pythonping import ping
-from pythonping.executor import SuccessOn
-from prettytable import PrettyTable
 
 class MonitorNetwork():
 
@@ -26,9 +23,8 @@ class MonitorNetwork():
         self.subscribe_subject = os.getenv("SUBSCRIBE_SUBJECT")
         self.netbox_url = os.getenv("NETBOX_URL")
         self.netbox_token = os.getenv("NETBOX_TOKEN")
-
-        self.network_cidr = "172.20.20.0/24"
-        self.ignore_ips = ['172.20.20.1']
+        self.subnet_cidr = os.getenv("SUBNET_CIDR")
+        self.ignore_ips = [ip.strip() for ip in os.getenv("IGNORE_IPS").split(',')]
 
         # Load devices from netbox
         self.network_devices = self.load_devices_from_netbox()
@@ -37,6 +33,8 @@ class MonitorNetwork():
         print(f"""Loaded environment for {os.path.basename(__file__)}
 NATs Server: {self.nats_server}
 Publishing to subject: {self.publish_subject}
+Monitoring subnet: {self.subnet_cidr}
+Ignoring IPs: {self.ignore_ips}
 Monitoring Devices: {json.dumps(self.network_devices, indent=4)}""")
     
     def load_devices_from_netbox(self) -> {str, str}:
@@ -62,45 +60,33 @@ Monitoring Devices: {json.dumps(self.network_devices, indent=4)}""")
         data = msg.data.decode()
         print(f"Received a message on '{subject}': {data}")
 
-        # Ping all devices and output the results
-        table = PrettyTable(["Device Name", "IP", "Pingable?"])
-        for device, ip in self.network_devices.items():
-            device_failed = False
-            ping_status = ping(ip,
-                               verbose=False,
-                               timeout=1,
-                               count=1).success(option=SuccessOn.Most)
-            table.add_row([device, ip, ping_status])
-
-        await self.nc.publish(self.publish_subject, f"Monitoring for devices in {self.netbox_url} \n {table}".encode())
-
-        # Scan the subnet and figure out if any devices are there that shouldn't be
-        
+        ### Scan the subnet and figure out if any devices are there that shouldn't be
         # Initialise nmap PortScanner
         nm = nmap.PortScanner()
 
         # Scan the subnet
         current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-        print(f"{current_time}: Scanning {self.network_cidr}...")
-        nm.scan(hosts=self.network_cidr, arguments='-sn')
+        print(f"{current_time}: Scanning {self.subnet_cidr}...")
+        nm.scan(hosts=self.subnet_cidr, arguments='-sn')
 
         print(f"Found hosts: {nm.all_hosts()}")
 
         for host in nm.all_hosts():
-            print(f"Comparing host {host} to ignored IPs: {self.ignore_ips} and known IPs: {self.network_devices}")
-            print(f"Available keys for {host}: {nm[host].keys()}")
             if host in self.ignore_ips:
                 print(f"Ignoring host {host} as it is present in the IP ignore list {self.ignore_ips}")
-            elif host in list(self.network_devices.values()):
-                print(f"Ignoring host {host} as it is present in the NetBox inventory: {self.netbox_url}")
             else:
                 # We do not know about this IP so alert on it
-                await self.nc.publish(self.publish_subject, f"Found unknown host in monitored subnet ({self.network_cidr}) Hostname: {nm[host].hostname()} IPAddress: {host}".encode())
+                device = {}
+                device["hostname"] = f"{nm[host].hostname()}"
+                device["ip"] = f"{host}"
+                device["source"] = "network"
+
+                await self.nc.publish(self.publish_subject, str(device).encode())
 
 
 
         
-        print(table)
+        #print(table)
 
     async def main_loop(self) -> None:
         # Create a NATS client
