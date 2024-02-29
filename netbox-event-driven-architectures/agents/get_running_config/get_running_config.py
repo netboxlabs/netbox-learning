@@ -30,7 +30,7 @@ class GetDeviceFacts():
 
     def load_devices_from_netbox(self) -> {str, str}:
         # Create NetBox Helper object
-        nb = NetBoxHelper(self.netbox_url, self.netbox_token)
+        nb = NetBoxHelper.getInstance(self.netbox_url, self.netbox_token)
         
         print(f"Loading devices from NetBox instance at {self.netbox_url}")
         return nb.get_active_devices_with_a_mgmt_ipv4()
