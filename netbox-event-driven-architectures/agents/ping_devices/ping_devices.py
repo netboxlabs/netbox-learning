@@ -13,7 +13,7 @@ from pythonping.executor import SuccessOn
 #    primary_ip4 = "172.20.20.2/24"
 
 
-class GetDeviceFacts():
+class PingDevices():
 
     # Class Functions
     def __init__(self):
@@ -31,7 +31,7 @@ class GetDeviceFacts():
 
     def load_devices_from_netbox(self) -> {str, str}:
         # Create NetBox Helper object
-        nb = NetBoxHelper(self.netbox_url, self.netbox_token)
+        nb = NetBoxHelper.getInstance(self.netbox_url, self.netbox_token)
         
         print(f"Loading devices from NetBox instance at {self.netbox_url}")
         return nb.get_active_devices_with_a_mgmt_ipv4()
@@ -40,17 +40,20 @@ class GetDeviceFacts():
         # Get all active devices with an IPv4 management IP from NetBox
         print(f"Loading devices from NetBox instance at {self.netbox_url}")
         total_devices_count, elligible_devices_count, devices = self.load_devices_from_netbox()
-        print(f"Found {total_devices_count} devices. {elligible_devices_count} of which are elligible for monitoring.")
+        print(f"Found {total_devices_count} devices. {elligible_devices_count} of which are elligible for pinging.")
 
         # Get the running config for each device and publish it
         for device in devices:
             ping_message = {}
             ping_message["hostname"] = device.name
-            ping_message["ip"] = str(ipaddress.ip_interface(str(device.primary_ip4)).ip)
-            ping_message["reachable"] = ping_status = ping(ip,
-                                                           verbose=False,
-                                                           timeout=1,
-                                                           count=1).success(option=SuccessOn.Most)
+            ip = str(ipaddress.ip_interface(str(device.primary_ip4)).ip)
+            ping_message["ip"] = ip
+
+            print(f"Pinging {device.name} at {ip}")
+            ping_message["reachable"] = ping(ip,
+                                             verbose=False,
+                                             timeout=1,
+                                             count=1).success(option=SuccessOn.Most)
             await self.nc.publish(self.publish_subject, json.dumps(ping_message).encode())
 
     async def main_loop(self) -> None:
@@ -75,5 +78,5 @@ class GetDeviceFacts():
 
 # Run the subscriber
 if __name__ == "__main__":
-    device_facts_poller = GetDeviceFacts()
+    device_facts_poller = PingDevices()
     asyncio.run(device_facts_poller.main_loop())
