@@ -5,14 +5,6 @@ from agents.helpers.netbox import NetBoxHelper
 from pythonping import ping
 from pythonping.executor import SuccessOn
 
-#class DeviceType:
-#    manufacturer = "Nokia"
-
-#class Device():
-#    device_type = DeviceType()
-#    primary_ip4 = "172.20.20.2/24"
-
-
 class PingDevices():
 
     # Class Functions
