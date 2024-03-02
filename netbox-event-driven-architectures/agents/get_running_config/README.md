@@ -1,6 +1,6 @@
 # NetBox Event-Driven Architectures Webinar 🚀
 
-## Get Running Config
+## Get Running Config Agent
 
 By default the Get Running Agent waits for messages to appear on the `$SUBSCRIBE_SUBJECT` subject and then pulls all devices from NetBox that are in the `Active` state and have a `mgmt-ipv4` address. The agent then uses [NAPALM](https://napalm.readthedocs.io/en/latest/) to pull the running configs and publishes them to the `$PUBLISH_SUBJECT` subject on the message bus.
 
