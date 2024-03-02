@@ -32,23 +32,21 @@ class WebhookHandler():
         # Report environment
         print(f"""Loaded environment for {os.path.basename(__file__)}
 NATs Server: {self.nats_server}
-Publishing to subject: {self.publish_subject}
-Pulling inventory from NetBox: {self.netbox_url}""")
+Publishing to subject: {self.publish_subject}""")
 
     async def handle_webhook(self, payload: dict):
         try:
             # Process the webhook payload as needed
             print(f"Received webhook. Data: {payload}")
-            print(f"Event Type: {payload['event']}")
-            print(f"Object Type: {payload['model']}")
+            print(f"Action Type: {payload['action']}")
+            action = payload['action']
 
             # Perform actions based on the webhook data
             # Connect to the NATS server
             await self.nc.connect(self.nats_server)
 
             # Publish the event
-            print(f"Publishing device fact: {payload}")
-            await self.nc.publish(self.publish_subject, str(payload).encode())
+            await self.nc.publish(action, str(payload).encode())
 
             # Send a response back to the sender (optional)
             return {'status': 'success'}
