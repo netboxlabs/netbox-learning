@@ -124,3 +124,4 @@ cp agents/discover_network/example.env agents/discover_network/.env
 |Get Running Config|Pulls running config from devices found in NetBox|network.actions.get_running_config|network.devices.running_config|Network, NetBox|[README](./agents/get_running_config/README.md)|
 |Reachability Alerter|Creates an alert in Slack whenever a device is unreachable|network.devices.reachable|n/a|Slack|[README](./agents/reachability_alerter/README.md)|
 |Device Alerter|Creates an alert in Slack whenever an unknown device is found in the network|network.devices|n/a|Slack, NetBox|[README](./agents/device_alerter/README.md)|
+|Config Backuper|Commits device running config to GitHub|network.devices.running_config|n/a|GitHub|[README](./agents/config_backuper/README.md)|
