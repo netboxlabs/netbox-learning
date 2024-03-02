@@ -1,6 +1,4 @@
-# NetBox Event-Driven Architectures Webinar 🚀
-
-## Discover Network Agent
+# Discover Network Agent 🔍
 
 By default the Discover Network Agent waits for messages to appear on the `$SUBSCRIBE_SUBJECT` subject and then uses `nmap` to discover devices in the `$SUBNET_CIDR` specified subnet, ignoring IPs in `$IGNORE_IPS` and publishes the devices it finds to the `$PUBLISH_SUBJECT` subject on the message bus.
 

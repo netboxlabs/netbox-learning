@@ -1,6 +1,4 @@
-# NetBox Event-Driven Architectures Webinar 🚀
-
-## Ping Devices Agent
+# Ping Devices Agent 🏓
 
 By default the Ping Agent waits for messages to appear on the `$SUBSCRIBE_SUBJECT` subject and then pulls all devices from NetBox that are in the `Active` state and have a `mgmt-ipv4` address. The agent then uses `ping` to check if the devices are reachable and publishes the results to the `$PUBLISH_SUBJECT` subject on the message bus.
 

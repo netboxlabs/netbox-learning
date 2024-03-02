@@ -1,6 +1,4 @@
-# NetBox Event-Driven Architectures Webinar 🚀
-
-## Webhook Handler Agent
+# Webhook Handler Agent 🪝
 
 By default the Webhook Handler Agent accepts HTTP POST requests on `http://0.0.0.0:5000/webhook` and expects to find the payload in the format:
 

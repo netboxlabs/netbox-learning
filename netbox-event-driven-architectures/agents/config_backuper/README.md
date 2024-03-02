@@ -1,6 +1,4 @@
-# NetBox Event-Driven Architectures Webinar 🚀
-
-## Config Backuper Agent
+# Config Backuper Agent 💾
 
 By default the Config Backuper Agent waits for messages to appear on the `$SUBSCRIBE_SUBJECT` subject and then commits the contents to GitHub at `github.com/$GITHUB_ORG/$GITHUB_REPO/$HOSTNAME/running_config`.
 

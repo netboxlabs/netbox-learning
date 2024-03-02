@@ -1,6 +1,4 @@
-# NetBox Event-Driven Architectures Webinar 🚀
-
-## Device Alerter Agent
+# Device Alerter Agent 📢
 
 By default the Reachability Agent waits for messages to appear on the `$SUBSCRIBE_SUBJECT` subject and then the device reported in the message is not present in the NetBox inventory, the agent publishes a message to Slack.
 
