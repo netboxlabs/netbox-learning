@@ -92,10 +92,10 @@ cd ..
 
 The nature of event-driven architectures means that all agents are independent of each other in terms of startup orders. However some agents only act when they observe events on the message bus that are created by other agents. For example, the Reachability Alerter Agent reacts to messages on the `network.devices.reachable` subject, which is populated by the Ping Device Agent. The **Subscribes to** and **Publishes to** columns are useful in understanding these relationships.
 
-Each agent reads from a `.env` file on in its local directory on startup in order to function. For example the Discover Network Agent will look for `.agents/discover_network/.env`. Each agent has an `example.env` file in its local directory. Populate these with the values for your environment and then rename them. For example:
+Each agent reads from a `.env` file on in its local directory on startup in order to function. For example the Discover Network Agent will look for `.agents/discover_network/.env`. Each agent has an `example.env` file in its local directory. Populate these with the values for your environment and then copy them over. For example:
 
 ```
-mv agents/discover_network/example.env agents/discover_network/.env
+cp agents/discover_network/example.env agents/discover_network/.env
 ```
 
 > ⚠️ Your populated `.env` file will contain confidential information. Do not push it to GitHub! `.env` is already added in `.gitignore` to help prevent this.
