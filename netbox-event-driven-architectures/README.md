@@ -29,6 +29,13 @@ docker pull nats:latest
 docker run -p 4222:4222 -p 8222:8222 --name nats-server -d nats:latest
 ```
 
+Install the `natcli`
+
+```
+curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh
+mv nats /usr/bin
+```
+
 Create and confirm Nats context
 ```
 nats context add event_driven_webinar --description "Event Driven Webinar"
@@ -41,6 +48,15 @@ nats context ls
 │ event_driven_webinar │ Event Driven Webinar │
 ╰──────────────────────┴──────────────────────╯
 ```
+
+### nmap
+
+Install `nmap`
+
+```
+apt install nmap
+```
+
 
 ## Set up the local environment
 
@@ -68,6 +84,7 @@ cd netbox-learning/netbox-event-driven-architectures/
 ### Create and activate a virtual environment
 
 ```
+apt install python3.10-venv
 python3 -m venv venv
 source venv/bin/activate
 (venv)
@@ -107,5 +124,3 @@ cp agents/discover_network/example.env agents/discover_network/.env
 |Get Running Config|Pulls running config from devices found in NetBox|network.actions.get_running_config|network.devices.running_config|Network, NetBox|[README](./agents/get_running_config/README.md)|
 |Reachability Alerter|Creates an alert in Slack whenever a device is unreachable|network.devices.reachable|n/a|Slack|[README](./agents/reachability_alerter/README.md)|
 |Device Alerter|Creates an alert in Slack whenever an unknown device is found in the network|network.devices|n/a|Slack, NetBox|[README](./agents/device_alerter/README.md)|
-|Config Backuper|Commits device configs to GitHub|network.devices.running_config||GitHub|[README](agents/config_backuper/README.md)|
-|Webhook Handler|Receives webhooks and puts messages on the message bus to trigger other agents|n/a|network.actions.discover_network <br> network.actions.ping_devices <br>network.actions.get_running_config|NetBox|[README](agents/webhook_handler/README.md)|
