@@ -102,10 +102,10 @@ mv agents/discover_network/example.env agents/discover_network/.env
 
 |Agent|Function|Subcribes to|Publishes to|External Dependencies|Instructions|
 |---|---|---|---|---|---|
-|Discover Network|Runs `nmap`` against specified subnet and publishes the results to the message bus|network.actions.discover_network|network.devices|Network|[README](./agents/discover_network/README.md)|
-|Ping Devices|Pulls inventory from NetBox, pings active devices with IPv4 mgmt addresses and publishes the results to the message bus|network.actions.ping_devices|network.devices.reachable|Network, NetBox|[README](./agents/ping_devices/README.md)|
-|Get Running Config|Pulls inventory from NetBox, retrieves running config from active devices with IPv4 mgmt addresses and publishes the results to the message bus|network.actions.get_running_config|network.devices.running_config|Network, NetBox|[README](./agents/get_running_config/README.md)|
-|Reachability Alerter|Create an alert in Slack whenever a device is unreachable|network.devices.reachable|n/a|Slack|[README](./agents/reachability_alerter/README.md)|
+|Discover Network|Scans a subnet for devices|network.actions.discover_network|network.devices|Network|[README](./agents/discover_network/README.md)|
+|Ping Devices|Pings devices found in NetBox|network.actions.ping_devices|network.devices.reachable|Network, NetBox|[README](./agents/ping_devices/README.md)|
+|Get Running Config|Pulls running config from devices found in NetBox|network.actions.get_running_config|network.devices.running_config|Network, NetBox|[README](./agents/get_running_config/README.md)|
+|Reachability Alerter|Creates an alert in Slack whenever a device is unreachable|network.devices.reachable|n/a|Slack|[README](./agents/reachability_alerter/README.md)|
 |Device Alerter|Creates an alert in Slack whenever an unknown device is found in the network|network.devices|n/a|Slack, NetBox|[README](./agents/device_alerter/README.md)|
 |Config Backuper|Commits device configs to GitHub|network.devices.running_config||GitHub|[README](agents/config_backuper/README.md)|
-|Webhook Handler|Receives webhooks puts messages on the message bus to trigger other agents|n/a|network.actions.discover_network <br> network.actions.ping_devices <br>network.actions.get_running_config|NetBox|[README](agents/webhook_handler/README.md)|
+|Webhook Handler|Receives webhooks and puts messages on the message bus to trigger other agents|n/a|network.actions.discover_network <br> network.actions.ping_devices <br>network.actions.get_running_config|NetBox|[README](agents/webhook_handler/README.md)|
