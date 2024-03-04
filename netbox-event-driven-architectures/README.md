@@ -53,9 +53,7 @@ nats context ls
 ╰──────────────────────┴──────────────────────╯
 ```
 
-### nmap
-
-Install `nmap`
+### Install `nmap`
 
 ```
 apt install nmap
