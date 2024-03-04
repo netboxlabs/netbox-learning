@@ -5,6 +5,10 @@
 
 You can run this demo against Open Source NetBox or NetBox Cloud. If you don't have a NetBox testing instance to hand, you can spin up a free NetBox Cloud instance in about 90 seconds over here: [https://signup.netboxlabs.com/](https://signup.netboxlabs.com/)
 
+# Follow along with the webinar
+
+On March 1 2024 we ran a webinar in which you can see a walk through of this repo. Jump to [21:45 over here on YouTube](https://www.youtube.com/watch?v=K3qaLc8CYO8) to see it in action.
+
 # Getting started
 
 This README will get you the core requirements for running the demo. Individual agents have their own installation instructions that you can find below under **Agents**.
