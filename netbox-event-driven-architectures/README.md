@@ -33,13 +33,6 @@ docker pull nats:latest
 docker run -p 4222:4222 -p 8222:8222 --name nats-server -d nats:latest
 ```
 
-Install the `natcli`
-
-```
-curl -sf https://binaries.nats.dev/nats-io/natscli/nats@latest | sh
-mv nats /usr/bin
-```
-
 Create and confirm Nats context
 ```
 nats context add event_driven_webinar --description "Event Driven Webinar"
