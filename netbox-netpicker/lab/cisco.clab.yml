@@ -1,0 +1,7 @@
+name: cisco_lab
+
+topology:
+  nodes:
+    access01:
+      kind: vr-csr
+      image: mrmrcoleman/vr-csr:17.03.06
