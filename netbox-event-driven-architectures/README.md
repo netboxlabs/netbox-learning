@@ -9,7 +9,7 @@ You can run this demo against Open Source NetBox or NetBox Cloud. If you don't h
 
 On March 1 2024 we ran a webinar in which you can see a walk through of this repo. Jump to [21:45 over here on YouTube](https://www.youtube.com/watch?v=K3qaLc8CYO8) to see it in action.
 
-You can also follow along with the slide deck here: [Event Driven Architectures with NetBox](https://docs.google.com/presentation/d/1aWogRiM182vM_mM7Ty8lp7vJpEVqCYSzCDqYyZ5s64I/)).
+You can also follow along with the slide deck here: [Event Driven Architectures with NetBox](https://docs.google.com/presentation/d/1aWogRiM182vM_mM7Ty8lp7vJpEVqCYSzCDqYyZ5s64I/)
 
 # Getting started
 
