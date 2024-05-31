@@ -47,7 +47,7 @@ def main():
         if response.errors:
             print(f"FAIL: response errors: {response.errors}")
         else:
-            print("INFO: data ingestion successful")
+            print("INFO: data ingested successfully")
 
 
 if __name__ == "__main__":
