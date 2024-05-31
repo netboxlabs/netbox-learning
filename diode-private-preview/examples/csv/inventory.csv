@@ -1,0 +1,7 @@
+Device_Type,Device_Name,Serial_Number,Site_Name,Vendor,Device_Model
+Router,Core_Router_HQ_01,ABC123456789,HQ,Cisco,Cisco 2921
+Switch,Access_Switch_Branch1_01,DEF987654321,Branch1,Juniper,Juniper EX4300
+Router,Edge_Router_Branch2_02,GHI456789012,Branch2,Cisco,Cisco 4321
+Switch,Distribution_Switch_Branch3_01,JKL123456789,Branch3,Arista,Arista 7050X
+Wireless_AP,Conference_Room_AP_01,MNO987654321,HQ,Cisco,Cisco Aironet 3802
+Wireless_AP,Conference_Room_AP_02,PQR456789012,HQ,Cisco,Cisco Aironet 3802

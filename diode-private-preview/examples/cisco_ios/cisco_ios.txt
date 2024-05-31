@@ -1,0 +1,220 @@
+version 15.1
+service nagle
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+!
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+!
+service password-encryption
+!
+hostname Router1
+!
+boot-start-marker
+boot system flash $imageFileName.bin
+boot-end-marker
+!
+shell processing full
+!
+logging userinfo
+no logging buffered
+logging rate-limit console 2
+logging console informational
+!
+aaa new-model
+aaa local authentication attempts max-fail 5
+!
+aaa authentication login default local
+aaa authentication ppp default local
+aaa authorization console
+aaa authorization exec default local if-authenticated 
+aaa authorization commands 15 default local if-authenticated 
+aaa authorization network default local if-authenticated 
+!
+aaa session-id common
+!
+clock timezone PST -8 0
+clock summer-time PDT recurring
+!
+no ip source-route
+!
+ip cef
+!
+ip dhcp excluded-address 192.168.1.1 192.168.1.99
+ip dhcp excluded-address 192.168.1.200 192.168.1.254
+ip dhcp excluded-address 10.4.0.1 10.4.0.99
+ip dhcp excluded-address 10.4.0.200 10.4.0.255
+!
+ip dhcp pool LAN4
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1 
+ domain-name cipher.sexy
+ dns-server 75.75.75.75 8.8.8.8 
+!
+ip dhcp pool DMZ4
+ network 10.4.0.0 255.255.255.0
+ default-router 10.4.0.1 
+ domain-name cipher.sexy
+ dns-server 75.75.75.75 8.8.8.8 
+!
+no ip bootp server
+!
+ip domain retry 3
+ip domain timeout 2
+ip name-server 2001:558:FEED::1
+ip name-server 8.8.8.8
+ip name-server 75.75.75.75
+!
+ip multicast-routing 
+ip multicast netflow output-counters
+ip multicast netflow rpf-failure
+!
+ipv6 unicast-routing
+ipv6 cef
+!
+ipv6 dhcp pool DHCPv6
+ dns-server 2001:4860:4860::8888
+ dns-server 2001:558:FEED::2
+!
+ipv6 multicast-routing
+!
+password encryption aes
+!
+archive
+ log config
+  logging enable
+  logging size 1000
+  hidekeys
+ path flash:/backup/
+ maximum 14
+ rollback filter adaptive
+ rollback retry timeout 600
+ time-period 10080
+!
+object-group network BLACKBALLED 
+ host 1.1.1.1
+ host 2.2.2.2
+!
+username $username privilege 15 secret 0 $password
+!
+secure boot-image
+secure boot-config
+!
+ip ftp source-interface GigabitEthernet0/0.101
+ip ftp username $ftpUser
+ip ftp password 0 $ftpPassword
+!
+ip ssh maxstartups 10
+ip ssh authentication-retries 5
+ip ssh version 2
+!
+ip ssh pubkey-chain
+  username $username
+   key-hash ssh-rsa $keyFingerPrint $keyComment
+  quit
+!
+ip scp server enable
+! 
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.100
+ description NATIVE
+ encapsulation dot1Q 100 native
+!
+interface GigabitEthernet0/0.101
+ description LAN
+ encapsulation dot1Q 101
+ ip address 192.168.1.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+ ip virtual-reassembly out
+ ipv6 address prefix-from-COMCAST ::1/64
+ ipv6 enable
+ ipv6 nd other-config-flag
+ ipv6 dhcp server DHCPv6
+!
+interface GigabitEthernet0/0.104
+ description DMZ
+ encapsulation dot1Q 104
+ ip address 10.4.0.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly in
+ ip virtual-reassembly out
+ ipv6 address prefix-from-COMCAST ::1:0:0:0:1/64
+ ipv6 enable
+ ipv6 nd other-config-flag
+ ipv6 dhcp server DHCPv6
+!
+interface GigabitEthernet0/1
+ description COMCAST
+ ip address dhcp
+ ip nbar protocol-discovery
+ ip flow ingress
+ ip flow egress
+ ip nat outside
+ ip virtual-reassembly in
+ ip virtual-reassembly out
+ duplex auto
+ speed auto
+ ipv6 address dhcp
+ ipv6 enable
+ ipv6 dhcp client pd hint ::/60
+ ipv6 dhcp client pd prefix-from-COMCAST
+ no cdp enable
+!
+ip forward-protocol nd
+ip forward-protocol udp bootpc
+no ip http server
+no ip http secure-server
+!
+ip nat inside source list 1 interface GigabitEthernet0/1 overload
+!
+ip nat inside source static tcp 192.168.1.99 25565 interface GigabitEthernet0/1 25565
+!
+ip route 0.0.0.0 0.0.0.0 GigabitEthernet0/1
+!
+ip route 192.168.100.1 255.255.255.255 GigabitEthernet0/1
+!
+ip access-list extended VTY_LINES
+ deny   ip object-group BLACKBALLED any log
+ permit ip any any
+!
+ip radius source-interface GigabitEthernet0/0.101 
+!
+logging history size 500
+logging origin-id hostname
+logging facility syslog
+logging source-interface GigabitEthernet0/0.101
+!
+access-list 1 permit 192.168.1.0 0.0.0.255
+access-list 1 permit 10.4.0.0 0.0.0.255
+!
+ipv6 route ::/0 GigabitEthernet0/1
+!
+ipv6 access-list VTY_LINES_V6
+ permit ipv6 any any log
+!
+sip-ua 
+ no transport udp
+ no transport tcp
+!
+line con 0
+ logging synchronous
+line vty 0 15
+ access-class VTY_LINES in
+ ipv6 access-class VTY_LINES_V6 in
+ logging synchronous
+ transport input ssh
+ transport output ssh
+!
+ntp source GigabitEthernet0/1
+ntp master 3
+ntp update-calendar
+ntp server 216.66.0.142
+ntp server ntp1.glb.nist.gov
+ntp server 216.218.254.202
+end

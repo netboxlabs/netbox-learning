@@ -1,0 +1,25 @@
+name:
+
+mgmt:
+  network: diode-net
+  ipv4-subnet: 10.90.0.32/27
+
+topology:
+  nodes:
+    CSR1:
+      kind: vr-csr
+      image: mrmrcoleman/vr-csr:17.03.06
+      mgmt-ipv4: 10.90.0.50
+    SRL1:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux
+      mgmt-ipv4: 10.90.0.51
+    CEOS1:
+      kind: ceos
+      image: ceos:4.29.0.2F
+      mgmt-ipv4: 10.90.0.52
+
+  links:
+    - endpoints: ["SRL1:e1-1", "CSR1:eth2"]
+    - endpoints: ["SRL1:e1-2", "CEOS1:eth2"]
+    - endpoints: ["CSR1:eth1", "CEOS1:eth1"]
