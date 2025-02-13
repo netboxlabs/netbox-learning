@@ -26,7 +26,7 @@ else
         	exit 1
     	fi
     else
-			EXTERNAL_IP=${MY_EXTERNAL_IP}
+	EXTERNAL_IP=${MY_EXTERNAL_IP}
     fi
 
     # Generate new variables
