@@ -21,11 +21,7 @@ You will be able to run simple scripts to use both features of NetBox Discovery:
 
 > [!TIP]
 >  
-> The workshop assumes it is running on an internet accessible machine and it relies on the public IP for a lot of functionality  
-> This means that **it will not work on your local machine**, but we aim to add that possibility at a later stage. Please use a cloud VM for now.    
-
-> [!TIP]
->  
+> - The workshop can be ran on a server or virtual machine with a public or private ip. Please see the additional step for the latter option  
 > - We recommend using a machine with at least 4GB of RAM and 2 cores. If you're using a discount cloud or are going to run Cisco IOS images, we recommend at least 8GB of RAM and 4 cores.  
 > - The workshop has only been tested on Ubuntu 22.04. It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub  
 > - Unfortunately MacOS is not supported. The workshop relies heavily on ContainerLab which does not have native support for MacOS  
@@ -56,6 +52,14 @@ su - quickstart
 ```
 
 ### Generate and export the necessary environment variables for the quickstart
+
+ Optionally set a private IP.  If this machine does not have a public ipv4 address assigned on a local interface, this option should be used. 
+
+ Replace <my ip address> with an ip address assigned to the local machine - eg: 10.1.1.1
+
+```
+export MY_EXTERNAL_IP=<ip address>
+```
 
 > [!TIP]
 >   

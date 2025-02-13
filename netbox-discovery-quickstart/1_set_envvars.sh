@@ -17,13 +17,16 @@ if [ -f "$ENV_FILE" ]; then
 else
     echo "Environment file not found. Generating new variables."
 
-    # Attempt to fetch the external IPv4 address
-    EXTERNAL_IP=$(curl -4 -s ifconfig.me)  # Use -4 to ensure IPv4 is returned
-
-    # Check if the IP was retrieved successfully
-    if [ -z "$EXTERNAL_IP" ]; then
-        echo "Error: Unable to determine external IPv4 address."
-        exit 1
+    if [[ -z "${MY_EXTERNAL_IP}" ]]; then
+	# Attempt to fetch the external IPv4 address
+    	EXTERNAL_IP=$(curl -4 -s ifconfig.me)  # Use -4 to ensure IPv4 is returned
+    	# Check if the IP was retrieved successfully
+    	if [ -z "$EXTERNAL_IP" ]; then
+        	echo "Error: Unable to determine external IPv4 address."
+        	exit 1
+    	fi
+    else
+			EXTERNAL_IP=${MY_EXTERNAL_IP}
     fi
 
     # Generate new variables
