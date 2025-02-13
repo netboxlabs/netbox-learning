@@ -53,7 +53,7 @@ su - quickstart
 
 ### Generate and export the necessary environment variables for the quickstart
 
- Optionally set a private IP.  If this is machine does not have a public ipv4 address, this option should be used. 
+ Optionally set a private IP.  If this machine does not have a public ipv4 address assigned on a local interface, this option should be used. 
 
  Replace <my ip address> with an ip address assigned to the local machine - eg: 10.1.1.1
 
