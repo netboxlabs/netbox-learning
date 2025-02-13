@@ -21,10 +21,7 @@ You will be able to run simple scripts to use both features of NetBox Discovery:
 
 > [!TIP]
 >  
-> The workshop can be ran on a server or virtual machine with a public or private ip. Please see the additional step for the latter option  
-
-> [!TIP]
->  
+> - The workshop can be ran on a server or virtual machine with a public or private ip. Please see the additional step for the latter option  
 > - We recommend using a machine with at least 4GB of RAM and 2 cores. If you're using a discount cloud or are going to run Cisco IOS images, we recommend at least 8GB of RAM and 4 cores.  
 > - The workshop has only been tested on Ubuntu 22.04. It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub  
 > - Unfortunately MacOS is not supported. The workshop relies heavily on ContainerLab which does not have native support for MacOS  
