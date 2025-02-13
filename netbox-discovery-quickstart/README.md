@@ -21,8 +21,7 @@ You will be able to run simple scripts to use both features of NetBox Discovery:
 
 > [!TIP]
 >  
-> The workshop assumes it is running on an internet accessible machine and it relies on the public IP for a lot of functionality  
-> This means that **it will not work on your local machine**, but we aim to add that possibility at a later stage. Please use a cloud VM for now.    
+> The workshop can be ran on a server or virtual machine with a public or private ip. Please see the additional step for the latter option  
 
 > [!TIP]
 >  
@@ -56,6 +55,14 @@ su - quickstart
 ```
 
 ### Generate and export the necessary environment variables for the quickstart
+
+ Optionally set a private IP.  If this is machine does not have a public ipv4 address, this option should be used. 
+
+ Replace <my ip address> with an ip address assigned to the local machine - eg: 10.1.1.1
+
+```
+export MY_EXTERNAL_IP=<ip address>
+```
 
 > [!TIP]
 >   
