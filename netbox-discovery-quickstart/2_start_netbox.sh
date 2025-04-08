@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 # Check if all required environment variables are set
@@ -7,7 +7,7 @@ REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT" "DIODE_TO_NETBOX_API_KEY" "NETBOX_
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
     echo "Error: Required environment variable '$var' is not set."
-    exit 0
+    exit 1
   fi
 done
 
@@ -32,7 +32,7 @@ cat <<EOF > Dockerfile-Plugins
 FROM netboxcommunity/netbox:v4.1-3.0.2
 
 COPY ./plugin_requirements.txt /opt/netbox/
-RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /opt/netbox/plugin_requirements.txt
+RUN /opt/netbox/venv/bin/pip install --no-warn-script-location -r /opt/netbox/plugin_requirements.txt
 EOF
 
 cat <<EOF > docker-compose.override.yml
@@ -41,7 +41,7 @@ services:
     image: netbox:v4.1-3.0.2-plugins
     pull_policy: never
     ports:
-      - "${NETBOX_PORT}:8080"
+      - "\${NETBOX_PORT}:8080"
     build:
       context: .
       dockerfile: Dockerfile-Plugins
@@ -51,12 +51,12 @@ services:
       SUPERUSER_EMAIL: ""
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
-      DIODE_TO_NETBOX_API_KEY: ${DIODE_TO_NETBOX_API_KEY}
-      NETBOX_TO_DIODE_API_KEY: ${NETBOX_TO_DIODE_API_KEY}
-      DIODE_API_KEY: ${DIODE_API_KEY}
-      #INGESTER_TO_RECONCILER_API_KEY: ${INGESTER_TO_RECONCILER_API_KEY}
+      DIODE_TO_NETBOX_API_KEY: "\${DIODE_TO_NETBOX_API_KEY}"
+      NETBOX_TO_DIODE_API_KEY: "\${NETBOX_TO_DIODE_API_KEY}"
+      DIODE_API_KEY: "\${DIODE_API_KEY}"
+      #INGESTER_TO_RECONCILER_API_KEY: "\${INGESTER_TO_RECONCILER_API_KEY}"
     healthcheck:
-      test: curl -f http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/login/ || exit 1
+      test: curl -f http://\${MY_EXTERNAL_IP}:\${NETBOX_PORT}/login/ || exit 1
       start_period: 600s
       timeout: 3s
       interval: 15s
@@ -74,26 +74,24 @@ PLUGINS = ["netbox_diode_plugin"]
 
 PLUGINS_CONFIG = {
     "netbox_diode_plugin": {
-        # Auto-provision users for Diode plugin
         "auto_provision_users": False,
-
-        # Diode gRPC target for communication with Diode server
         "diode_target_override": "grpc://${MY_EXTERNAL_IP}:8080/diode",
-
-        # User allowed for Diode to NetBox communication
         "diode_to_netbox_username": "diode-to-netbox",
-
-        # User allowed for NetBox to Diode communication
         "netbox_to_diode_username": "netbox-to-diode",
-
-        # User allowed for data ingestion
         "diode_username": "diode-ingestion",
     },
 }
 EOF
 
-# Update the healthcheck in docker-compose.yml
-sed -i 's|http://localhost:8080/login/|http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/login/|' docker-compose.yml
+# Detect OS and apply sed command accordingly
+OS_TYPE=$(uname)
+if [[ "$OS_TYPE" == "Darwin" ]]; then
+  # macOS (requires '' for in-place edit)
+  sed -i '' "s|http://localhost:8080/login/|http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/login/|" docker-compose.yml
+else
+  # Linux
+  sed -i "s|http://localhost:8080/login/|http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/login/|" docker-compose.yml
+fi
 
 echo
 echo "--- Building NetBox ---"

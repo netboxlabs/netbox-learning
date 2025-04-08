@@ -1,17 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-# Check if all required environment variables are set
-REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT")
+# Detect OS (macOS vs Linux)
+OS_TYPE=$(uname)
+
+# Ensure required environment variables are set
+REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT" "DIODE_TO_NETBOX_API_KEY" "DIODE_API_KEY" "NETBOX_TO_DIODE_API_KEY" "INGESTER_TO_RECONCILER_API_KEY")
 
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
     echo "Error: Required environment variable '$var' is not set."
-    exit 0
+    exit 1
   fi
 done
 
-mkdir diode
+mkdir -p diode
 pushd diode
 
 echo
@@ -25,11 +28,18 @@ echo
 echo "--- Updating Diode .env file ---"
 echo
 
-sed -i "s|\(NETBOX_DIODE_PLUGIN_API_BASE_URL=http://\).*|\1${MY_EXTERNAL_IP}:${NETBOX_PORT}/api/plugins/diode|" .env
-sed -i "s|^\(DIODE_TO_NETBOX_API_KEY=\).*|\1${DIODE_TO_NETBOX_API_KEY}|" .env
-sed -i "s|^\(DIODE_API_KEY=\).*|\1${DIODE_API_KEY}|" .env
-sed -i "s|^\(NETBOX_TO_DIODE_API_KEY=\).*|\1${NETBOX_TO_DIODE_API_KEY}|" .env
-sed -i "s|^\(INGESTER_TO_RECONCILER_API_KEY=\).*|\1${INGESTER_TO_RECONCILER_API_KEY}|" .env
+# Set correct sed syntax based on OS
+if [[ "$OS_TYPE" == "Darwin" ]]; then
+  SED_CMD="sed -i ''"
+else
+  SED_CMD="sed -i"
+fi
+
+$SED_CMD "s|\(NETBOX_DIODE_PLUGIN_API_BASE_URL=http://\).*|\1${MY_EXTERNAL_IP}:${NETBOX_PORT}/api/plugins/diode|" .env
+$SED_CMD "s|^\(DIODE_TO_NETBOX_API_KEY=\).*|\1${DIODE_TO_NETBOX_API_KEY}|" .env
+$SED_CMD "s|^\(DIODE_API_KEY=\).*|\1${DIODE_API_KEY}|" .env
+$SED_CMD "s|^\(NETBOX_TO_DIODE_API_KEY=\).*|\1${NETBOX_TO_DIODE_API_KEY}|" .env
+$SED_CMD "s|^\(INGESTER_TO_RECONCILER_API_KEY=\).*|\1${INGESTER_TO_RECONCILER_API_KEY}|" .env
 
 cat .env
 
