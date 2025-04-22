@@ -1,0 +1,14 @@
+network_discovery:
+  lab_network:
+    config:
+      schedule: "* * * * *"
+      timeout: 5
+      defaults:
+        description: "Discovered by NetBox Discovery agent"
+        tags:
+          - network-discovery
+    scope:
+      targets:
+        - 172.24.0.0/24
+      fast_mode: True
+      timing: 5

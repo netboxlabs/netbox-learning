@@ -1,0 +1,7 @@
+# Required in production environment
+# netboxlabs.diode.sdk
+# worker
+
+# Testing and development
+pytest>=7.0.0
+pytest-cov>=4.0.0 
