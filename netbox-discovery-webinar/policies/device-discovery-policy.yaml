@@ -1,0 +1,30 @@
+device_discovery:
+  lab_network:
+    config:
+      schedule: "* * * * *"
+      defaults:
+        device:
+          description: "Discovered by NetBox Discovery agent"
+          tags:
+            - device-discovery
+        site: Lab
+        role: Lab Device
+
+    scope:
+      - hostname: 172.24.0.101
+        username: "${SSH_USERNAME}"
+        password: "${SSH_PASSWORD}"
+        optional_args:
+          transport: ssh
+      - driver: eos
+        hostname: 172.24.0.102
+        username: "${SSH_USERNAME}"
+        password: "${SSH_PASSWORD}"
+        optional_args:
+          transport: ssh
+      - driver: eos
+        hostname: 172.24.0.103
+        username: "${SSH_USERNAME}"
+        password: "${SSH_PASSWORD}"
+        optional_args:
+          transport: ssh

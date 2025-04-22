@@ -1,0 +1,35 @@
+agent01:
+  selector:
+    agent: network
+    environment: lab
+  policies:
+    network_discovery:
+      path: policies/network-discovery-policy.yaml
+      enabled: true
+
+agent02:
+  selector:
+    agent: device
+    environment: lab
+  policies:
+    device_discovery:
+      path: policies/device-discovery-policy.yaml
+      enabled: true
+
+agent03:
+  selector:
+    agent: example-worker
+    environment: demo
+  policies:
+    example_worker:
+      path: policies/worker-discovery-policy.yaml
+      enabled: true
+
+agent04:
+  selector:
+    agent: mist-worker
+    environment: lab
+  policies:
+    mist_worker:
+      path: policies/mist-discovery-policy.yaml
+      enabled: true

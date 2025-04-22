@@ -1,0 +1,10 @@
+worker:
+  worker_example:
+    config:
+      package: worker_example
+    scope:
+      name: example device
+      device_type: generic type
+      manufacturer: acme
+      site: example site
+      role: generic

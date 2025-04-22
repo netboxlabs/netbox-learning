@@ -1,0 +1,18 @@
+orb:
+  labels:
+    agent: example-worker
+    environment: demo
+  config_manager:
+    active: git
+    sources:
+      git:
+        url: "https://github.com/netboxlabs/netbox-learning"
+        schedule: "* * * * *"  # Check for updates every minute
+        branch: main
+  backends:
+    worker:
+    common:
+      diode:
+        target: grpc://webinar.netboxlabs.tech:8080/diode
+        api_key: "${DIODE_API_KEY}"
+        agent_name: agent03

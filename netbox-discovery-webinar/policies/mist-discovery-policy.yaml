@@ -1,0 +1,8 @@
+worker:
+  mist_worker:
+    config:
+      # schedule: "30 * * * *" # every 30 minutes
+      package: nbl_mist
+      mist_apitoken: ${MIST_APITOKEN}
+      mist_org_id: ${MIST_ORG_ID}
+    scope:
