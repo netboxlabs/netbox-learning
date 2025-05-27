@@ -1,0 +1,20 @@
+ping_scan_selector:
+  selector:
+    ping_scan: true
+  policies:
+    default:
+      path: ping_scan.yaml
+
+port_scan_selector:
+  selector:
+    discovery_type: port scan
+  policies:
+    default:
+      path: port_scan.yaml
+      
+port_scan_fast_selector:
+  selector:
+    discovery_type: fast port scan
+  policies:
+    default:
+      path: port_scan_fast.yaml

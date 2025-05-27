@@ -1,0 +1,29 @@
+orb:
+  labels:
+    ccc_integration: true
+  config_manager: 
+    active: git
+    sources:
+      git:
+        url: "https://github.com/netboxlabs/autocon3_workshop_config.git"
+        schedule: "* * * * *"
+        branch: develop
+  secrets_manager:
+    active: vault
+    sources:
+      vault:
+        address: "https://vault.netboxlabs.tech:8200"
+        namespace: "workshop"
+        timeout: 60
+        auth: "token"
+        auth_args:
+          token: ${VAULT_TOKEN}
+        schedule: "*/5 * * * *"
+  backends:
+    worker:
+    common:
+      diode:
+        target: grpc://<YOUR DIODE IP>:8080/diode
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: agent-vault     

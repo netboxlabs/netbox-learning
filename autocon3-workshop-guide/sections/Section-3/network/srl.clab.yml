@@ -1,0 +1,13 @@
+name: discovery-assurance
+
+mgmt:
+  network: discovery-quickstart
+  ipv4-subnet: 172.24.0.0/24
+
+topology:
+  nodes:
+    srl1:
+      kind: nokia_srlinux
+      type: ixrd3
+      image: ghcr.io/nokia/srlinux:24.7.2
+      mgmt-ipv4: 172.24.0.100
