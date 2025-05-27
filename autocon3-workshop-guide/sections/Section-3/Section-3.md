@@ -4,6 +4,13 @@ This section provides a practical, hands-on experience with NetBox Discovery and
 
 ## Instructions
 
+### Clone the workshop repo
+
+bash```
+git clone https://github.com/netboxlabs/netbox-learning/
+cd netbox-learning/autocon3-workshop-guide
+```
+
 ### Getting set up
 
 First, ensure you are in the Section 3 directory.
