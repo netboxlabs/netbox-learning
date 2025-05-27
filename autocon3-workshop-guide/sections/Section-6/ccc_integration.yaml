@@ -1,0 +1,8 @@
+    worker:
+      catalyst_center_worker:
+        config:
+          package: nbl_cisco_catalyst_center
+          CCC_HOST: ${vault://kv/workshop/CCC_HOST}
+          CCC_USER: ${vault://kv/workshop/CCC_USER}
+          CCC_PWD: ${vault://kv/workshop/CCC_PWD}
+        scope:

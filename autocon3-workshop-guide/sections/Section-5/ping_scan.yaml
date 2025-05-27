@@ -1,0 +1,8 @@
+    network_discovery:
+      ping_scan:
+        config:
+        scope:
+          targets:
+            - 10.114.0.1-100
+          ping_scan: true
+          timing: 5

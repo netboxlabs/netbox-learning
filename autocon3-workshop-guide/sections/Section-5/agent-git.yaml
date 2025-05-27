@@ -1,0 +1,20 @@
+orb:
+  labels:
+    ping_scan: true
+    discovery_type: port scan
+  config_manager: 
+    active: git
+    sources:
+      git:
+        url: "https://github.com/netboxlabs/autocon3_workshop_config.git"
+        schedule: "* * * * *"
+        branch: develop
+  backends:
+    network_discovery:
+    common:
+      diode:
+        target: grpc://<YOUR DIODE IP>/diode
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: agent-git
+        

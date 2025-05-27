@@ -1,0 +1,8 @@
+    network_discovery:
+      fast_port_scan:
+        config:
+        scope:
+          targets:
+            - 10.114.0.1-100
+          fast_mode: true
+          timing: 5

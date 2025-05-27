@@ -1,0 +1,19 @@
+orb:
+  backends:
+    worker:
+      host: 0.0.0.0
+    common:
+      diode:
+        target: grpc://<YOUR INFRA IP>:8080/diode
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: agent01
+  policies:
+    worker:
+      custom_policy:
+        config:
+          package: lab_integration
+          schedule: "* * * * *"
+          custom_config: custom
+        scope:
+          custom: any  
