@@ -6,7 +6,7 @@ This section provides a practical, hands-on experience with NetBox Discovery and
 
 ### Clone the workshop repo
 
-bash```
+```bash
 git clone https://github.com/netboxlabs/netbox-learning/
 cd netbox-learning/autocon3-workshop-guide
 ```
