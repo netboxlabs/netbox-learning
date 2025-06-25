@@ -1,0 +1,3 @@
+name,manufacturer,model,management_ip,serial
+pdu03,APC,APC6732,10.163.3.3,345678
+pdu04,APC,APC6734,10.163.3.4,456789
