@@ -1,0 +1,43 @@
+[project]
+name = "lab-integration"
+version = "1.0.0"  # Overwritten during the build process
+description = "Worker to import data from a custom integration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    {name = "YOUR NAME", email = "YOUR@EMAIL.COM" }
+]
+maintainers = [
+    {name = "YOUR NAME", email = "YOUR@EMAIL.COM" }
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+]
+
+dependencies = [
+    "netboxlabs-orb-worker~=1.0",
+]
+
+
+[project.urls]
+"Homepage" = "<your url>"
+
+[tool.setuptools]
+packages = [
+    "lab_integration",
+]
+package-data = {"lab_integration" = ["**/*"]}
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"

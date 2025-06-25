@@ -1,0 +1,3 @@
+name,manufacturer,model,management_ip,serial,software_version
+"PDU 03",APC,APC6732,10.163.3.3,345678,"1.3"
+"PDU 04",APC,APC6734,10.163.3.4,456789,"1.4"
