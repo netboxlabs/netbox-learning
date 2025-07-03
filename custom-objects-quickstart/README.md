@@ -21,7 +21,7 @@ This simple guide is intended to get you up and running with NetBox Custom Objec
 1. Clone this repository:
 ```bash
 git clone https://github.com/netboxlabs/netbox-learning.git
-cd custom-object-testing
+cd netbox-learning/custom-objects-quickstart
 ```
 
 2. Set up your environment:
