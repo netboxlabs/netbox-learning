@@ -1,10 +1,18 @@
 # NetBox Custom Objects - Quickstart
 
-This simple repo is intended to get you up and running with NetBox Custom Objects quickly, using NetBox Docker.
+This simple guide is intended to get you up and running with NetBox Custom Objects quickly, using NetBox Docker.
 
-## Quick Setup
+## Useful Links
 
-## Prerequisites
+- NetBox Custom Objects repo with documentation: https://github.com/netboxlabs/netbox-custom-objects
+- If you experience any issues, please first check if there is an existing discussion or issue on the repo and add to that, otherwise start a new one
+  - Discussions: https://github.com/netboxlabs/netbox-custom-objects/discussions
+  - Issues: https://github.com/netboxlabs/netbox-custom-objects/issues
+- Join the conversation in the #netbox channel on the NetDev Slack: https://netdev.chat/
+
+## Setup
+
+### Prerequisites
 - Docker
 - Python 3.8 or higher
 
@@ -38,7 +46,7 @@ source 1_set_envvars.sh
 ./2_start_netbox.sh
 ```
 
-### Notes
+### Additional Notes
 
 - Environment variables are written into `environment`. To start from fresh:
 
@@ -55,5 +63,5 @@ rm -fr netbox-docker
 # Then go to step 2
 ```
 
-- The time taken for NetBox to start up depends greatly on the available hardware. The timeout is set to 600 seconds. You can change this in `2_start_netbox.sh`.
+- The time taken for NetBox to start depends greatly on the available hardware. The timeout is set to 600 seconds. You can change this in `2_start_netbox.sh`.
 - The latest available version of NetBox Custom Objects will be used. You can edit `2_start_netbox.sh` to change this behaviour.
