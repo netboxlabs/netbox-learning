@@ -26,7 +26,7 @@ cd netbox-learning/custom-objects-quickstart
 
 2. Set up your environment:
 
-[!NOTE]
+> [!TIP]
 > By default NetBox will be exposed on your **external** IP address which will not work in most home environments.  
 > To override this set the `EXTERNAL_IP` variable as shown below. `127.0.0.1` usually works, otherwise choose a local interface IP.
 
