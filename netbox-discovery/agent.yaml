@@ -1,0 +1,18 @@
+orb:
+  config_manager:
+    active: local
+  backends:
+    network_discovery:
+    common:
+      diode:
+        target: 	grpc://localhost:80/diode
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: test_agent
+  policies:
+    network_discovery:
+      loopback_policy:
+        config:
+        scope:
+          targets: 
+            - 127.0.0.1 
