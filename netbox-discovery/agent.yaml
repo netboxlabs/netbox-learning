@@ -5,7 +5,7 @@ orb:
     network_discovery:
     common:
       diode:
-        target: 	grpc://localhost:80/diode
+        target: grpc://localhost:80/diode
         client_id: ${DIODE_CLIENT_ID}
         client_secret: ${DIODE_CLIENT_SECRET}
         agent_name: test_agent
