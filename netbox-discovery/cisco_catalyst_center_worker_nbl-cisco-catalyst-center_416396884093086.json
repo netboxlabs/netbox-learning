@@ -1,0 +1,6338 @@
+{
+  "stream": "latest",
+  "entities": [
+    {
+      "timestamp": "2025-07-04T10:30:10.481913Z",
+      "site": {
+        "name": "Default Site",
+        "slug": "default-site",
+        "description": "Site imported from Cisco Catalyst Center",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.482409Z",
+      "device": {
+        "name": "sw1",
+        "device_type": {
+          "manufacturer": {
+            "name": "Cisco"
+          },
+          "model": "C9KV-UADP-8P"
+        },
+        "role": {
+          "name": "ACCESS"
+        },
+        "platform": {
+          "name": "IOS-XE 17.12.1prd9",
+          "manufacturer": {
+            "name": "Cisco"
+          }
+        },
+        "serial": "CML12345UAD",
+        "site": {
+          "name": "Default Site",
+          "slug": "default-site",
+          "description": "Site imported from Cisco Catalyst Center",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "status": "active",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.483096Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "SR0",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "17892",
+        "speed": "10000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.483404Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan101",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:95"
+        },
+        "speed": "1000000",
+        "description": "Prod",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.483572Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:95",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:95"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan101 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.483837Z",
+      "ip_address": {
+        "address": "172.16.101.254/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:95"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Vlan101 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484011Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan1",
+        "type": "virtual",
+        "enabled": false,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:9B"
+        },
+        "speed": "1000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484100Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:9B",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan1",
+          "type": "virtual",
+          "enabled": false,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:9B"
+          },
+          "speed": "1000000",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan1 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484258Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/5",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:59"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484334Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:59",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/5",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:59"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/5 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484420Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/6",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:5A"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484494Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:5A",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/6",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:5A"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/6 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484578Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/7",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:5B"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484642Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:5B",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/7",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:5B"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/7 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484770Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/8",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:5C"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484853Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:5C",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/8",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:5C"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/8 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.484961Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/1",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:55"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.485018Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:55",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/1",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:55"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/1 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.485120Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/2",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:56"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.485191Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:56",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/2",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:56"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/2 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.485316Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/3",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:57"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.485687Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:57",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/3",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:57"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/3 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.486265Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/4",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:58"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.486550Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:58",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/4",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:58"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/4 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.486852Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet0/0",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:02:19:54"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.486983Z",
+      "mac_address": {
+        "mac_address": "52:54:00:02:19:54",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:54"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet0/0 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487106Z",
+      "ip_address": {
+        "address": "10.10.20.175/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:02:19:54"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface GigabitEthernet0/0 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487202Z",
+      "interface": {
+        "device": {
+          "name": "sw1",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345UAD",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Loopback0",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1514",
+        "speed": "8000000",
+        "description": "management",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487271Z",
+      "ip_address": {
+        "address": "10.1.1.1/32",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw1",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345UAD",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Loopback0",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1514",
+          "speed": "8000000",
+          "description": "management",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Loopback0 on device sw1",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487375Z",
+      "device": {
+        "name": "sw2",
+        "device_type": {
+          "manufacturer": {
+            "name": "Cisco"
+          },
+          "model": "C9KV-UADP-8P"
+        },
+        "role": {
+          "name": "ACCESS"
+        },
+        "platform": {
+          "name": "IOS-XE 17.12.1prd9",
+          "manufacturer": {
+            "name": "Cisco"
+          }
+        },
+        "serial": "CML12345",
+        "site": {
+          "name": "Default Site",
+          "slug": "default-site",
+          "description": "Site imported from Cisco Catalyst Center",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "status": "active",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487475Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/1",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D1"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487532Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D1",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/1",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D1"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/1 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487599Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/2",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D2"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487643Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D2",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/2",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D2"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/2 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.487979Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "SR0",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "17892",
+        "speed": "10000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488105Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan101",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:11"
+        },
+        "speed": "1000000",
+        "description": "Prod",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488323Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:11",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:11"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan101 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488496Z",
+      "ip_address": {
+        "address": "172.16.101.253/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:11"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Vlan101 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488614Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet0/0",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D0"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488675Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D0",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D0"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet0/0 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488737Z",
+      "ip_address": {
+        "address": "10.10.20.176/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D0"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface GigabitEthernet0/0 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.488840Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/5",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D5"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489014Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D5",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/5",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D5"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/5 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489116Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan1",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:17"
+        },
+        "speed": "1000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489177Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:17",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan1",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:17"
+          },
+          "speed": "1000000",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan1 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489268Z",
+      "ip_address": {
+        "address": "192.168.0.1/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan1",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:17"
+          },
+          "speed": "1000000",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Vlan1 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489596Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/6",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D6"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.489822Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D6",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/6",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D6"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/6 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.490297Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/3",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D3"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.490612Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D3",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/3",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D3"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/3 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.490712Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/4",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D4"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.490900Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D4",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/4",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D4"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/4 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491010Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/7",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D7"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491072Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D7",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/7",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D7"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/7 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491142Z",
+      "interface": {
+        "device": {
+          "name": "sw2",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/8",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:07:29:D8"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491275Z",
+      "mac_address": {
+        "mac_address": "52:54:00:07:29:D8",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw2",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/8",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:07:29:D8"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/8 on device sw2",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491351Z",
+      "device": {
+        "name": "sw3",
+        "device_type": {
+          "manufacturer": {
+            "name": "Cisco"
+          },
+          "model": "C9KV-UADP-8P"
+        },
+        "role": {
+          "name": "ACCESS"
+        },
+        "platform": {
+          "name": "IOS-XE 17.12.1prd9",
+          "manufacturer": {
+            "name": "Cisco"
+          }
+        },
+        "serial": "CML12345ABC",
+        "site": {
+          "name": "Default Site",
+          "slug": "default-site",
+          "description": "Site imported from Cisco Catalyst Center",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "status": "active",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491435Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "SR0",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "17892",
+        "speed": "10000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491500Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/5",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:18"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491553Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:18",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/5",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:18"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/5 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491613Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/6",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:19"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491670Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:19",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/6",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:19"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/6 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491727Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/7",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:1A"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491787Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:1A",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/7",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:1A"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/7 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491842Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet0/0",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:13"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491880Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:13",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:13"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet0/0 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.491963Z",
+      "ip_address": {
+        "address": "10.10.20.177/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:13"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface GigabitEthernet0/0 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492044Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/8",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:1B"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492081Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:1B",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/8",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:1B"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/8 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492148Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan101",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:54"
+        },
+        "speed": "1000000",
+        "description": "Prod",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492185Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:54",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:54"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan101 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492245Z",
+      "ip_address": {
+        "address": "172.16.101.251/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:54"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Vlan101 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492321Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/1",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:14"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492403Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:14",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/1",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:14"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/1 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492460Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/2",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:15"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492496Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:15",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/2",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:15"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/2 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492567Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/3",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:16"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492605Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:16",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/3",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:16"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/3 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.492845Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/4",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:17"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493092Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:17",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/4",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:17"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/4 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493245Z",
+      "interface": {
+        "device": {
+          "name": "sw3",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML12345ABC",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan1",
+        "type": "virtual",
+        "enabled": false,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:05:77:5A"
+        },
+        "speed": "1000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493307Z",
+      "mac_address": {
+        "mac_address": "52:54:00:05:77:5A",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw3",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML12345ABC",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan1",
+          "type": "virtual",
+          "enabled": false,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:05:77:5A"
+          },
+          "speed": "1000000",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan1 on device sw3",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493400Z",
+      "device": {
+        "name": "sw4",
+        "device_type": {
+          "manufacturer": {
+            "name": "Cisco"
+          },
+          "model": "C9KV-UADP-8P"
+        },
+        "role": {
+          "name": "ACCESS"
+        },
+        "platform": {
+          "name": "IOS-XE 17.12.1prd9",
+          "manufacturer": {
+            "name": "Cisco"
+          }
+        },
+        "serial": "CML54321",
+        "site": {
+          "name": "Default Site",
+          "slug": "default-site",
+          "description": "Site imported from Cisco Catalyst Center",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "status": "active",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493489Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/5",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0C"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493537Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0C",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/5",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0C"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/5 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493594Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan1",
+        "type": "virtual",
+        "enabled": false,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:4E"
+        },
+        "speed": "1000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493637Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:4E",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan1",
+          "type": "virtual",
+          "enabled": false,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:4E"
+          },
+          "speed": "1000000",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan1 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493730Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/6",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0D"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493784Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0D",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/6",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0D"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/6 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493846Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/3",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0A"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493926Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0A",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/3",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0A"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/3 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.493994Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/4",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0B"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494026Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0B",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/4",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0B"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/4 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494074Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/1",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:08"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494221Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:08",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/1",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:08"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/1 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494295Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/2",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:09"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494337Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:09",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/2",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:09"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/2 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494400Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "SR0",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "17892",
+        "speed": "10000000",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494452Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "Vlan101",
+        "type": "virtual",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:48"
+        },
+        "speed": "1000000",
+        "description": "Prod",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494485Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:48",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:48"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface Vlan101 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494536Z",
+      "ip_address": {
+        "address": "172.16.101.252/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "Vlan101",
+          "type": "virtual",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:48"
+          },
+          "speed": "1000000",
+          "description": "Prod",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface Vlan101 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494592Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/7",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0E"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494657Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0E",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/7",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0E"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/7 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494710Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet1/0/8",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:0F"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "mode": "access",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.494760Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:0F",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet1/0/8",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:0F"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "mode": "access",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet1/0/8 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.495028Z",
+      "interface": {
+        "device": {
+          "name": "sw4",
+          "device_type": {
+            "manufacturer": {
+              "name": "Cisco"
+            },
+            "model": "C9KV-UADP-8P"
+          },
+          "role": {
+            "name": "ACCESS"
+          },
+          "platform": {
+            "name": "IOS-XE 17.12.1prd9",
+            "manufacturer": {
+              "name": "Cisco"
+            }
+          },
+          "serial": "CML54321",
+          "site": {
+            "name": "Default Site",
+            "slug": "default-site",
+            "description": "Site imported from Cisco Catalyst Center",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "name": "GigabitEthernet0/0",
+        "type": "1000base-t",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "52:54:00:0F:1C:07"
+        },
+        "speed": "1000000",
+        "duplex": "auto",
+        "description": "",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.495195Z",
+      "mac_address": {
+        "mac_address": "52:54:00:0F:1C:07",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:07"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface GigabitEthernet0/0 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:30:10.495253Z",
+      "ip_address": {
+        "address": "10.10.20.178/24",
+        "status": "active",
+        "assigned_object_interface": {
+          "device": {
+            "name": "sw4",
+            "device_type": {
+              "manufacturer": {
+                "name": "Cisco"
+              },
+              "model": "C9KV-UADP-8P"
+            },
+            "role": {
+              "name": "ACCESS"
+            },
+            "platform": {
+              "name": "IOS-XE 17.12.1prd9",
+              "manufacturer": {
+                "name": "Cisco"
+              }
+            },
+            "serial": "CML54321",
+            "site": {
+              "name": "Default Site",
+              "slug": "default-site",
+              "description": "Site imported from Cisco Catalyst Center",
+              "tags": [
+                {
+                  "name": "ccc-discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "ccc-discovered"
+              }
+            ]
+          },
+          "name": "GigabitEthernet0/0",
+          "type": "1000base-t",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "52:54:00:0F:1C:07"
+          },
+          "speed": "1000000",
+          "duplex": "auto",
+          "description": "",
+          "tags": [
+            {
+              "name": "ccc-discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface GigabitEthernet0/0 on device sw4",
+        "tags": [
+          {
+            "name": "ccc-discovered"
+          }
+        ]
+      }
+    }
+  ],
+  "id": "3fb97377-404d-4188-a890-3775439abc08",
+  "producer_app_name": "cisco_catalyst_center_worker/nbl-cisco-catalyst-center",
+  "sdk_name": "diode-sdk-python-dry-run",
+  "sdk_version": "1.1.0"
+}

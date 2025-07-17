@@ -1,0 +1,6186 @@
+{
+  "stream": "latest",
+  "entities": [
+    {
+      "timestamp": "2025-07-04T10:27:33.620396Z",
+      "device": {
+        "name": "192.168.0.100",
+        "device_type": {
+          "manufacturer": {
+            "name": "Intel(R) Client Systems"
+          },
+          "model": "NUC11PAHi7"
+        },
+        "role": {
+          "name": "ESXi Host"
+        },
+        "platform": {
+          "name": "VMware ESXi 8.0.2 build-23305546"
+        },
+        "serial": "G6PA235005C2",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "status": "active",
+        "primary_ip4": {
+          "address": "192.168.0.100/24",
+          "assigned_object_interface": {
+            "device": {
+              "name": "192.168.0.100",
+              "device_type": {
+                "manufacturer": {
+                  "name": "Intel(R) Client Systems"
+                },
+                "model": "NUC11PAHi7"
+              },
+              "role": {
+                "name": "ESXi Host"
+              },
+              "platform": {
+                "name": "VMware ESXi 8.0.2 build-23305546"
+              },
+              "serial": "G6PA235005C2",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "status": "active",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "name": "vmk0",
+            "type": "other",
+            "enabled": true,
+            "primary_mac_address": {
+              "mac_address": "88:AE:DD:0A:9A:28"
+            },
+            "description": "Interface on host: 192.168.0.100",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for interface vmk0 on host: 192.168.0.100",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.620249Z",
+      "interface": {
+        "device": {
+          "name": "192.168.0.100",
+          "device_type": {
+            "manufacturer": {
+              "name": "Intel(R) Client Systems"
+            },
+            "model": "NUC11PAHi7"
+          },
+          "role": {
+            "name": "ESXi Host"
+          },
+          "platform": {
+            "name": "VMware ESXi 8.0.2 build-23305546"
+          },
+          "serial": "G6PA235005C2",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "name": "vmk0",
+        "type": "other",
+        "enabled": true,
+        "primary_mac_address": {
+          "mac_address": "88:AE:DD:0A:9A:28"
+        },
+        "description": "Interface on host: 192.168.0.100",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.620276Z",
+      "mac_address": {
+        "mac_address": "88:AE:DD:0A:9A:28",
+        "assigned_object_interface": {
+          "device": {
+            "name": "192.168.0.100",
+            "device_type": {
+              "manufacturer": {
+                "name": "Intel(R) Client Systems"
+              },
+              "model": "NUC11PAHi7"
+            },
+            "role": {
+              "name": "ESXi Host"
+            },
+            "platform": {
+              "name": "VMware ESXi 8.0.2 build-23305546"
+            },
+            "serial": "G6PA235005C2",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "name": "vmk0",
+          "type": "other",
+          "enabled": true,
+          "primary_mac_address": {
+            "mac_address": "88:AE:DD:0A:9A:28"
+          },
+          "description": "Interface on host: 192.168.0.100",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface vmk0 on host: 192.168.0.100",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.620300Z",
+      "ip_address": {
+        "address": "192.168.0.100/24",
+        "assigned_object_interface": {
+          "device": {
+            "name": "192.168.0.100",
+            "device_type": {
+              "manufacturer": {
+                "name": "Intel(R) Client Systems"
+              },
+              "model": "NUC11PAHi7"
+            },
+            "role": {
+              "name": "ESXi Host"
+            },
+            "platform": {
+              "name": "VMware ESXi 8.0.2 build-23305546"
+            },
+            "serial": "G6PA235005C2",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "name": "vmk0",
+          "type": "other",
+          "enabled": true,
+          "primary_mac_address": {
+            "mac_address": "88:AE:DD:0A:9A:28"
+          },
+          "description": "Interface on host: 192.168.0.100",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for interface vmk0 on host: 192.168.0.100",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.620335Z",
+      "interface": {
+        "device": {
+          "name": "192.168.0.100",
+          "device_type": {
+            "manufacturer": {
+              "name": "Intel(R) Client Systems"
+            },
+            "model": "NUC11PAHi7"
+          },
+          "role": {
+            "name": "ESXi Host"
+          },
+          "platform": {
+            "name": "VMware ESXi 8.0.2 build-23305546"
+          },
+          "serial": "G6PA235005C2",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "status": "active",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "name": "vmnic0",
+        "type": "other",
+        "enabled": true,
+        "primary_mac_address": {
+          "mac_address": "88:AE:DD:0A:9A:28"
+        },
+        "description": "Interface on host: 192.168.0.100",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.620352Z",
+      "mac_address": {
+        "mac_address": "88:AE:DD:0A:9A:28",
+        "assigned_object_interface": {
+          "device": {
+            "name": "192.168.0.100",
+            "device_type": {
+              "manufacturer": {
+                "name": "Intel(R) Client Systems"
+              },
+              "model": "NUC11PAHi7"
+            },
+            "role": {
+              "name": "ESXi Host"
+            },
+            "platform": {
+              "name": "VMware ESXi 8.0.2 build-23305546"
+            },
+            "serial": "G6PA235005C2",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "status": "active",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "name": "vmnic0",
+          "type": "other",
+          "enabled": true,
+          "primary_mac_address": {
+            "mac_address": "88:AE:DD:0A:9A:28"
+          },
+          "description": "Interface on host: 192.168.0.100",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for interface vmnic0 on host: 192.168.0.100",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.753078Z",
+      "cluster_type": {
+        "name": "VMware vSphere",
+        "description": "Clusters managed by VMware vSphere",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.753116Z",
+      "cluster_group": {
+        "name": "VMware vSphere Cluster Group",
+        "description": "Group for all VMware vSphere clusters",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.768330Z",
+      "cluster": {
+        "name": "Cluster 1",
+        "type": {
+          "name": "VMware vSphere",
+          "description": "Clusters managed by VMware vSphere",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "group": {
+          "name": "VMware vSphere Cluster Group",
+          "description": "Group for all VMware vSphere clusters",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "scope_site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "Cluster from vCenter: Cluster 1 in datacenter: Warrington",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.869458Z",
+      "virtual_machine": {
+        "name": "CML",
+        "status": "offline",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Ubuntu Linux (64-bit)"
+        },
+        "vcpus": 4.0,
+        "memory": "8192",
+        "description": "Virtual Machine from vCenter: CML",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vm_uuid": {
+            "text": "422ba9f4-a60a-b035-832a-194c104377a3"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.891565Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "CML",
+          "status": "offline",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 4.0,
+          "memory": "8192",
+          "description": "Virtual Machine from vCenter: CML",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422ba9f4-a60a-b035-832a-194c104377a3"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: CML",
+        "size": "102400",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] CML/CML.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.974631Z",
+      "vm_interface": {
+        "virtual_machine": {
+          "name": "CML",
+          "status": "offline",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 4.0,
+          "memory": "8192",
+          "description": "Virtual Machine from vCenter: CML",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422ba9f4-a60a-b035-832a-194c104377a3"
+            }
+          }
+        },
+        "name": "Network adapter 1",
+        "enabled": false,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "00:50:56:AB:0B:C9"
+        },
+        "description": "VM Network",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:33.980179Z",
+      "mac_address": {
+        "mac_address": "00:50:56:AB:0B:C9",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "CML",
+            "status": "offline",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 4.0,
+            "memory": "8192",
+            "description": "Virtual Machine from vCenter: CML",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "422ba9f4-a60a-b035-832a-194c104377a3"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": false,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:50:56:AB:0B:C9"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for VM interface Network adapter 1 on VM: CML",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.069169Z",
+      "virtual_machine": {
+        "name": "c-lab",
+        "status": "offline",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Ubuntu Linux (64-bit)"
+        },
+        "vcpus": 4.0,
+        "memory": "16384",
+        "description": "Virtual Machine from vCenter: c-lab",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vm_uuid": {
+            "text": "422b20a0-98f7-233b-c5da-163f5a70848e"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.096168Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "c-lab",
+          "status": "offline",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 4.0,
+          "memory": "16384",
+          "description": "Virtual Machine from vCenter: c-lab",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422b20a0-98f7-233b-c5da-163f5a70848e"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: c-lab",
+        "size": "65536",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] c-lab/c-lab.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.179535Z",
+      "vm_interface": {
+        "virtual_machine": {
+          "name": "c-lab",
+          "status": "offline",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 4.0,
+          "memory": "16384",
+          "description": "Virtual Machine from vCenter: c-lab",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422b20a0-98f7-233b-c5da-163f5a70848e"
+            }
+          }
+        },
+        "name": "Network adapter 1",
+        "enabled": false,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "00:50:56:AB:D2:34"
+        },
+        "description": "VM Network",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.185156Z",
+      "mac_address": {
+        "mac_address": "00:50:56:AB:D2:34",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "c-lab",
+            "status": "offline",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 4.0,
+            "memory": "16384",
+            "description": "Virtual Machine from vCenter: c-lab",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "422b20a0-98f7-233b-c5da-163f5a70848e"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": false,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:50:56:AB:D2:34"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for VM interface Network adapter 1 on VM: c-lab",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.303099Z",
+      "virtual_machine": {
+        "name": "vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1",
+        "status": "active",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Other (32-bit)"
+        },
+        "vcpus": 1.0,
+        "memory": "128",
+        "description": "Virtual Machine from vCenter: vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vm_uuid": {
+            "text": "422bf338-df2e-9dfb-d5a5-59edc4a87cc6"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.342081Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other (32-bit)"
+          },
+          "vcpus": 1.0,
+          "memory": "128",
+          "description": "Virtual Machine from vCenter: vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422bf338-df2e-9dfb-d5a5-59edc4a87cc6"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1",
+        "size": "2048",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1/vCLS-a713a3ca-a370-48d6-8a1e-0c729279b9c1.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.671394Z",
+      "virtual_machine": {
+        "name": "Docker Test",
+        "status": "active",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Ubuntu Linux (64-bit)"
+        },
+        "primary_ip4": {
+          "address": "192.168.0.69/32",
+          "assigned_object_vm_interface": {
+            "virtual_machine": {
+              "name": "Docker Test",
+              "status": "active",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "cluster": {
+                "name": "Cluster 1",
+                "type": {
+                  "name": "VMware vSphere",
+                  "description": "Clusters managed by VMware vSphere",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "group": {
+                  "name": "VMware vSphere Cluster Group",
+                  "description": "Group for all VMware vSphere clusters",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "scope_site": {
+                  "name": "Warrington",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "name": "Virtual Machine"
+              },
+              "platform": {
+                "name": "Ubuntu Linux (64-bit)"
+              },
+              "vcpus": 2.0,
+              "memory": "2048",
+              "description": "Virtual Machine from vCenter: Docker Test",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ],
+              "custom_fields": {
+                "vm_uuid": {
+                  "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+                }
+              }
+            },
+            "name": "Network adapter 1",
+            "enabled": true,
+            "mtu": "1500",
+            "primary_mac_address": {
+              "mac_address": "00:50:56:AB:80:C0"
+            },
+            "description": "VM Network",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for VM: Docker Test, interface: Network adapter 1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "primary_ip6": {
+          "address": "fe80::250:56ff:feab:80c0/32",
+          "assigned_object_vm_interface": {
+            "virtual_machine": {
+              "name": "Docker Test",
+              "status": "active",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "cluster": {
+                "name": "Cluster 1",
+                "type": {
+                  "name": "VMware vSphere",
+                  "description": "Clusters managed by VMware vSphere",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "group": {
+                  "name": "VMware vSphere Cluster Group",
+                  "description": "Group for all VMware vSphere clusters",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "scope_site": {
+                  "name": "Warrington",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "name": "Virtual Machine"
+              },
+              "platform": {
+                "name": "Ubuntu Linux (64-bit)"
+              },
+              "vcpus": 2.0,
+              "memory": "2048",
+              "description": "Virtual Machine from vCenter: Docker Test",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ],
+              "custom_fields": {
+                "vm_uuid": {
+                  "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+                }
+              }
+            },
+            "name": "Network adapter 1",
+            "enabled": true,
+            "mtu": "1500",
+            "primary_mac_address": {
+              "mac_address": "00:50:56:AB:80:C0"
+            },
+            "description": "VM Network",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for VM: Docker Test, interface: Network adapter 1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "vcpus": 2.0,
+        "memory": "2048",
+        "description": "Virtual Machine from vCenter: Docker Test",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.489421Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "Docker Test",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "2048",
+          "description": "Virtual Machine from vCenter: Docker Test",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: Docker Test",
+        "size": "25600",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] Docker Test/Docker Test.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.583362Z",
+      "vm_interface": {
+        "virtual_machine": {
+          "name": "Docker Test",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "2048",
+          "description": "Virtual Machine from vCenter: Docker Test",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+            }
+          }
+        },
+        "name": "Network adapter 1",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "00:50:56:AB:80:C0"
+        },
+        "description": "VM Network",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.588461Z",
+      "mac_address": {
+        "mac_address": "00:50:56:AB:80:C0",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "Docker Test",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 2.0,
+            "memory": "2048",
+            "description": "Virtual Machine from vCenter: Docker Test",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:50:56:AB:80:C0"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for VM interface Network adapter 1 on VM: Docker Test",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.594124Z",
+      "ip_address": {
+        "address": "192.168.0.69/32",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "Docker Test",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 2.0,
+            "memory": "2048",
+            "description": "Virtual Machine from vCenter: Docker Test",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:50:56:AB:80:C0"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for VM: Docker Test, interface: Network adapter 1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.600077Z",
+      "ip_address": {
+        "address": "fe80::250:56ff:feab:80c0/32",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "Docker Test",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 2.0,
+            "memory": "2048",
+            "description": "Virtual Machine from vCenter: Docker Test",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "422bc584-19c6-b80c-180c-a08d0770b352"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:50:56:AB:80:C0"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for VM: Docker Test, interface: Network adapter 1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.200473Z",
+      "virtual_machine": {
+        "name": "VCSA",
+        "status": "active",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Other 3.x or later Linux (64-bit)"
+        },
+        "primary_ip4": {
+          "address": "192.168.0.101/32",
+          "assigned_object_vm_interface": {
+            "virtual_machine": {
+              "name": "VCSA",
+              "status": "active",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "cluster": {
+                "name": "Cluster 1",
+                "type": {
+                  "name": "VMware vSphere",
+                  "description": "Clusters managed by VMware vSphere",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "group": {
+                  "name": "VMware vSphere Cluster Group",
+                  "description": "Group for all VMware vSphere clusters",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "scope_site": {
+                  "name": "Warrington",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "name": "Virtual Machine"
+              },
+              "platform": {
+                "name": "Other 3.x or later Linux (64-bit)"
+              },
+              "vcpus": 2.0,
+              "memory": "14336",
+              "description": "Virtual Machine from vCenter: VCSA",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ],
+              "custom_fields": {
+                "vm_uuid": {
+                  "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+                }
+              }
+            },
+            "name": "Network adapter 1",
+            "enabled": true,
+            "mtu": "1500",
+            "primary_mac_address": {
+              "mac_address": "00:0C:29:67:3D:A1"
+            },
+            "description": "VM Network",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for VM: VCSA, interface: Network adapter 1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "vcpus": 2.0,
+        "memory": "14336",
+        "description": "Virtual Machine from vCenter: VCSA",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.824560Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: VCSA",
+        "size": "49728",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.837597Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 2",
+        "description": "Disk for VM: VCSA",
+        "size": "7037",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_1.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.849223Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 3",
+        "description": "Disk for VM: VCSA",
+        "size": "25600",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_2.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.859647Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 4",
+        "description": "Disk for VM: VCSA",
+        "size": "25600",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_3.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.871644Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 5",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_4.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.884446Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 6",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_5.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.896201Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 7",
+        "description": "Disk for VM: VCSA",
+        "size": "15360",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_6.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.908703Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 8",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_7.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.920127Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 9",
+        "description": "Disk for VM: VCSA",
+        "size": "1024",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_8.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.931551Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 10",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_9.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.943020Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 11",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_10.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.954201Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 12",
+        "description": "Disk for VM: VCSA",
+        "size": "102400",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_11.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.966414Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 13",
+        "description": "Disk for VM: VCSA",
+        "size": "51200",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_12.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.978521Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 14",
+        "description": "Disk for VM: VCSA",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_13.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.988858Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 15",
+        "description": "Disk for VM: VCSA",
+        "size": "5120",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_14.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:34.999732Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 16",
+        "description": "Disk for VM: VCSA",
+        "size": "102400",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_15.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.010865Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Hard disk 17",
+        "description": "Disk for VM: VCSA",
+        "size": "153600",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] VCSA/VCSA_16.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.105605Z",
+      "vm_interface": {
+        "virtual_machine": {
+          "name": "VCSA",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Other 3.x or later Linux (64-bit)"
+          },
+          "vcpus": 2.0,
+          "memory": "14336",
+          "description": "Virtual Machine from vCenter: VCSA",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+            }
+          }
+        },
+        "name": "Network adapter 1",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "00:0C:29:67:3D:A1"
+        },
+        "description": "VM Network",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.110700Z",
+      "mac_address": {
+        "mac_address": "00:0C:29:67:3D:A1",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "VCSA",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Other 3.x or later Linux (64-bit)"
+            },
+            "vcpus": 2.0,
+            "memory": "14336",
+            "description": "Virtual Machine from vCenter: VCSA",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:0C:29:67:3D:A1"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for VM interface Network adapter 1 on VM: VCSA",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.116431Z",
+      "ip_address": {
+        "address": "192.168.0.101/32",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "VCSA",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Other 3.x or later Linux (64-bit)"
+            },
+            "vcpus": 2.0,
+            "memory": "14336",
+            "description": "Virtual Machine from vCenter: VCSA",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "564dce8f-2a18-64da-89fe-1ce675673da1"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:0C:29:67:3D:A1"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for VM: VCSA, interface: Network adapter 1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.551273Z",
+      "virtual_machine": {
+        "name": "ubuntu",
+        "status": "active",
+        "site": {
+          "name": "Warrington",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "cluster": {
+          "name": "Cluster 1",
+          "type": {
+            "name": "VMware vSphere",
+            "description": "Clusters managed by VMware vSphere",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "group": {
+            "name": "VMware vSphere Cluster Group",
+            "description": "Group for all VMware vSphere clusters",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "scope_site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          }
+        },
+        "role": {
+          "name": "Virtual Machine"
+        },
+        "platform": {
+          "name": "Ubuntu Linux (64-bit)"
+        },
+        "primary_ip4": {
+          "address": "192.168.0.110/32",
+          "assigned_object_vm_interface": {
+            "virtual_machine": {
+              "name": "ubuntu",
+              "status": "active",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "cluster": {
+                "name": "Cluster 1",
+                "type": {
+                  "name": "VMware vSphere",
+                  "description": "Clusters managed by VMware vSphere",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "group": {
+                  "name": "VMware vSphere Cluster Group",
+                  "description": "Group for all VMware vSphere clusters",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "scope_site": {
+                  "name": "Warrington",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "name": "Virtual Machine"
+              },
+              "platform": {
+                "name": "Ubuntu Linux (64-bit)"
+              },
+              "vcpus": 1.0,
+              "memory": "1024",
+              "description": "Virtual Machine from vCenter: ubuntu",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ],
+              "custom_fields": {
+                "vm_uuid": {
+                  "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+                }
+              }
+            },
+            "name": "Network adapter 1",
+            "enabled": true,
+            "mtu": "1500",
+            "primary_mac_address": {
+              "mac_address": "00:0C:29:AF:04:5C"
+            },
+            "description": "VM Network",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for VM: ubuntu, interface: Network adapter 1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "primary_ip6": {
+          "address": "fe80::20c:29ff:feaf:45c/32",
+          "assigned_object_vm_interface": {
+            "virtual_machine": {
+              "name": "ubuntu",
+              "status": "active",
+              "site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "cluster": {
+                "name": "Cluster 1",
+                "type": {
+                  "name": "VMware vSphere",
+                  "description": "Clusters managed by VMware vSphere",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "group": {
+                  "name": "VMware vSphere Cluster Group",
+                  "description": "Group for all VMware vSphere clusters",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                },
+                "scope_site": {
+                  "name": "Warrington",
+                  "tags": [
+                    {
+                      "name": "vmware"
+                    },
+                    {
+                      "name": "vcenter"
+                    },
+                    {
+                      "name": "discovered"
+                    }
+                  ]
+                }
+              },
+              "role": {
+                "name": "Virtual Machine"
+              },
+              "platform": {
+                "name": "Ubuntu Linux (64-bit)"
+              },
+              "vcpus": 1.0,
+              "memory": "1024",
+              "description": "Virtual Machine from vCenter: ubuntu",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ],
+              "custom_fields": {
+                "vm_uuid": {
+                  "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+                }
+              }
+            },
+            "name": "Network adapter 1",
+            "enabled": true,
+            "mtu": "1500",
+            "primary_mac_address": {
+              "mac_address": "00:0C:29:AF:04:5C"
+            },
+            "description": "VM Network",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "description": "IP address for VM: ubuntu, interface: Network adapter 1",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "vcpus": 1.0,
+        "memory": "1024",
+        "description": "Virtual Machine from vCenter: ubuntu",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.343565Z",
+      "virtual_disk": {
+        "virtual_machine": {
+          "name": "ubuntu",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 1.0,
+          "memory": "1024",
+          "description": "Virtual Machine from vCenter: ubuntu",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+            }
+          }
+        },
+        "name": "Hard disk 1",
+        "description": "Disk for VM: ubuntu",
+        "size": "10240",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ],
+        "custom_fields": {
+          "vmdk_file_path": {
+            "text": "[datastore1] ubuntu/ubuntu.vmdk"
+          },
+          "datastore_name": {
+            "text": "datastore1"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.449472Z",
+      "vm_interface": {
+        "virtual_machine": {
+          "name": "ubuntu",
+          "status": "active",
+          "site": {
+            "name": "Warrington",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ]
+          },
+          "cluster": {
+            "name": "Cluster 1",
+            "type": {
+              "name": "VMware vSphere",
+              "description": "Clusters managed by VMware vSphere",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "group": {
+              "name": "VMware vSphere Cluster Group",
+              "description": "Group for all VMware vSphere clusters",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "scope_site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            }
+          },
+          "role": {
+            "name": "Virtual Machine"
+          },
+          "platform": {
+            "name": "Ubuntu Linux (64-bit)"
+          },
+          "vcpus": 1.0,
+          "memory": "1024",
+          "description": "Virtual Machine from vCenter: ubuntu",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ],
+          "custom_fields": {
+            "vm_uuid": {
+              "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+            }
+          }
+        },
+        "name": "Network adapter 1",
+        "enabled": true,
+        "mtu": "1500",
+        "primary_mac_address": {
+          "mac_address": "00:0C:29:AF:04:5C"
+        },
+        "description": "VM Network",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.455434Z",
+      "mac_address": {
+        "mac_address": "00:0C:29:AF:04:5C",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "ubuntu",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 1.0,
+            "memory": "1024",
+            "description": "Virtual Machine from vCenter: ubuntu",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:0C:29:AF:04:5C"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "MAC address for VM interface Network adapter 1 on VM: ubuntu",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.460882Z",
+      "ip_address": {
+        "address": "192.168.0.110/32",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "ubuntu",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 1.0,
+            "memory": "1024",
+            "description": "Virtual Machine from vCenter: ubuntu",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:0C:29:AF:04:5C"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for VM: ubuntu, interface: Network adapter 1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-04T10:27:35.466190Z",
+      "ip_address": {
+        "address": "fe80::20c:29ff:feaf:45c/32",
+        "assigned_object_vm_interface": {
+          "virtual_machine": {
+            "name": "ubuntu",
+            "status": "active",
+            "site": {
+              "name": "Warrington",
+              "tags": [
+                {
+                  "name": "vmware"
+                },
+                {
+                  "name": "vcenter"
+                },
+                {
+                  "name": "discovered"
+                }
+              ]
+            },
+            "cluster": {
+              "name": "Cluster 1",
+              "type": {
+                "name": "VMware vSphere",
+                "description": "Clusters managed by VMware vSphere",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "group": {
+                "name": "VMware vSphere Cluster Group",
+                "description": "Group for all VMware vSphere clusters",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              },
+              "scope_site": {
+                "name": "Warrington",
+                "tags": [
+                  {
+                    "name": "vmware"
+                  },
+                  {
+                    "name": "vcenter"
+                  },
+                  {
+                    "name": "discovered"
+                  }
+                ]
+              }
+            },
+            "role": {
+              "name": "Virtual Machine"
+            },
+            "platform": {
+              "name": "Ubuntu Linux (64-bit)"
+            },
+            "vcpus": 1.0,
+            "memory": "1024",
+            "description": "Virtual Machine from vCenter: ubuntu",
+            "tags": [
+              {
+                "name": "vmware"
+              },
+              {
+                "name": "vcenter"
+              },
+              {
+                "name": "discovered"
+              }
+            ],
+            "custom_fields": {
+              "vm_uuid": {
+                "text": "564d437c-e7c4-8c09-674a-42744caf045c"
+              }
+            }
+          },
+          "name": "Network adapter 1",
+          "enabled": true,
+          "mtu": "1500",
+          "primary_mac_address": {
+            "mac_address": "00:0C:29:AF:04:5C"
+          },
+          "description": "VM Network",
+          "tags": [
+            {
+              "name": "vmware"
+            },
+            {
+              "name": "vcenter"
+            },
+            {
+              "name": "discovered"
+            }
+          ]
+        },
+        "description": "IP address for VM: ubuntu, interface: Network adapter 1",
+        "tags": [
+          {
+            "name": "vmware"
+          },
+          {
+            "name": "vcenter"
+          },
+          {
+            "name": "discovered"
+          }
+        ]
+      }
+    }
+  ],
+  "id": "878c69b3-40c5-45c5-b4ef-654368d9fab1",
+  "producer_app_name": "cc-worker/nbl-vmware-vcenter",
+  "sdk_name": "diode-sdk-python-dry-run",
+  "sdk_version": "1.1.0"
+}
