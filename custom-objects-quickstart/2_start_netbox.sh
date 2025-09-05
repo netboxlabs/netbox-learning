@@ -16,7 +16,7 @@ echo "--- Cloning NetBox Docker ---"
 echo
 
 # Clone netbox-docker
-git clone --branch 3.3.0 https://github.com/netbox-community/netbox-docker.git
+git clone --branch 3.4.0 https://github.com/netbox-community/netbox-docker.git
 pushd netbox-docker
 
 echo
@@ -25,7 +25,7 @@ echo
 
 # Create Dockerfile for plugins
 cat <<EOF > Dockerfile-Plugins
-FROM netboxcommunity/netbox:v4.3-3.3.0
+FROM netboxcommunity/netbox:v4.4.0
 
 RUN uv pip install netboxlabs-netbox-custom-objects
 EOF
@@ -33,7 +33,7 @@ EOF
 cat <<EOF > docker-compose.override.yml
 services:
   netbox:
-    image: netbox:v4.3-3.3.0-plugins
+    image: netbox:v4.4.0-plugins
     pull_policy: never
     ports:
       - "${NETBOX_PORT}:8080"
@@ -52,10 +52,7 @@ services:
       timeout: 3s
       interval: 15s
   netbox-worker:
-    image: netbox:v4.3-3.3.0-plugins
-    pull_policy: never
-  netbox-housekeeping:
-    image: netbox:v4.3-3.3.0-plugins
+    image: netbox:v4.4.0-plugins
     pull_policy: never
 EOF
 
