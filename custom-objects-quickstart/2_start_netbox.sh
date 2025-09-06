@@ -47,7 +47,7 @@ services:
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
     healthcheck:
-      test: curl -f http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/login/ || exit 1
+      test: curl -f http://localhost:8080/login/ || exit 1
       start_period: 600s
       timeout: 3s
       interval: 15s
