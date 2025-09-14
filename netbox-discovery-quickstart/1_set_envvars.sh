@@ -2,15 +2,6 @@
 
 ENV_FILE="environment"
 
-# Function to generate random keys
-generate_random_key() {
-    head -c20 </dev/urandom | xxd -p
-}
-
-generate_random_base64_key() {
-    openssl rand -base64 40 | head -c 40
-}
-
 # Check if the environment file exists
 if [ -f "$ENV_FILE" ]; then
     echo "Environment file found. Using existing variables."
@@ -34,10 +25,6 @@ else
     NETBOX_PORT="8000"
     DOCKER_SUBNET="172.24.0.0/24"
     DOCKER_NETWORK="discovery-quickstart"
-    DIODE_TO_NETBOX_API_KEY=$(generate_random_key)
-    NETBOX_TO_DIODE_API_KEY=$(generate_random_key)
-    DIODE_API_KEY=$(generate_random_key)
-    INGESTER_TO_RECONCILER_API_KEY=$(generate_random_base64_key)
 
     # Write variables to the environment file
     cat <<EOF > "$ENV_FILE"
@@ -45,10 +32,6 @@ MY_EXTERNAL_IP=$MY_EXTERNAL_IP
 NETBOX_PORT=$NETBOX_PORT
 DOCKER_SUBNET=$DOCKER_SUBNET
 DOCKER_NETWORK=$DOCKER_NETWORK
-DIODE_TO_NETBOX_API_KEY=$DIODE_TO_NETBOX_API_KEY
-NETBOX_TO_DIODE_API_KEY=$NETBOX_TO_DIODE_API_KEY
-DIODE_API_KEY=$DIODE_API_KEY
-INGESTER_TO_RECONCILER_API_KEY=$INGESTER_TO_RECONCILER_API_KEY
 EOF
 fi
 
@@ -64,8 +47,4 @@ echo "External IP: $MY_EXTERNAL_IP"
 echo "NetBox will be deployed at: http://$MY_EXTERNAL_IP:$NETBOX_PORT"
 echo "Docker subnet: $DOCKER_SUBNET"
 echo "Docker network: $DOCKER_NETWORK"
-echo "DIODE_TO_NETBOX_API_KEY: $DIODE_TO_NETBOX_API_KEY"
-echo "NETBOX_TO_DIODE_API_KEY: $NETBOX_TO_DIODE_API_KEY"
-echo "DIODE_API_KEY: $DIODE_API_KEY"
-echo "INGESTER_TO_RECONCILER_API_KEY: $INGESTER_TO_RECONCILER_API_KEY"
 echo "-----------------------------------"
