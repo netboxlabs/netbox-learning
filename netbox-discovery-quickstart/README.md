@@ -29,6 +29,10 @@ You will be able to run simple scripts to use both features of NetBox Discovery:
 
 ### Clone the repo and go to the Discovery Quickstart
 
+> [!TIP]
+>  
+> If you're using this on a fork, be sure to update the git repo URL accordingly  
+
 ```
 cd /opt
 git clone https://github.com/netboxlabs/netbox-learning.git
@@ -55,10 +59,10 @@ su - quickstart
 
  Optionally set a private IP.  If this machine does not have a public ipv4 address assigned on a local interface, this option should be used. 
 
- Replace <my ip address> with an ip address assigned to the local machine - eg: 10.1.1.1
+ Replace <IP address> with an IP address assigned to the local machine - eg: `10.1.1.1` (**NOTE:** Do not use `127.0.0.1`/`localhost` as it will cause the NetBox healthcheck to fail and connections to get stuck in containers)
 
 ```
-export MY_EXTERNAL_IP=<ip address>
+export MY_EXTERNAL_IP=<IP address>
 ```
 
 > [!TIP]
@@ -79,7 +83,7 @@ source 1_set_envvars.sh
 
 > [!TIP]
 > Once Diode has finished installing be sure to follow the instructions to export the `NETBOX_TO_DIODE_CLIENT_SECRET` as it is required when starting NetBox.  
-> `export NETBOX_TO_DIODE_CLIENT_SECRET=\$(jq -r '.[] | select(.client_id == \"netbox-to-diode\") | .client_secret' ./diode/oauth2/client/client-credentials.json)"`  
+> `export NETBOX_TO_DIODE_CLIENT_SECRET=$(jq -r '.[] | select(.client_id == "netbox-to-diode") | .client_secret' ./diode/oauth2/client/client-credentials.json)`  
 
 ### Start NetBox with the Diode plugin installed and configured.
 
@@ -130,6 +134,10 @@ We need some lab devices to run our device discovery against and for this we wil
 ./4_start_network.sh network/srl.clab.yml
 ```
 
+> [!TIP]
+> 
+> If you see an `ERROR` followed by `Warning: No existing labs were destroyed or an error occurred.` you can ignore it. This step attempts to clean up any existing ContainerLab labs and the first time round there aren't any to clean up.  
+
 After a short while you should see a summary of your ContainerLab devices, like this:
 
 ```
@@ -150,7 +158,7 @@ NetBox Discovery has two modes: **Network Discovery** and **Device Discovery**
 
 > [!TIP]
 > 
-> You can find the full NetBox Discovery documentation here: [https://docs.netboxlabs.com/netbox-discovery/](https://docs.netboxlabs.com/netbox-discovery/)  
+> You can find the full NetBox Discovery documentation here: [https://netboxlabs.com/docs/diode/?focus=community](https://netboxlabs.com/docs/diode/?focus=community)  
 
 **Network Discovery** uses `nmap` under the hood to find active IPs and ingests them into NetBox.
 
@@ -284,7 +292,7 @@ First NetBox Discovery will load the environment and the policies we've defined 
 - Now click on `New York NY` and then `Devices` in the right hand pane, where you will now see our devices.
 - Now click on the first device `srl1`. Here you can see that the `Device Type`, `Platform` and `Status` have all been set correctly.
 - Now click on the `Interfaces` tab for `srl1`. Now you'll see that all our our device interfaces have been successfully ingested into NetBox, with the correct administrative statuses which are called `Enabled` in NetBox.
-- Lastly, click on the top interface `ethernet-1/1`. Now you'll see that NetBox Discovery has correctly ingested the correct `MAC Address`, `MTU`, and `Speed/Duplex` for the interface, and also whether or not this is a management interface.
+- Lastly, click on the top interface `ethernet-1/1`. Now you'll see that NetBox Discovery has correctly ingested the correct `MAC Address`, `MTU`, and `Speed/Duplex` for the interface.
 
 ## Conclusion
 
