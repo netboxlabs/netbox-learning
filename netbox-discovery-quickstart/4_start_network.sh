@@ -17,7 +17,7 @@ fi
 
 # Check if directory parameter is passed
 if [ $# -eq 0 ]; then
-  echo "Usage: $0 <network_directory>"
+  echo "Usage: $0 <network_directory>/clab.yml"
   exit 1
 fi
 

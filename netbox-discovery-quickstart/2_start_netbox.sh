@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Check if all required environment variables are set
-REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT")
+REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT" "NETBOX_TO_DIODE_CLIENT_SECRET")
 
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
@@ -69,7 +69,7 @@ PLUGINS_CONFIG = {
         # NetBox username associated with changes applied via plugin
         "diode_username": "diode",
         # netbox-to-diode client secret from earlier step
-        "netbox_to_diode_client_secret": "n6lQbczGamW2DSobQgsMtVxa4xKYweYu+qe7P2OCo="
+        "netbox_to_diode_client_secret": "${NETBOX_TO_DIODE_CLIENT_SECRET}"
     },
 }
 EOF
