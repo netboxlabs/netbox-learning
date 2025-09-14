@@ -25,10 +25,10 @@ curl -sSfLo quickstart.sh https://raw.githubusercontent.com/netboxlabs/diode/rel
 chmod +x quickstart.sh
 
 echo
-echo "--- Running quickstart script ---"
+echo "--- Running quickstart script pointing at NetBox at http://${MY_EXTERNAL_IP}:${NETBOX_PORT} ---"
 echo
 
-./quickstart.sh "http://${MY_EXTERNAL_IP}"
+./quickstart.sh "http://${MY_EXTERNAL_IP}:${NETBOX_PORT}"
 
 echo
 echo "--- Bringing up Diode ---"
@@ -37,13 +37,11 @@ echo
 docker compose up -d
 
 echo
-echo "--- Extracting netbox-to-diode client secret ---"
+echo "--- Setting up netbox-to-diode client secret ---"
 echo
 
-jq -r '.[] | select(.client_id == "netbox-to-diode") | .client_secret' ./oauth2/client/client-credentials.json > netbox-to-diode-client-secret
-
-echo -e "Now you should export the netbox-to-diode client secret as an environment variable:\n"
-echo "export NETBOX_TO_DIODE_CLIENT_SECRET=\$(cat ./diode/netbox-to-diode-client-secret)"
+echo "To set up NetBox integration, run this command:"
+echo "export NETBOX_TO_DIODE_CLIENT_SECRET=\$(jq -r '.[] | select(.client_id == \"netbox-to-diode\") | .client_secret' ./diode/oauth2/client/client-credentials.json)"
 
 # End
 popd

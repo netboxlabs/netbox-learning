@@ -65,7 +65,7 @@ PLUGINS = ["netbox_diode_plugin"]
 PLUGINS_CONFIG = {
     "netbox_diode_plugin": {
         # Diode gRPC target for communication with Diode server
-        "diode_target_override": "grpc://host.docker.internal:8080/diode",
+        "diode_target_override": "grpc://${MY_EXTERNAL_IP}:8080/diode",
         # NetBox username associated with changes applied via plugin
         "diode_username": "diode",
         # netbox-to-diode client secret from earlier step
