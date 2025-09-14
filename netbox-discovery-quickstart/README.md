@@ -77,19 +77,9 @@ source 1_set_envvars.sh
 ./2_start_diode.sh
 ```
 
-### Configure NetBox to communicate with Diode
-
-Go back to NetBox. On the left-hand menu bar navigate to `Diode` -> `Settings`. You'll see that the fields are already configured for you.
-
-<img src="images/diode_settings.png" alt="Diode Settings" title="Diode Settings" width="1000" />
-
-You just need to click on `Create`.
-
-Then in the left-hand menu bar in NetBod click on `Diode` -> `Ingestion Logs` and you should see this:
-
-<img src="images/diode_ingestion_logs.png" alt="Diode Ingestion Logs" title="Diode Ingestion Logs" width="1000" />
-
-Diode is now ready to start ingesting data from NetBox Discovery into our NetBox instance!
+> [!TIP]
+> Once Diode has finished installing be sure to follow the instructions to export the `NETBOX_TO_DIODE_CLIENT_SECRET` as it is required when starting NetBox.  
+> `export NETBOX_TO_DIODE_CLIENT_SECRET=\$(jq -r '.[] | select(.client_id == \"netbox-to-diode\") | .client_secret' ./diode/oauth2/client/client-credentials.json)"`  
 
 ### Start NetBox with the Diode plugin installed and configured.
 
@@ -102,6 +92,25 @@ Diode is now ready to start ingesting data from NetBox Discovery into our NetBox
 ```
 
 When this step finishes you can check that NetBox is working by logging into NetBox using the URL and credentials provided in the command line output.
+
+### Generate Diode Client Credentials
+
+> [!TIP]   
+> NetBox credentials:  
+> username: `admin`  
+> password: `admin`  
+
+In order for the discovery agents to communicate with Diode, you need to create some client credentials.
+
+- Go to your NetBox instance
+- In the left-hand pane navigate to `Diode` -> `Client Credentials`
+- Click on `+ Add a Credential`
+- For the `Client Name` enter any name you like and then click `Create`
+- **IMPORTANT** on your command line, export the credentials so that they can be used in the next steps:
+  - `export DIODE_CLIENT_ID="<your-client-id>"`
+  - `export DIODE_CLIENT_SECRET="<your-client-secret>"`
+
+Diode is now ready to start ingesting data from NetBox Discovery into our NetBox instance!
 
 ### Start the lab network
 
@@ -162,13 +171,15 @@ orb:
     common:
       diode:
         target: grpc://${MY_EXTERNAL_IP}:8080/diode
-        api_key: ${DIODE_API_KEY}
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
         agent_name: agent1
   policies:
     network_discovery:
-      policy_1:
+      loopback_policy:
+        config:
         scope:
-          targets:
+          targets: 
             - ${DOCKER_SUBNET}
 ```
 
@@ -177,9 +188,10 @@ Here you can see various variables that will be populated automatically when you
 ```
   policies:
     network_discovery:
-      policy_1:
+      loopback_policy:
+        config:
         scope:
-          targets:
+          targets: 
             - ${DOCKER_SUBNET}
 ```
 
@@ -195,9 +207,7 @@ Now let's run the network discovery!
 
 In our lab we have two SR Linux devices with management IPs at `172.24.0.100` and `172.24.0.101`. When we run our network discovery we should expect to find those, but also a few other IPs that are being used in our quickstart guide. You can ignore those.
 
-Now go and take a look into NetBox under `Diode`-> `Ingestion Logs` and you should see records like this:
-
-<img src="images/diode_reconciled_ip.png" alt="Diode Ingestion Logs" title="Diode Ingestion Logs" width="1000" />
+Now go and take a look into NetBox under `IPAM`-> `IP Addresses` and you should see the IP addresses the network discovery found.
 
 Now exit out of network discovery with `Ctrl+C`
 
@@ -216,8 +226,9 @@ orb:
     common:
       diode:
         target: grpc://${MY_EXTERNAL_IP}:8080/diode
-        api_key: ${DIODE_API_KEY}
-        agent_name: agent1
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: agent2
   policies:
     device_discovery:
       discovery_1:
@@ -228,14 +239,14 @@ orb:
         scope:
           - driver: srl
             hostname: 172.24.0.100
-            username: ${SRLINUX_USERNAME}
-            password: ${SRLINUX_PASSWORD}
+            username: admin
+            password: NokiaSrl1!
             optional_args:
                insecure: True
           - driver: srl
             hostname: 172.24.0.101
-            username: ${SRLINUX_USERNAME}
-            password: ${SRLINUX_PASSWORD}
+            username: admin
+            password: NokiaSrl1!
             optional_args:
                insecure: True
 ```
@@ -246,14 +257,14 @@ Again you can see various variables that will be populated automatically when yo
         scope:
           - driver: srl
             hostname: 172.24.0.100
-            username: ${SRLINUX_USERNAME}
-            password: ${SRLINUX_PASSWORD}
+            username: admin
+            password: NokiaSrl1!
             optional_args:
                insecure: True
           - driver: srl
             hostname: 172.24.0.101
-            username: ${SRLINUX_USERNAME}
-            password: ${SRLINUX_PASSWORD}
+            username: admin
+            password: NokiaSrl1!
             optional_args:
                insecure: True
 ```
@@ -263,38 +274,17 @@ You can see that we need to provide the IPs, and SSH credentials for our lab dev
 Let's go ahead and run it:
 
 ```
-SRLINUX_USERNAME="admin"
-SRLINUX_PASSWORD="NokiaSrl1!"
 ./6_start_device_discovery.sh
 ```
 
 First NetBox Discovery will load the environment and the policies we've defined in our configuration. The configuration section `schedule: "* * * * *"` tells the discovery agent to run every minute, so you'll need to wait for a minute to pass for the first device discovery run to execute.
 
-Keep an eye on the Diode ingestion logs by going to the left-hand menu in NetBox clicking on `Diode` -> `Ingestion logs`. Eventually you'll see our discovery ingestion logs show up with types including `Device`, `Prefix`, `IP Address`, and `Interface`.
-
-<img src="images/device_ingestion_logs.png" alt="Diode Device Ingestion Logs" title="Diode Device Ingestion Logs" width="1000" />
-
-> [!WARNING]  
-> You may notice some failures in the ingestion logs that look like this due to a known issue in Diode. We're working on a fix.  
-> `IP Address  Failed  agent1/device-discovery/0.3.0 diode-sdk-python/0.4.2  ab6b46cd-441f-4e26-aab4-7ceaab0d34db`  
-
-You'll also notice in our configuration above that we defined the default site for devices to be `New York NY`. Go to NetBox and click on `Organization` -> `Sites` where you'll now see our `New York NY` site.
-
-Now click on `New York NY` and then `Devices` in the right hand pane, where you will now see our devices.
-
-<img src="images/ingested_devices.png" alt="NetBox Ingested Devices" title="NetBox Ingested Devices" width="1000" />
-
-Now click on the first device `srl1`. Here you can see that the `Device Type`, `Platform` and `Status` have all been set correctly.
-
-<img src="images/ingested_srl1.png" alt="NetBox Device Ingested srl1" title="NetBox Device Ingested srl1" width="1000" />
-
-Now click on the `Interfaces` tab for `srl1`. Now you'll see that all our our device interfaces have been successfully ingested into NetBox, with the correct administrative statuses which are called `Enabled` in NetBox.
-
-<img src="images/ingested_interfaces.png" alt="NetBox Device Ingested Interfaces" title="NetBox Device Ingested Interfaces" width="1000" />
-
-Lastly, click on the top interface `ethernet-1/1`. Now you'll see that NetBox Discovery has correctly ingested the correct `MAC Address`, `MTU`, and `Speed/Duplex` for the interface, and also whether or not this is a management interface.
-
-<img src="images/ingested_ethernet_1_1.png" alt="NetBox Ingested Interface" title="NetBox Ingested Interface" width="1000" />
+- Keep an eye on `Devices` -> `Devices`. Eventually you'll see the discovered device details start to show up.
+- You'll also notice in our configuration above that we defined the default site for devices to be `New York NY`. Go to NetBox and click on `Organization` -> `Sites` where you'll now see our `New York NY` site.
+- Now click on `New York NY` and then `Devices` in the right hand pane, where you will now see our devices.
+- Now click on the first device `srl1`. Here you can see that the `Device Type`, `Platform` and `Status` have all been set correctly.
+- Now click on the `Interfaces` tab for `srl1`. Now you'll see that all our our device interfaces have been successfully ingested into NetBox, with the correct administrative statuses which are called `Enabled` in NetBox.
+- Lastly, click on the top interface `ethernet-1/1`. Now you'll see that NetBox Discovery has correctly ingested the correct `MAC Address`, `MTU`, and `Speed/Duplex` for the interface, and also whether or not this is a management interface.
 
 ## Conclusion
 
