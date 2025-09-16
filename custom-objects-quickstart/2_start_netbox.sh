@@ -20,19 +20,6 @@ git clone --branch 3.4.0 https://github.com/netbox-community/netbox-docker.git
 pushd netbox-docker
 
 echo
-echo "--- Cloning Custom Objects ---"
-echo
-
-git clone -b main https://github.com/netboxlabs/netbox-custom-objects.git
-
-echo
-echo "--- Cloning NetBox Branching Plugin ---"
-echo
-
-git clone -b v0.7.0 https://github.com/netboxlabs/netbox-branching.git
-
-
-echo
 echo "--- Generating configuration files ---"
 echo
 
@@ -40,13 +27,8 @@ echo
 cat <<EOF > Dockerfile-Plugins
 FROM netboxcommunity/netbox:v4.4.0
 
-COPY netbox-custom-objects /opt/netbox/netbox/plugins/netbox-custom-objects
-RUN uv pip install -e /opt/netbox/netbox/plugins/netbox-custom-objects
+RUN uv pip install netboxlabs-netbox-custom-objects==0.3.1
 
-COPY netbox-branching /opt/netbox/netbox/plugins/netbox-branching
-RUN uv pip install -e /opt/netbox/netbox/plugins/netbox-branching
-
-COPY local_settings.py /opt/netbox/netbox/netbox/local_settings.py
 EOF
 
 cat <<EOF > docker-compose.override.yml
@@ -66,8 +48,8 @@ services:
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
     healthcheck:
-      test: curl -f http://localhost:8080/login/ || exit 1
-      start_period: 600s
+      test: curl -f http://127.0.0.1:8080/login/ || exit 1
+      start_period: 100s
       timeout: 3s
       interval: 15s
   postgres:
@@ -80,28 +62,7 @@ EOF
 
 # Add the NetBox Service Mappings plugin
 cat <<EOF > configuration/plugins.py
-PLUGINS = ["netbox_custom_objects", "netbox_branching"]
-EOF
-
-#local_settings.py
-cat <<EOF > local_settings.py
-from netbox_branching.utilities import DynamicSchemaDict
-
-DATABASES = DynamicSchemaDict({
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netbox',               # Database name
-        'USER': 'netbox',               # PostgreSQL username
-        'PASSWORD': 'J5brHrAXFLQSif0K',         # PostgreSQL password
-        'HOST': 'postgres',             # Database server
-        'PORT': '',                     # Database port (leave blank for default)
-        'CONN_MAX_AGE': 300,            # Max database connection age
-    }
-})
-
-DATABASE_ROUTERS = [
-    'netbox_branching.database.BranchAwareRouter',
-]
+PLUGINS = ["netbox_custom_objects"]
 EOF
 
 echo
