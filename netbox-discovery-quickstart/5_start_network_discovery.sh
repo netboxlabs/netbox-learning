@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Check if all required environment variables are set
-REQUIRED_VARS=("MY_EXTERNAL_IP" "DOCKER_SUBNET" "DOCKER_NETWORK" "NETBOX_PORT" "DIODE_API_KEY")
+REQUIRED_VARS=("MY_EXTERNAL_IP" "DOCKER_SUBNET" "DOCKER_NETWORK" "NETBOX_PORT" "DIODE_CLIENT_ID" "DIODE_CLIENT_SECRET")
 
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
@@ -33,13 +33,15 @@ orb:
     common:
       diode:
         target: grpc://${MY_EXTERNAL_IP}:8080/diode
-        api_key: ${DIODE_API_KEY}
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
         agent_name: agent1
   policies:
     network_discovery:
-      policy_1:
+      loopback_policy:
+        config:
         scope:
-          targets:
+          targets: 
             - ${DOCKER_SUBNET}
 EOF
 
@@ -50,11 +52,12 @@ echo "--- Start the agent ---"
 echo
 
 docker run -v $(pwd):/opt/orb/ \
-   -e DIODE_API_KEY=${DIODE_API_KEY} \
+   -e DIODE_CLIENT_ID=${DIODE_CLIENT_ID} \
+   -e DIODE_CLIENT_SECRET=${DIODE_CLIENT_SECRET} \
    --network ${DOCKER_NETWORK} \
    netboxlabs/orb-agent:latest run -c /opt/orb/agent.yaml
 
 # End
 popd
 
-echo "Now go and check the NetBox Discovery ingestion logs: http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/plugins/diode/ingestion-logs/"
+echo "Now go and check the discovered IPs in NetBox: http://${MY_EXTERNAL_IP}:${NETBOX_PORT}/ipam/ip-addresses/"
