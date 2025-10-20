@@ -25,7 +25,7 @@ echo
 
 # Create Dockerfile for plugins
 cat <<EOF > Dockerfile-Plugins
-FROM netboxcommunity/netbox:v4.4.3
+FROM netboxcommunity/netbox:v4.4.4
 
 RUN uv pip install netboxlabs-netbox-custom-objects==0.4.0
 
@@ -34,7 +34,7 @@ EOF
 cat <<EOF > docker-compose.override.yml
 services:
   netbox:
-    image: netbox:v4.4.3-plugins
+    image: netbox:v4.4.4-plugins
     pull_policy: never
     ports:
       - "${NETBOX_PORT}:8080"
@@ -56,7 +56,7 @@ services:
     ports:
       - "5432:5432"
   netbox-worker:
-    image: netbox:v4.4.3-plugins
+    image: netbox:v4.4.4-plugins
     pull_policy: never
 EOF
 
