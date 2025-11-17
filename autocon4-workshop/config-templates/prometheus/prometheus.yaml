@@ -1,0 +1,6 @@
+global:
+  evaluation_interval: 10s
+
+# Load alert rules
+rule_files:
+  - '/etc/prometheus/alerts/*.yaml'

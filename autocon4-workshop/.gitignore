@@ -2,6 +2,6 @@ diode/
 gitea/
 netbox-docker/
 network/clab-workshop/
-prometheus/
+/prometheus/
 environment
 diode_creds
