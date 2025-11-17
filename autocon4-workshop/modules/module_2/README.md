@@ -31,21 +31,21 @@ The Orb agent is already running in your lab environment, monitoring your networ
 Here's a visual representation of our lab network, showing how the Orb agent monitors the web server:
 
 ```
-┌──────────────────┐                         ┌──────────────────┐
-│   Orb Agent      │                         │   Web Server     │
-│                  │                         │                  │
-│  (Monitoring)    │                         │    (Target)      │
-└────────┬─────────┘                         └────────┬─────────┘
-         │ 192.168.1.2/30                             │ 192.168.2.2/30
-         │                                            │ 
-         │ 192.168.1.1/30                             │ 192.168.2.1/30
-         │ ethernet-1/2                               │ ethernet-1/2
-┌────────┴─────────┐          OSPF           ┌────────┴─────────┐
-│      srl1        │          Area 0         │      srl2        │
-│                  │◄───────────────────────►│                  │
-│   Router ID:     │  10.0.0.1/30  10.0.0.2  │   Router ID:     │
-│    1.1.1.1       │      ethernet-1/1       │    2.2.2.2       │
-└──────────────────┘                         └──────────────────┘
+┌──────────────────┐                             ┌──────────────────┐
+│   Orb Agent      │                             │   Web Server     │
+│                  │                             │                  │
+│  (Monitoring)    │                             │    (Target)      │
+└────────┬─────────┘                             └────────┬─────────┘
+         │ 192.168.1.2/30                                 │ 192.168.2.2/30
+         │                                                │ 
+         │ 192.168.1.1/30                                 │ 192.168.2.1/30
+         │ ethernet-1/2                                   │ ethernet-1/2
+┌────────┴─────────┐             OSPF            ┌────────┴─────────┐
+│      srl1        │            Area 0           │      srl2        │
+│                  │◄───────────────────────────►│                  │
+│   Router ID:     │ 10.0.0.1/30     10.0.0.2/30 │   Router ID:     │
+│    1.1.1.1       │ ethernet-1/1   ethernet-1/1 │    2.2.2.2       │
+└──────────────────┘                             └──────────────────┘
 ```
 
 ### How Orb Monitors the Network
