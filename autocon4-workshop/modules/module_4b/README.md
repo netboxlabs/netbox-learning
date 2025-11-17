@@ -11,8 +11,6 @@ In this module, you'll learn advanced modeling techniques to configure OSPF:
 - **Local Config Context Data** for device-specific settings (router IDs)
 - **Tags** to mark interfaces with special properties (passive interfaces)
 
-By the end, you'll have complete, production-ready configurations that include both Layer 2/3 basics and dynamic routing.
-
 ## Learning Objectives
 
 By the end of this module, you will:
@@ -50,6 +48,15 @@ By the end of this module, you will:
 Config Context data is **merged** (global + local), with local data taking precedence over global.
 
 ---
+
+### Step 0: Activate the Branch
+
+We should still be in our branch from module 4a (`Module 4 SRL Config`). If not, activate the branch:
+
+1. Using the branch selector (top right), select `Module 4 SRL Config` from the dropdown list
+2. This ensures all changes you make are applied to the branch, not main
+
+You should now see an indicator showing your active branch at the top of the NetBox interface.
 
 ## Step 1: Define the OSPF Area (Global Config Context)
 
