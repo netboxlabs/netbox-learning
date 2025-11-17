@@ -18,6 +18,7 @@ By the end of this module, you will:
 - Understand the automated deployment workflow
 - Deploy configurations from a NetBox branch using Ansible
 - Use observability to verify deployment success
+- Use discovery to validatee configuration changes
 - Merge successful changes back to the main branch
 - Understand branch-based deployment strategies
 - See the complete intent-to-deployment pipeline in action
