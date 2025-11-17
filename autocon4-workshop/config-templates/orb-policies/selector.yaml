@@ -1,0 +1,23 @@
+web_monitor:
+  selector:
+    agent_name: orb-agent
+  policies:
+    web_monitor:
+      path: web_monitor.yaml
+      enabled: true
+
+srlinux_discovery:
+  selector:
+    agent_name: orb-agent
+  policies:
+    srl_devices:
+      path: srl_devices.yaml
+      enabled: false
+
+clab_network_discovery:
+  selector:
+    agent_name: orb-agent
+  policies:
+    clab_networks:
+      path: clab_networks.yaml
+      enabled: false
