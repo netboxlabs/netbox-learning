@@ -1,0 +1,36 @@
+groups:
+  - name: httpcheck_alerts
+    interval: 15s
+    rules:
+      # Alert when HTTP check doesn't return 2xx
+      - alert: WebServer_NotReachable
+        expr: httpcheck_status{http_url="http://192.168.2.2", http_status_class="2xx"} == 0
+        labels:
+          severity: critical
+          team: workshop
+        annotations:
+          summary: "HTTP check failed for {{ $labels.http_url }}"
+          description: "HTTP check for {{ $labels.http_url }} is not responding with 2xx status."
+
+      # Alert when HTTP check has errors
+      - alert: WebServer_HttpCheckError
+        expr: httpcheck_error{http_url="http://192.168.2.2"} == 1
+        labels:
+          severity: critical
+          team: workshop
+        annotations:
+          summary: "HTTP check error for {{ $labels.http_url }}"
+          description: "HTTP check for {{ $labels.http_url }} returned error message: {{ $labels.error_message }}."
+
+      # Alert when no metrics received
+      - alert: HttpCheck_NoMetricsReceived
+        expr: |
+          absent(httpcheck_status) == 1
+          or
+          absent(httpcheck_duration_milliseconds) == 1
+        labels:
+          severity: critical
+          team: workshop
+        annotations:
+          summary: "HTTP check metrics missing"
+          description: "Critical: no httpcheck metrics have been received."
