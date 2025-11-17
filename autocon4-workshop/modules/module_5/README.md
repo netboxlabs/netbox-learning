@@ -11,14 +11,6 @@ You've done the hard work:
 
 Now it's time to **deploy those configurations automatically** using Ansible.
 
-No more:
-- Copying and pasting CLI commands
-- SSHing into device after device
-- Worrying about typos or forgetting a device
-- Manual validation after changes
-
-Instead: Define intent in NetBox → Click deploy → Done.
-
 ## Learning Objectives
 
 By the end of this module, you will:
@@ -76,7 +68,6 @@ Our deployment script uses Ansible to:
 >
 > In production, you might use:
 > - More sophisticated templating
-> - Declarative modules (e.g., `cisco.ios.ios_config`)
 > - Pre/post-deployment validation
 > - Automated rollback on failure
 > - Integration with CI/CD pipelines
@@ -188,28 +179,6 @@ The alert should now be **green (Inactive)**, confirming:
 
 🎉 **Success!** The network is working based on automated changes deployed from your NetBox intent.
 
-### Compare to Module 1
-
-Think about the difference:
-
-**Module 1 (Manual):**
-- SSHed into srl1, typed 30+ commands
-- SSHed into srl2, typed 30+ commands
-- Manually tested with ping
-- ~15-20 minutes of tedious work
-- High risk of typos
-
-**Module 5 (Automated):**
-- Ran one command: `./run_ansible.sh --branch <ID>`
-- Ansible deployed to both devices simultaneously
-- Observability automatically verified success
-- ~2 minutes total
-- Zero risk of typos (configs generated from NetBox)
-
-**At scale (50 devices):**
-- Manual: 12+ hours
-- Automated: Still ~2 minutes
-
 ## Step 4: Merge the Branch to Main
 
 The deployment worked and observability confirmed success. Now we can safely update the main branch with our new intent.
@@ -241,6 +210,86 @@ But it worked, so let's merge!
 3. Click **Merge** (top right)
 4. Check the **Commit changes** checkbox
 5. Click **Merge Branch**
+
+> [!NOTE]
+> The merge may take 1-2 minutes to complete.
+> Refresh the page to check the branch status.
+
+### Verify the Merge
+
+Once complete:
+- Branch status shows: `Merged`
+- Main branch now contains your updated network intent
+- Future deployments can use main as the source
+
+## Step 5: Let's Create a Discovery Branch in NetBox to Validate our Changes
+
+NetBox Discovery can validate the **new** configured state of your network. We'll send discovery results to a **branch** where we can review them.
+
+### Create the Branch
+
+1. In NetBox, navigate to **Branching** → **Branches**
+2. Click **+ Add** (top right)
+3. Give your branch a name: `Module 5 Validation`
+4. Click **Create**
+
+You'll be taken to the branch detail page. The status will initially show as `Provisioning`.
+
+> [!NOTE]
+> You may need to refresh the page a couple of times. Wait until the **Status** field shows `Ready` before proceeding.
+
+### Configure Diode to Use the Branch
+
+Now we need to tell Diode to send discovery results to this branch instead of main.
+
+1. In NetBox, navigate to **Diode** → **Settings**
+2. Click the pen icon (top right) to edit
+3. Under the **Branch** dropdown, select `Module 5 Validation`
+4. Click **Save**
+
+## Step 6: Run Discovery to Validate the Changes
+
+NetBox Discovery can help us validate that what changed in the network matches what we configured in NetBox.
+
+### Trigger a New Discovery Run
+
+We've already configured device discovery in Module 3. The Orb agent watches for changes to policy files in Gitea. By updating the policy file, we trigger a new discovery run.
+
+> [!TIP]
+> **Gitea Access**
+> - URL: `echo "http://$MY_EXTERNAL_IP:3000"`
+> - Username: `admin`
+> - Password: `admin123`
+
+1. Open Gitea in your browser
+2. Navigate to the **admin/orb-policies** repository
+3. Click on `srl_devices.yaml`
+4. Click the **edit** icon (small pen, top right)
+5. On line 1, increment the `#--- version` number
+   - Example: `#--- version: 1` → `#--- version: 2`
+6. Scroll to the bottom and click **Commit Changes**
+
+**What Happens Next:**
+- Orb agent polls Gitea and detects the policy change
+- Orb runs discovery against srl1 and srl2
+- Discovery results are sent to Diode
+- Diode ingests the data into the `Module 6 Discovery` branch
+
+This takes about 1-2 minutes. Let's inspect the results!
+
+### Inspect the Discovery Results
+
+1. In NetBox, navigate to **Branching** → **Branches**
+2. Click on `Module 5 Validation`
+3. Click the **Changes Ahead** tab
+
+You should see discovery results identifying any differences between the network and NetBox. There shouldn't be many and they should be benign (such as adding Prefixes that we didn't explicitly create in Module 4).
+
+### Merge the Branch
+
+1. Click **Merge** (top right)
+2. Check the **Commit changes** checkbox
+3. Click **Merge Branch**
 
 > [!NOTE]
 > The merge may take 1-2 minutes to complete.
@@ -293,23 +342,6 @@ Branch → Merge → Main (Known-good state)
 - Ready for next change cycle
 
 ## Key Takeaways
-
-### The Automation Advantage
-
-**What You Eliminated:**
-- ❌ Manual SSH sessions
-- ❌ Copy-paste errors
-- ❌ Forgotten devices
-- ❌ Inconsistent configurations
-- ❌ Outdated documentation
-
-**What You Gained:**
-- ✅ One-command deployment
-- ✅ Consistent configs across all devices
-- ✅ Automated verification
-- ✅ Self-documenting (NetBox IS the docs)
-- ✅ Rollback capability
-- ✅ Audit trail
 
 ### Why Branching Matters
 

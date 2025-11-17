@@ -203,7 +203,7 @@ We've already configured device discovery in Module 3. The Orb agent watches for
 3. Click on `srl_devices.yaml`
 4. Click the **edit** icon (small pen, top right)
 5. On line 1, increment the `#--- version` number
-   - Example: `#--- version: 1` → `#--- version: 2`
+   - Example: `#--- version: 2` → `#--- version: 3`
 6. Scroll to the bottom and click **Commit Changes**
 
 **What Happens Next:**
