@@ -1,0 +1,12 @@
+#-- version 1
+network_discovery:
+  clab_networks:
+    config:
+      schedule: "* * * * *"
+    scope:
+      fast_mode: true
+      timing: 5
+      targets:
+        - 172.24.0.0/24
+        - 192.168.1.0/30
+        - 192.168.2.0/30

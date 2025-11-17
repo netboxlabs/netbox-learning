@@ -1,0 +1,71 @@
+---
+- name: Get rendered configs from NetBox
+  hosts: all
+  gather_facts: no
+  vars:
+    netbox_url: "http://{{ MY_EXTERNAL_IP }}:{{ NETBOX_PORT }}"
+    netbox_token: "{{ NETBOX_API_TOKEN }}"
+    branch_id: "{{ NETBOX_BRANCH_ID }}"
+
+  tasks:
+    - name: Look up device in NetBox by inventory hostname
+      uri:
+        url: "{{ netbox_url }}/api/dcim/devices/?name={{ inventory_hostname }}"
+        method: GET
+        headers:
+          Authorization: "Token {{ netbox_token }}"
+          Content-Type: "application/json"
+        return_content: yes
+        status_code: 200
+      register: netbox_device
+      delegate_to: localhost
+
+    - name: Check if device was found in NetBox
+      fail:
+        msg: "Device {{ inventory_hostname }} not found in NetBox"
+      when: netbox_device.json.count == 0
+      delegate_to: localhost
+
+    - name: Display device ID
+      debug:
+        msg: "Found device {{ inventory_hostname }} with ID {{ netbox_device.json.results[0].id }}"
+      delegate_to: localhost
+
+    - name: Display branch ID
+      debug:
+        msg: "Using branch ID {{ branch_id }}"
+      delegate_to: localhost
+
+
+    - name: Get rendered configuration from NetBox
+      uri:
+        url: "{{ netbox_url }}/api/dcim/devices/{{ netbox_device.json.results[0].id }}/render-config/?_branch={{ branch_id }}"
+        method: POST
+        headers:
+          Authorization: "Token {{ netbox_token }}"
+          Content-Type: "application/json"
+        return_content: yes
+        status_code: 200
+      register: rendered_config
+      delegate_to: localhost
+
+    - name: Display rendered config
+      debug:
+        var: rendered_config.json.content
+      delegate_to: localhost
+
+    - name: Save rendered config to file
+      copy:
+        content: "{{ rendered_config.json.content }}"
+        dest: "/tmp/{{ inventory_hostname }}_config.txt"
+      delegate_to: localhost
+
+    - name: Show config file location
+      debug:
+        msg: "Configuration saved to /tmp/{{ inventory_hostname }}_config.txt"
+      delegate_to: localhost
+
+    - name: Push configuration to device
+      nokia.srlinux.cli:
+        commands: "{{ rendered_config.json.content.split('\n') | select() | list }}"
+      when: rendered_config.json.content is defined

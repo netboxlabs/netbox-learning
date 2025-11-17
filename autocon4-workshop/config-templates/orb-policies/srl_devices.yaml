@@ -1,0 +1,20 @@
+#-- version 1
+device_discovery:
+  srl_devices:
+    config:
+      defaults:
+        site: Workshop
+        if_type: "25gbase-t"
+    scope:
+      - driver: srl
+        hostname: 172.24.0.101
+        username: admin
+        password: NokiaSrl1!
+        optional_args:
+            insecure: True
+      - driver: srl
+        hostname: 172.24.0.102
+        username: admin
+        password: NokiaSrl1!
+        optional_args:
+            insecure: True
