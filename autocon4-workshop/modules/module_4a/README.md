@@ -402,6 +402,9 @@ Still on the **Interfaces** tab for `srl2`:
 You should see the generated configuration:
 
 ```yaml
+# Enter configuration mode
+enter candidate
+
 # Configure network instance
 set / network-instance default type default
 
@@ -417,6 +420,9 @@ set / interface ethernet-1/2 subinterface 0 ipv4 admin-state enable
 # Add interfaces to default network instance
 set / network-instance default interface ethernet-1/1.0
 set / network-instance default interface ethernet-1/2.0
+
+# Commit
+commit now
 ```
 
 ✅ **Perfect!** Notice how the same template generates the correct configuration for srl2 with different IP addresses. This is the power of template-driven configuration.

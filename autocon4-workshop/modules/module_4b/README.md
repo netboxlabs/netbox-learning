@@ -321,6 +321,9 @@ Now for the moment of truth—let's see the complete, production-ready configura
 You should see the complete device configuration:
 
 ```yaml
+# Enter configuration mode
+enter candidate
+
 # Configure network instance
 set / network-instance default type default
 
@@ -348,6 +351,9 @@ set / network-instance default protocols ospf instance main area 0.0.0.0 interfa
 set / network-instance default protocols ospf instance main area 0.0.0.0 interface ethernet-1/2.0 admin-state enable
 set / network-instance default protocols ospf instance main area 0.0.0.0 interface ethernet-1/2.0 interface-type point-to-point
 set / network-instance default protocols ospf instance main area 0.0.0.0 interface ethernet-1/2.0 passive true
+
+# Commit
+commit now
 ```
 
 **Key Observations:**
