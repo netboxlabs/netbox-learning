@@ -118,7 +118,7 @@ Some interfaces should be included in OSPF (so the subnet is advertised) but sho
 
 In our topology:
 - `ethernet-1/2.0` on both routers connects to stub networks (web server, orb agent)
-- These interfaces should be passive—advertise the subnet but don't try to form OSPF neighbors
+- These interfaces should be passive - advertise the subnet but don't try to form OSPF neighbors
 
 We'll use **NetBox Tags** to mark these interfaces. The config template will check for this tag and configure the interface as passive.
 
@@ -150,7 +150,7 @@ We'll use **NetBox Tags** to mark these interfaces. The config template will che
 **What This Does:**
 - Tags act as metadata on interfaces
 - Templates can check if an interface has a specific tag
-- This approach is flexible—you could have tags for different OSPF areas, interface types, security zones, etc.
+- This approach is flexible - you could have tags for different OSPF areas, interface types, security zones, etc.
 
 **Why Use Tags?**
 Tags are lightweight and flexible. They're perfect for marking interfaces with special characteristics without needing to add custom fields or complex data structures.
@@ -233,7 +233,7 @@ Let's break down the new OSPF section:
 
 - Retrieves the merged config context (global + local)
 - Only generates OSPF config if both `ospf_area` and `router_id` are present
-- This makes the template safe—it won't break if OSPF data is missing
+- This makes the template safe - it won't break if OSPF data is missing
 
 #### 2. Configure OSPF Instance
 
@@ -300,7 +300,7 @@ You should see the **Rendered Context**:
 
 ### Verify Config Context for srl2
 
-Repeat the same process for srl2—you should see:
+Repeat the same process for srl2 - you should see:
 
 ```json
 {
@@ -313,7 +313,7 @@ Repeat the same process for srl2—you should see:
 
 ### Inspect the Rendered Config for srl1
 
-Now for the moment of truth—let's see the complete, production-ready configuration!
+Now for the moment of truth - let's see the complete, production-ready configuration!
 
 1. Navigate to **Devices** → **Devices** → `srl1`
 2. Click the **Render Config** tab
@@ -364,7 +364,7 @@ commit now
 
 ### Inspect the Rendered Config for srl2
 
-Repeat for srl2—you should see similar output but with `router_id 2.2.2.2`.
+Repeat for srl2 - you should see similar output but with `router_id 2.2.2.2`.
 
 🎉 **Congratulations!** You now have complete, deployable network configurations generated automatically from NetBox!
 
@@ -388,7 +388,7 @@ In Modules 4a and 4b, you've built a complete intent-based network configuration
 
 ## What's Next?
 
-You've modeled your network intent in NetBox. You've generated complete, production-ready configurations. But they're still just sitting in NetBox—they haven't been deployed to the actual devices yet.
+You've modeled your network intent in NetBox. You've generated complete, production-ready configurations. But they're still just sitting in NetBox - they haven't been deployed to the actual devices yet.
 
 In **Module 5**, you'll use **Ansible** to:
 - Query the NetBox API for rendered configurations

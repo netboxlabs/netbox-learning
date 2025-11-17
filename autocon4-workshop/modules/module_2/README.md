@@ -2,7 +2,7 @@
 
 ## Overview
 
-In the previous exercise we used `ping` to confirm our work, but what if we want to see what's going on the whole time? What if multiple people are making changes to the network? How do we know when something went wrong—and more importantly, how do we know before our users do?
+In the previous exercise we used `ping` to confirm our work, but what if we want to see what's going on the whole time? What if multiple people are making changes to the network? How do we know when something went wrong - and more importantly, how do we know before our users do?
 
 This is where observability comes in. In fact, we've actually been running observability in the background this whole time. Let's see how you did in Module 1!
 
@@ -31,21 +31,21 @@ The Orb agent is already running in your lab environment, monitoring your networ
 Here's a visual representation of our lab network, showing how the Orb agent monitors the web server:
 
 ```
-┌──────────────────┐                             ┌──────────────────┐
-│   Orb Agent      │                             │   Web Server     │
-│                  │                             │                  │
-│  (Monitoring)    │                             │    (Target)      │
-└────────┬─────────┘                             └────────┬─────────┘
-         │ 192.168.1.2/30                                 │ 192.168.2.2/30
-         │                                                │ 
-         │ 192.168.1.1/30                                 │ 192.168.2.1/30
-         │ ethernet-1/2                                   │ ethernet-1/2
-┌────────┴─────────┐             OSPF            ┌────────┴─────────┐
-│      srl1        │            Area 0           │      srl2        │
-│                  │◄───────────────────────────►│                  │
-│   Router ID:     │ 10.0.0.1/30     10.0.0.2/30 │   Router ID:     │
-│    1.1.1.1       │ ethernet-1/1   ethernet-1/1 │    2.2.2.2       │
-└──────────────────┘                             └──────────────────┘
+┌──────────────────┐                                  ┌──────────────────┐
+│   Orb Agent      │                                  │   Web Server     │
+│                  │                                  │                  │
+│  (Monitoring)    │                                  │    (Target)      │
+└────────┬─────────┘                                  └────────┬─────────┘
+         │ 192.168.1.2/30                                      │ 192.168.2.2/30
+         │                                                     │ 
+         │ 192.168.1.1/30                                      │ 192.168.2.1/30
+         │ ethernet-1/2.0                                      │ ethernet-1/2.0
+┌────────┴─────────┐             OSPF                 ┌────────┴─────────┐
+│      srl1        │            Area 0                │      srl2        │
+│                  │◄────────────────────────────────►│                  │
+│   Router ID:     │ 10.0.0.1/30          10.0.0.2/30 │   Router ID:     │
+│    1.1.1.1       │ ethernet-1/1.0    ethernet-1/1.0 │    2.2.2.2       │
+└──────────────────┘                                  └──────────────────┘
 ```
 
 ### How Orb Monitors the Network
@@ -80,7 +80,7 @@ Prometheus is a popular open-source monitoring and alerting toolkit. In our setu
 2. Navigate to **Alerts** in the top menu
 3. Click on the **WebServer_NotReachable** alert
 
-You should see the alert rule that checks if the web server is reachable—similar to what we did manually with `ping` in Module 1, but continuously and automatically.
+You should see the alert rule that checks if the web server is reachable - similar to what we did manually with `ping` in Module 1, but continuously and automatically.
 
 **Alert Status:**
 - 🟢 **Green (Inactive)**: You successfully configured the network in Module 1! The web server is reachable.
@@ -102,7 +102,7 @@ This Prometheus query breaks down as follows:
 - `== 0`: Triggers when the metric equals 0 (meaning the check is failing)
 
 > [!NOTE]
-> If the alert is green, congratulations! If not, don't worry—we're going to reconfigure the network automatically in future steps. First, let's reset the network to its original (unconfigured) state so everyone starts from the same baseline.
+> If the alert is green, congratulations! If not, don't worry - we're going to reconfigure the network automatically in future steps. First, let's reset the network to its original (unconfigured) state so everyone starts from the same baseline.
 
 ## Resetting the Network to Baseline
 
@@ -157,7 +157,7 @@ Now let's confirm that our observability stack is properly detecting the broken 
 The alert should now be **red (Firing)**, showing us that:
 - The network is no longer functional
 - Our observability stack detected the failure automatically
-- We didn't need to manually check—the monitoring caught it for us
+- We didn't need to manually check - the monitoring caught it for us
 
 ![prometheus_alerts_not_reachable](images/prometheus_alerts_not_reachable.png)
 

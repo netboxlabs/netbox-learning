@@ -18,7 +18,7 @@ By the end of this module, you will:
 - Understand the automated deployment workflow
 - Deploy configurations from a NetBox branch using Ansible
 - Use observability to verify deployment success
-- Use discovery to validatee configuration changes
+- Use discovery to validate configuration changes
 - Merge successful changes back to the main branch
 - Understand branch-based deployment strategies
 - See the complete intent-to-deployment pipeline in action
@@ -101,14 +101,14 @@ To deploy from your branch, Ansible needs the branch's unique identifier (Schema
 1. In NetBox, navigate to **Branching** → **Branches**
 2. Find your `Module 4 SRL Config` branch
 3. Look in the **SCHEMA ID** column (should look like `3aq04puw`)
-4. **Copy this ID**—you'll need it for the deployment command
+4. **Copy this ID** - you'll need it for the deployment command
 
 **What is a Schema ID?**
 It's a unique identifier for the branch. The Ansible script uses it to query the NetBox API and fetch rendered configs from that specific branch (not main).
 
 ## Step 2: Deploy Configurations to Devices
 
-Now for the magic moment—let's deploy your NetBox intent to the actual network devices!
+Now for the magic moment - let's deploy your NetBox intent to the actual network devices!
 
 ### Run the Deployment
 

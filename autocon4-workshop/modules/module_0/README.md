@@ -167,7 +167,7 @@ We'll be using Orb agent to:
 - Continuous validation of network connectivity
 
 **Dynamic Configuration via Git:**
-In this workshop, the Orb agent is configured to dynamically fetch its monitoring policies from Gitea. This means:
+In this workshop, the Orb agent is configured to dynamically fetch its monitoring policies from Gitea (local GitHub-like service). This means:
 - You can update monitoring policies by committing changes to Git (or directly in Gitea)
 - The agent polls Gitea periodically and applies new policies automatically
 - No need to restart the agent when monitoring requirements change
