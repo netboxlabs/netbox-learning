@@ -76,7 +76,7 @@ Discovery feedback loop detects configuration drift and unauthorized changes, wh
 
 ### The Role of Source of Truth
 
-NetBox serves as the **single source of truth** for your network:
+NetBox serves as the **source of truth** for your network:
 
 - **Inventory**: What devices exist, their roles, locations, connections
 - **IP Management**: IP addressing, VLANs, prefixes
