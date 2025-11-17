@@ -11,14 +11,6 @@ You've done the hard work:
 
 Now it's time to **deploy those configurations automatically** using Ansible.
 
-No more:
-- Copying and pasting CLI commands
-- SSHing into device after device
-- Worrying about typos or forgetting a device
-- Manual validation after changes
-
-Instead: Define intent in NetBox → Click deploy → Done.
-
 ## Learning Objectives
 
 By the end of this module, you will:
@@ -76,7 +68,6 @@ Our deployment script uses Ansible to:
 >
 > In production, you might use:
 > - More sophisticated templating
-> - Declarative modules (e.g., `cisco.ios.ios_config`)
 > - Pre/post-deployment validation
 > - Automated rollback on failure
 > - Integration with CI/CD pipelines
@@ -188,28 +179,6 @@ The alert should now be **green (Inactive)**, confirming:
 
 🎉 **Success!** The network is working based on automated changes deployed from your NetBox intent.
 
-### Compare to Module 1
-
-Think about the difference:
-
-**Module 1 (Manual):**
-- SSHed into srl1, typed 30+ commands
-- SSHed into srl2, typed 30+ commands
-- Manually tested with ping
-- ~15-20 minutes of tedious work
-- High risk of typos
-
-**Module 5 (Automated):**
-- Ran one command: `./run_ansible.sh --branch <ID>`
-- Ansible deployed to both devices simultaneously
-- Observability automatically verified success
-- ~2 minutes total
-- Zero risk of typos (configs generated from NetBox)
-
-**At scale (50 devices):**
-- Manual: 12+ hours
-- Automated: Still ~2 minutes
-
 ## Step 4: Merge the Branch to Main
 
 The deployment worked and observability confirmed success. Now we can safely update the main branch with our new intent.
@@ -293,23 +262,6 @@ Branch → Merge → Main (Known-good state)
 - Ready for next change cycle
 
 ## Key Takeaways
-
-### The Automation Advantage
-
-**What You Eliminated:**
-- ❌ Manual SSH sessions
-- ❌ Copy-paste errors
-- ❌ Forgotten devices
-- ❌ Inconsistent configurations
-- ❌ Outdated documentation
-
-**What You Gained:**
-- ✅ One-command deployment
-- ✅ Consistent configs across all devices
-- ✅ Automated verification
-- ✅ Self-documenting (NetBox IS the docs)
-- ✅ Rollback capability
-- ✅ Audit trail
 
 ### Why Branching Matters
 
