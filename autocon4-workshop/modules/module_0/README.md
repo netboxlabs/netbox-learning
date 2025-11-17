@@ -150,7 +150,7 @@ We'll be using NetBox to:
 
 ### Diode - Network Discovery & Data Ingestion
 
-Diode is a NetBox ingestion service. It receives network data from the Orb agent and other sources, then ingests that data into NetBox. This creates a feedback loop where NetBox isn't just a static inventory—it's continuously updated with actual network state.
+Diode is a NetBox data ingestion service. It receives network data from the Orb agent and other sources, then ingests that data into NetBox. This creates a feedback loop where NetBox isn't just a static inventory—it's continuously updated with actual network state.
 
 We'll be using Diode to:
 - Ingest network state and inventory data into NetBox
