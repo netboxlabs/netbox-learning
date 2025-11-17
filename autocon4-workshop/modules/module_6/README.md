@@ -127,12 +127,6 @@ set / interface ethernet-1/1 admin-state disable
 commit now
 ```
 
-Exit the SSH session:
-
-```bash
-quit
-```
-
 ### Verify the Network is Broken
 
 Still logged into srl1, try to ping the web server:
