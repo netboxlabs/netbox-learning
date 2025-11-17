@@ -149,9 +149,7 @@ PING 192.168.2.2 (192.168.2.2) 56(84) bytes of data.
 
 Exit srl1:
 
-```bash
-quit
-```
+Now exit srl1 by pressing `Ctrl+D`.
 
 ## Step 3: Confirm Observability Detected the Failure
 
