@@ -324,23 +324,26 @@ You experienced the complete cycle:
 This is **true closed-loop automation**:
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                  CLOSED LOOP                        │
-│                                                     │
-│  ┌──────────┐      ┌──────────┐      ┌─────────┐ │
-│  │  NetBox  │ ───> │  Ansible │ ───> │ Network │ │
-│  │ (Intent) │      │ (Deploy) │      │ Devices │ │
-│  └──────────┘      └──────────┘      └─────────┘ │
-│       ▲                                    │       │
-│       │              Feedback              │       │
-│       │                                    │       │
-│  ┌────┴────────┐                    ┌─────▼────┐ │
-│  │  Discovery  │                    │ Observ-  │ │
-│  │  (Diode)    │ ◄──────────────────│ ability  │ │
-│  │             │    Detect Issues   │ (Orb)    │ │
-│  └─────────────┘                    └──────────┘ │
-│                                                     │
-└─────────────────────────────────────────────────────┘
+    ┌─────────────┐                    ┌─────────────┐
+    │   NetBox    │ ─────Deploy──────> │   Ansible   │
+    │  (Source of │                    │             │
+    │   Truth)    │                    └──────┬──────┘
+    └─────────────┘                           │
+           ▲                                  │
+           │                                  │
+           │                                  ▼
+           │                         ┌─────────────────┐
+           │                         │    Network      │
+           │                         │    Devices      │
+           │                         └─────────────────┘
+           │                                  │
+           │                                  │
+           │                                  ▼
+           │                         ┌─────────────────┐
+           │                         │   Orb Agent     │
+           │   Discovery +           │  (Discovery &   │
+           └─────Observability───────│ Observability)  │
+                  Feedback           └─────────────────┘
 ```
 
 ### What You've Gained
@@ -441,18 +444,8 @@ You've completed the workshop, but your automation journey is just beginning. He
 - [Orb Agent Documentation](https://github.com/netboxlabs/orb-agent)
 - [NetBox Ansible Collection](https://docs.ansible.com/projects/ansible/latest/collections/netbox/netbox/)
 
-### Apply to Your Network
-- Start with accurate inventory in NetBox
-- Implement monitoring and discovery
-- Build config templates for your platforms
-- Automate one use case at a time
-- Expand gradually as confidence builds
-
 ### Join the Community
-- NetBox community forums
-- NetBox Labs Slack
-- GitHub repositories
-- AutoCon and other conferences
+- [NetDev Community Slack](https://netdev.chat/)
 
 ---
 
