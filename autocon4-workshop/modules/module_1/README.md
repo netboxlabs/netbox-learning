@@ -21,21 +21,21 @@ By the end of this module, you will:
 Throughout this workshop, we'll work with a simple but realistic network topology:
 
 ```
-┌──────────────────┐                             ┌──────────────────┐
-│   Orb Agent      │                             │   Web Server     │
-│                  │                             │                  │
-│  (Monitoring)    │                             │    (Target)      │
-└────────┬─────────┘                             └────────┬─────────┘
-         │ 192.168.1.2/30                                 │ 192.168.2.2/30
-         │                                                │ 
-         │ 192.168.1.1/30                                 │ 192.168.2.1/30
-         │ ethernet-1/2                                   │ ethernet-1/2
-┌────────┴─────────┐             OSPF            ┌────────┴─────────┐
-│      srl1        │            Area 0           │      srl2        │
-│                  │◄───────────────────────────►│                  │
-│   Router ID:     │ 10.0.0.1/30     10.0.0.2/30 │   Router ID:     │
-│    1.1.1.1       │ ethernet-1/1   ethernet-1/1 │    2.2.2.2       │
-└──────────────────┘                             └──────────────────┘
+┌──────────────────┐                                  ┌──────────────────┐
+│   Orb Agent      │                                  │   Web Server     │
+│                  │                                  │                  │
+│  (Monitoring)    │                                  │    (Target)      │
+└────────┬─────────┘                                  └────────┬─────────┘
+         │ 192.168.1.2/30                                      │ 192.168.2.2/30
+         │                                                     │ 
+         │ 192.168.1.1/30                                      │ 192.168.2.1/30
+         │ ethernet-1/2.0                                      │ ethernet-1/2.0
+┌────────┴─────────┐             OSPF                 ┌────────┴─────────┐
+│      srl1        │            Area 0                │      srl2        │
+│                  │◄────────────────────────────────►│                  │
+│   Router ID:     │ 10.0.0.1/30          10.0.0.2/30 │   Router ID:     │
+│    1.1.1.1       │ ethernet-1/1.0    ethernet-1/1.0 │    2.2.2.2       │
+└──────────────────┘                                  └──────────────────┘
 ```
 
 ### Topology Details
@@ -72,6 +72,8 @@ First, set up your shell environment variables:
 
 ```bash
 source ./1_set_envvars.sh
+
+source ./3_set_diode_creds.sh
 ```
 
 ```bash
@@ -134,8 +136,8 @@ ssh admin@clab-workshop-srl1
 
 > [!TIP]
 > **Nokia SR Linux Credentials**
-> - Username: `admin`
-> - Password: `NokiaSrl1!`
+> - Username: `admin`  
+> - Password: `NokiaSrl1!`  
 
 Now let's configure it step by step.
 

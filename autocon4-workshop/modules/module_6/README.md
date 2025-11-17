@@ -220,7 +220,7 @@ This takes about 1-2 minutes. Let's inspect the results!
 2. Click on `Module 6 Discovery`
 3. Click the **Changes Ahead** tab
 
-You should see discovery results showing changes detected across the network. Scroll through the list—you'll see many different types of NetBox objects that were discovered.
+You should see discovery results showing changes detected across the network. Scroll through the list - you'll see many different types of NetBox objects that were discovered.
 
 **Look for the smoking gun:**
 Find a line showing **Updated** for `ethernet-1/1`. In the **BEFORE** and **AFTER** columns, you'll see:
@@ -358,7 +358,7 @@ Without observability and discovery, you're automating blindly. Feedback loops m
 Whether for planned changes (Module 4) or discovery results (Module 6), branches let you inspect before applying to production.
 
 **4. Drift is Inevitable, Detection is Critical**
-Networks will drift—what matters is detecting it quickly and having automated recovery.
+Networks will drift - what matters is detecting it quickly and having automated recovery.
 
 **5. Start Small, Scale Gradually**
 You don't need to automate everything at once. Pick high-value, low-risk use cases first and expand as confidence grows.

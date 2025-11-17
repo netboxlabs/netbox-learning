@@ -2,7 +2,7 @@
 
 ## Overview
 
-In Module 1, we experienced the pain of manually configuring devices one by one. As your team grows and more people make changes, this problem compounds. When you SSH into a device, you never know exactly what you'll find—that simple 1-hour change window can turn into a research project, forcing you to postpone planned work.
+In Module 1, we experienced the pain of manually configuring devices one by one. As your team grows and more people make changes, this problem compounds. When you SSH into a device, you never know exactly what you'll find - that simple 1-hour change window can turn into a research project, forcing you to postpone planned work.
 
 The traditional approach of "change first, document later" is fundamentally broken. After a busy change window or a late-night troubleshooting session, documentation is the last thing engineers want to deal with. The result? Outdated documentation that can't be trusted.
 
@@ -95,28 +95,28 @@ Example: Many teams use the [Certified NetBox Ansible Collection](https://docs.a
 As a reminder, here's the lab network we'll be building out using automation:
 
 ```
-┌──────────────────┐                             ┌──────────────────┐
-│   Orb Agent      │                             │   Web Server     │
-│                  │                             │                  │
-│  (Monitoring)    │                             │    (Target)      │
-└────────┬─────────┘                             └────────┬─────────┘
-         │ 192.168.1.2/30                                 │ 192.168.2.2/30
-         │                                                │ 
-         │ 192.168.1.1/30                                 │ 192.168.2.1/30
-         │ ethernet-1/2                                   │ ethernet-1/2
-┌────────┴─────────┐             OSPF            ┌────────┴─────────┐
-│      srl1        │            Area 0           │      srl2        │
-│                  │◄───────────────────────────►│                  │
-│   Router ID:     │ 10.0.0.1/30     10.0.0.2/30 │   Router ID:     │
-│    1.1.1.1       │ ethernet-1/1   ethernet-1/1 │    2.2.2.2       │
-└──────────────────┘                             └──────────────────┘
+┌──────────────────┐                                  ┌──────────────────┐
+│   Orb Agent      │                                  │   Web Server     │
+│                  │                                  │                  │
+│  (Monitoring)    │                                  │    (Target)      │
+└────────┬─────────┘                                  └────────┬─────────┘
+         │ 192.168.1.2/30                                      │ 192.168.2.2/30
+         │                                                     │ 
+         │ 192.168.1.1/30                                      │ 192.168.2.1/30
+         │ ethernet-1/2.0                                      │ ethernet-1/2.0
+┌────────┴─────────┐             OSPF                 ┌────────┴─────────┐
+│      srl1        │            Area 0                │      srl2        │
+│                  │◄────────────────────────────────►│                  │
+│   Router ID:     │ 10.0.0.1/30          10.0.0.2/30 │   Router ID:     │
+│    1.1.1.1       │ ethernet-1/1.0    ethernet-1/1.0 │    2.2.2.2       │
+└──────────────────┘                                  └──────────────────┘
 ```
 
 ## Creating a Branch for Safe Changes
 
 Just like Git workflows for code, NetBox supports branching for network changes. This provides:
 
-- **Safety**: A "get out of jail free card" if you make mistakes—just delete the branch
+- **Safety**: A "get out of jail free card" if you make mistakes - just delete the branch
 - **Isolation**: Other users and API consumers see the current production state (main branch)
 - **Review**: Changes can be reviewed before merging to production
 - **Atomic deployment**: All changes are deployed together in Module 5
@@ -290,13 +290,13 @@ On the **Interfaces** tab for `srl1`:
 
 **Create Child Interface:**
 1. Use **Quick Search** to find `ethernet-1/1`
-2. Click the green **+** button and select **Child Interface**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **Child Interface**
 3. Give it the name: `ethernet-1/1.0`
 4. Click **Create**
 
 **Assign IP Address:**
 1. Use **Quick Search** to find `ethernet-1/1.0`
-2. Click the green **+** button and select **IP Address**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **IP Address**
 3. Enter address: `10.0.0.1/30`
 4. Click **Create**
 
@@ -306,19 +306,19 @@ Still on the **Interfaces** tab for `srl1`:
 
 **Create Child Interface:**
 1. Use **Quick Search** to find `ethernet-1/2`
-2. Click the green **+** button and select **Child Interface**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **Child Interface**
 3. Give it the name: `ethernet-1/2.0`
 4. Click **Create**
 
 **Assign IP Address:**
 1. Use **Quick Search** to find `ethernet-1/2.0`
-2. Click the green **+** button and select **IP Address**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **IP Address**
 3. Enter address: `192.168.1.1/30`
 4. Click **Create**
 
 ### Step 4: Inspect the Rendered Configuration
 
-Now that you've added the necessary interface data, let's see the magic happen—NetBox automatically renders the configuration!
+Now that you've added the necessary interface data, let's see the magic happen - NetBox automatically renders the configuration!
 
 1. Navigate to **Devices** → **Devices** → `srl1`
 2. Click the **Render Config** tab
@@ -347,7 +347,7 @@ set / network-instance default interface ethernet-1/2.0
 - The Jinja2 template looped through srl1's interfaces
 - Found ethernet-1/1.0 and ethernet-1/2.0 (with IP addresses)
 - Generated SR Linux CLI commands automatically
-- No OSPF configuration yet—that comes in Module 4b!
+- No OSPF configuration yet - that comes in Module 4b!
 
 ✅ **Success!** You've just generated your first automated network configuration from NetBox.
 
@@ -368,13 +368,13 @@ On the **Interfaces** tab for `srl2`:
 
 **Create Child Interface:**
 1. Use **Quick Search** to find `ethernet-1/1`
-2. Click the green **+** button and select **Child Interface**
+2. Click the dark green **+** button and select **Child Interface**
 3. Give it the name: `ethernet-1/1.0`
 4. Click **Create**
 
 **Assign IP Address:**
 1. Use **Quick Search** to find `ethernet-1/1.0`
-2. Click the green **+** button and select **IP Address**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **IP Address**
 3. Enter address: `10.0.0.2/30` (peer to srl1's 10.0.0.1)
 4. Click **Create**
 
@@ -384,13 +384,13 @@ Still on the **Interfaces** tab for `srl2`:
 
 **Create Child Interface:**
 1. Use **Quick Search** to find `ethernet-1/2`
-2. Click the green **+** button and select **Child Interface**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **Child Interface**
 3. Give it the name: `ethernet-1/2.0`
 4. Click **Create**
 
 **Assign IP Address:**
 1. Use **Quick Search** to find `ethernet-1/2.0`
-2. Click the green **+** button and select **IP Address**
+2. Click the dark green (light mode)/cyan (dark mode) **+** button and select **IP Address**
 3. Enter address: `192.168.2.1/30` (web server is at .2)
 4. Click **Create**
 
@@ -402,6 +402,9 @@ Still on the **Interfaces** tab for `srl2`:
 You should see the generated configuration:
 
 ```yaml
+# Enter configuration mode
+enter candidate
+
 # Configure network instance
 set / network-instance default type default
 
@@ -417,6 +420,9 @@ set / interface ethernet-1/2 subinterface 0 ipv4 admin-state enable
 # Add interfaces to default network instance
 set / network-instance default interface ethernet-1/1.0
 set / network-instance default interface ethernet-1/2.0
+
+# Commit
+commit now
 ```
 
 ✅ **Perfect!** Notice how the same template generates the correct configuration for srl2 with different IP addresses. This is the power of template-driven configuration.

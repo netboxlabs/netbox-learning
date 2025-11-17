@@ -4,7 +4,7 @@
 
 In Module 2, you set up observability to monitor your network. Now let's pivot and setup NetBox. To get started using it as a source of truth for automation, you first need to **populate it with accurate data**.
 
-For greenfield networks (building from scratch), you can populate NetBox as you build. But most networks are **brownfield**—they already exist, with devices running, interfaces configured, and IPs assigned. Manually documenting hundreds or thousands of existing devices is tedious and error-prone.
+For greenfield networks (building from scratch), you can populate NetBox as you build. But most networks are **brownfield** - they already exist, with devices running, interfaces configured, and IPs assigned. Manually documenting hundreds or thousands of existing devices is tedious and error-prone.
 
 **This is where NetBox Discovery can really help.** It automatically scans your network and populates NetBox with:
 - Devices and their details (manufacturer, model, serial numbers)
@@ -228,7 +228,7 @@ The **Changes Ahead** list is useful for a quick overview, but let's actually ex
    - Serial number
    - Status
 3. Click the **Interfaces** tab
-4. Explore the interfaces—you'll see all physical and subinterfaces discovered
+4. Explore the interfaces - you'll see all physical and subinterfaces discovered
 5. Click on an interface to see its details (admin status, IPs, etc.)
 
 **What Discovery Found:**
@@ -268,7 +268,7 @@ Once the merge completes:
 1. Switch to the **main** branch (use the branch dropdown at the top)
 2. Navigate to **Organization** → **Sites** → **Sites**
 3. You should see the `Workshop` site
-4. Click through to devices—`srl1` and `srl2` are now in main!
+4. Click through to devices - `srl1` and `srl2` are now in main!
 
 **Success!** Your NetBox instance now has a complete, accurate baseline of your network infrastructure.
 
