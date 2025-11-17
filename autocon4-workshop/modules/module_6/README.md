@@ -346,78 +346,6 @@ This is **true closed-loop automation**:
                   Feedback           └─────────────────┘
 ```
 
-### What You've Gained
-
-**Control:**
-- Update NetBox → Changes are deployed automatically
-- No more manual SSH sessions for routine changes
-- Consistent configurations across all devices
-- Documentation always accurate (NetBox IS the documentation)
-
-**Visibility:**
-- Know what's actually running on devices (discovery)
-- Know when things break (observability)
-- Know what changed and when (branches + audit trail)
-- Detect unauthorized changes immediately
-
-**Resilience:**
-- Automated recovery from drift
-- Known-good state always available in NetBox
-- Self-correcting when issues occur
-- Faster mean time to recovery (MTTR)
-
-### Real-World Benefits
-
-**Scenario 1: Onboarding New Devices**
-- Old way: Manual config, 2+ hours, error-prone
-- New way: Add to NetBox, automation deploys, 15 minutes
-
-**Scenario 2: Configuration Changes**
-- Old way: SSH into each device, copy-paste, hope for the best
-- New way: Update NetBox, review diff, deploy to all devices atomically
-
-**Scenario 3: Troubleshooting Outages**
-- Old way: SSH into devices, compare configs manually, investigate
-- New way: Check alerts (observability), run discovery (what changed?), re-deploy intent (fix)
-
-**Scenario 4: Compliance Audits**
-- Old way: Manually collect configs, compare to standards, generate reports
-- New way: Discovery shows drift from standards, automated reports available
-
-### The Gradual Path to Automation
-
-You don't need to automate everything overnight. Smart organizations:
-
-**Phase 1: Observability**
-- Implement monitoring first
-- Get visibility before making changes
-- Build confidence
-
-**Phase 2: Source of Truth**
-- Populate NetBox accurately
-- Use it as documentation initially
-- Engineers reference it before making changes
-
-**Phase 3: Read-Only Automation**
-- Use templates to generate configs
-- Engineers review and manually deploy
-- Builds trust in automation
-
-**Phase 4: Automated Deployment**
-- Automation deploys after human approval
-- Start with low-risk changes
-- Expand gradually
-
-**Phase 5: Continuous Validation**
-- Run discovery regularly
-- Detect drift automatically
-- Alert on unauthorized changes
-
-**Phase 6: Self-Healing** (Where you are now!)
-- Automatically re-deploy intent on drift detection
-- Fully closed loop
-- Requires high trust in your source of truth
-
 ### Key Takeaways
 
 **1. Intent-First is Documentation-First**
@@ -437,7 +365,7 @@ You don't need to automate everything at once. Pick high-value, low-risk use cas
 
 ## What's Next?
 
-You've completed the workshop, but your automation journey is just beginning. Here are some next steps:
+Here are some resources to help you continue in your network automation journey:
 
 ### Learn More
 - [NetBox Documentation](https://docs.netbox.dev/)
