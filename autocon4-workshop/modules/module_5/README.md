@@ -222,6 +222,86 @@ Once complete:
 - Main branch now contains your updated network intent
 - Future deployments can use main as the source
 
+## Step 5: Let's Create a Discovery Branch in NetBox to Validate our Changes
+
+NetBox Discovery can validate the **new** configured state of your network. We'll send discovery results to a **branch** where we can review them.
+
+### Create the Branch
+
+1. In NetBox, navigate to **Branching** → **Branches**
+2. Click **+ Add** (top right)
+3. Give your branch a name: `Module 5 Validation`
+4. Click **Create**
+
+You'll be taken to the branch detail page. The status will initially show as `Provisioning`.
+
+> [!NOTE]
+> You may need to refresh the page a couple of times. Wait until the **Status** field shows `Ready` before proceeding.
+
+### Configure Diode to Use the Branch
+
+Now we need to tell Diode to send discovery results to this branch instead of main.
+
+1. In NetBox, navigate to **Diode** → **Settings**
+2. Click the pen icon (top right) to edit
+3. Under the **Branch** dropdown, select `Module 5 Validation`
+4. Click **Save**
+
+## Step 6: Use Discovery to Validate the Changes
+
+NetBox Discovery can help us validate that what changed in the network matches what we configured in NetBox.
+
+### Trigger a New Discovery Run
+
+We've already configured device discovery in Module 3. The Orb agent watches for changes to policy files in Gitea. By updating the policy file, we trigger a new discovery run.
+
+> [!TIP]
+> **Gitea Access**
+> - URL: `echo "http://$MY_EXTERNAL_IP:3000"`
+> - Username: `admin`
+> - Password: `admin123`
+
+1. Open Gitea in your browser
+2. Navigate to the **admin/orb-policies** repository
+3. Click on `srl_devices.yaml`
+4. Click the **edit** icon (small pen, top right)
+5. On line 1, increment the `#--- version` number
+   - Example: `#--- version: 1` → `#--- version: 2`
+6. Scroll to the bottom and click **Commit Changes**
+
+**What Happens Next:**
+- Orb agent polls Gitea and detects the policy change
+- Orb runs discovery against srl1 and srl2
+- Discovery results are sent to Diode
+- Diode ingests the data into the `Module 6 Discovery` branch
+
+This takes about 1-2 minutes. Let's inspect the results!
+
+### Inspect the Discovery Results
+
+1. In NetBox, navigate to **Branching** → **Branches**
+2. Click on `Module 5 Validation`
+3. Click the **Changes Ahead** tab
+
+You should see discovery results identifying any differences between the network and NetBox. There shouldn't be many and they should be benign (such as adding Prefixes that we didn't explicitly create in Module 4).
+
+### Merge the Branch
+
+1. Click **Merge** (top right)
+2. Check the **Commit changes** checkbox
+3. Click **Merge Branch**
+
+> [!NOTE]
+> The merge may take 1-2 minutes to complete.
+> Refresh the page to check the branch status.
+
+### Verify the Merge
+
+Once complete:
+- Branch status shows: `Merged`
+- Main branch now contains your updated network intent
+- Future deployments can use main as the source
+
 ## What Just Happened: The Complete Workflow
 
 Let's trace the complete journey from intent to deployment:
