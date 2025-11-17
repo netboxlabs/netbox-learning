@@ -147,8 +147,6 @@ PING 192.168.2.2 (192.168.2.2) 56(84) bytes of data.
 
 🔴 **Network is broken!** The disabled interface prevents srl1 from reaching the web server through srl2.
 
-Exit srl1:
-
 Now exit srl1 by pressing `Ctrl+D`.
 
 ## Step 3: Confirm Observability Detected the Failure
