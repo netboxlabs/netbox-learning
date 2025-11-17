@@ -247,7 +247,7 @@ Now we need to tell Diode to send discovery results to this branch instead of ma
 3. Under the **Branch** dropdown, select `Module 5 Validation`
 4. Click **Save**
 
-## Step 6: Use Discovery to Validate the Changes
+## Step 6: Run Discovery to Validate the Changes
 
 NetBox Discovery can help us validate that what changed in the network matches what we configured in NetBox.
 
