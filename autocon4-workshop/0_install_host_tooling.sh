@@ -58,8 +58,8 @@ else
 fi
 
 # Install Ansible collections
-echo "--- Installing Ansible Collections ---"
-ansible-galaxy collection install nokia.srlinux ansible.netcommon
+#echo "--- Installing Ansible Collections ---"
+#ansible-galaxy collection install nokia.srlinux ansible.netcommon
 
 # Creating new user and adding to the correct groups, and set the permissions on the cloned repo
 USERNAME="quickstart"
