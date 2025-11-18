@@ -166,7 +166,7 @@ NetBox Config Templates use Jinja2 templating to generate device configurations.
 4. Paste the template code below into **Template Code**
 5. Click **Create**
 
-```yaml
+```jinja
 # Enter configuration mode
 enter candidate
 
