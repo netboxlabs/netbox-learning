@@ -40,7 +40,14 @@ sudo systemctl start docker
 
 # Install ContainerLab
 echo "--- Installing ContainerLab ---"
-curl -sL https://containerlab.dev/setup | sudo -E bash -s "install-containerlab"
+LATEST_RELEASE=$(curl -s https://api.github.com/repos/srl-labs/containerlab/releases/latest | grep "tag_name" | cut -d : -f 2,3 | tr -d \" | tr -d , | tr -d " ")
+echo "Installing ContainerLab version: $LATEST_RELEASE"
+cd /tmp
+wget -q https://github.com/srl-labs/containerlab/releases/download/${LATEST_RELEASE}/containerlab_${LATEST_RELEASE#v}_linux_amd64.deb
+sudo dpkg -i containerlab_${LATEST_RELEASE#v}_linux_amd64.deb
+rm -f containerlab_*.deb
+cd -
+containerlab version
 
 # Install Ansible
 echo "--- Installing Ansible ---"
