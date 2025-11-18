@@ -59,6 +59,6 @@ fi
 
 # Install Ansible collections
 #echo "--- Installing Ansible Collections ---"
-ansible-galaxy collection install nokia.srlinux ansible.netcommon
+#ansible-galaxy collection install nokia.srlinux ansible.netcommon
 
 echo "--- Setup Complete ---"
