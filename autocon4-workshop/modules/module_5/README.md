@@ -110,6 +110,14 @@ It's a unique identifier for the branch. The Ansible script uses it to query the
 
 Now for the magic moment - let's deploy your NetBox intent to the actual network devices!
 
+### Install Required Ansible Collection
+
+First, ensure the Nokia SRLinux Ansible collection is installed:
+
+```bash
+ansible-galaxy collection install nokia.srlinux
+```
+
 ### Run the Deployment
 
 From your workshop directory, run:
