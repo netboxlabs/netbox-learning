@@ -72,12 +72,7 @@ First, set up your shell environment variables:
 
 ```bash
 source ./1_set_envvars.sh
-
 source ./3_set_diode_creds.sh
-```
-
-```bash
-source 3_set_diode_creds.sh
 ```
 
 This script sets various environment variables including `$MY_EXTERNAL_IP` which you'll use throughout the workshop.
