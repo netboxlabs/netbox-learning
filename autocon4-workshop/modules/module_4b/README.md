@@ -173,7 +173,7 @@ Now we need to update our config template to consume the Config Context data and
 3. **Replace** the entire template code with the version below
 4. Click **Save**
 
-```yaml
+```jinja
 # Enter configuration mode
 enter candidate
 
