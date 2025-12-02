@@ -97,17 +97,17 @@ source ./3_set_diode_creds.sh
 > This is so that you can run `./3_set_diode_creds.sh` in separate terminals and get the same results  
 > If you need to recreate the envirionment variables, just delete `diode_creds` and run the script again 
 
-### Step 4: Start NetBox with the Diode plugin installed and configured and NetBox Branching enabled
-
-> [!TIP]
->   
-> NetBox runs a lot of database migrations when starting up for the first time so this can take a few minutes  
+### Step 4: Start NetBox with the Diode plugin installed and configured and NetBox Branching enabled 
 
 ```bash
 ./4_start_netbox.sh
 ```
 
 When this step finishes you can check that NetBox is working by logging into NetBox using the URL and credentials provided in the command line output.
+
+> [!TIP]
+>   
+> NetBox runs a lot of database migrations when starting up for the first time so this can take a few minutes 
 
 ### Step 5: Start local Git server and create initial agent config
 
