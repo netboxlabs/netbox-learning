@@ -1,4 +1,4 @@
-# Closed-Loop Network Automation - Zero to Hero
+![Closed-Loop Network Automation - Zero to Hero](banner.png)
 
 _This workshop was originaly delivered as a hands-on, in-person workshop at Autocon4 ([WS:D3](https://networkautomation.forum/autocon4#workshops))_
 
@@ -29,12 +29,12 @@ The following is the _minimum_ recommended environment for this workshop:
 - 4 vCPUs
 - 8 GB RAM 
 
-The workshop has been tested on Ubuntu up to 25.04 (Plucky Puffin). It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub.
+The workshop has been tested on Ubuntu up to 25.04 (Plucky Puffin). It should work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub.
 
-The workshop can be run on a server or virtual machine with a private IPv4 address. Please see the additional step for private IP below.
+The workshop can be run on a server or virtual machine with a private IP address. Please see the additional step below for setting the private IP address.
 
 > [!WARNING]
-> Unfortunately MacOS is not supported. The workshop requires ContainerLab, which does not have native support for MacOS  
+> Unfortunately MacOS is not supported. The workshop requires ContainerLab, which does not have native support for MacOS.  
 
 
 ### Install the required tooling on the host and set up users
