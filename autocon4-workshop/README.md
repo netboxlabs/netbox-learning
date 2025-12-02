@@ -36,10 +36,10 @@ The workshop can be run on a server or virtual machine with a private IP address
 > [!WARNING]
 > Unfortunately MacOS is not supported. The workshop requires ContainerLab, which does not have native support for MacOS.  
 
-### Setup: Clone the workshop repository
+### Step -1: Clone the workshop repository
 
 ```bash
-# Navigate to /opt directory (or your directory of choice)
+# Navigate to /opt (or your preferred directory)
 cd /opt
 
 # Clone the repository
