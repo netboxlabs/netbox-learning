@@ -119,4 +119,4 @@ In **Module 0**, we'll get oriented with the workshop lab environment and learn 
 
 ---
 
-**Continue to:** [Module 0 - Introduction](../module_0/README.md)
+**Continue to:** [Module 0 - Introduction](modules/module_0/README.md)
