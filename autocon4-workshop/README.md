@@ -20,14 +20,21 @@ This workshop is split into various learning modules.
 - Module 6 - [Using Discovery to validate the state of the network](./modules/module_6/README.md)
 
 
-## Workshop Setup & Installation
+## Setup & Installation
 
-> [!TIP]
->  
-> - The workshop can be run on a server or virtual machine with a public or private IP. Please see the additional step for private IP options below.
-> - We recommend using a machine with at least 4GB of RAM and 2 cores. If you're using a discount cloud or are going to run Cisco IOS images, we recommend at least 8GB of RAM and 4 cores.  
-> - The workshop has been tested on Ubuntu up to 25.04 (Plucky Puffin). It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub  
-> - Unfortunately MacOS is not supported. The quickstart relies heavily on ContainerLab which does not have native support for MacOS  
+### Workshop Requirements
+
+The following is the _minimum_ recommended environment for this workshop:
+- Ubuntu 25.04
+- 4 vCPUs
+- 8 GB RAM 
+
+The workshop has been tested on Ubuntu up to 25.04 (Plucky Puffin). It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub.
+
+The workshop can be run on a server or virtual machine with a private IPv4 address. Please see the additional step for private IP below.
+
+> [!WARNING]
+> Unfortunately MacOS is not supported. The workshop requires ContainerLab, which does not have native support for MacOS  
 
 
 ### Install the required tooling on the host and set up users
@@ -36,11 +43,11 @@ This workshop is split into various learning modules.
 ./0_install_host_tooling.sh
 ```
 
-### Generate and export the necessary environment variables for the quickstart (optional)
+### Generate and export the necessary environment variables
 
- Optionally set a private IP.  If this machine does not have a public ipv4 address assigned on a local interface, this option should be used. 
+#### Set the private IPv4 address (only if reqired)
 
- Replace <IP address> with an IP address assigned to the local machine - eg: `10.1.1.1` (**NOTE:** Do not use `127.0.0.1`/`localhost` as it will cause the NetBox healthcheck to fail and connections to get stuck in containers)
+If this machine does not have a public IPv4 address assigned on a local interface, the private IP must be explicitly set. In the command below, replace `<IP address>` with the IP address assigned to the local machine (e.g. `10.1.1.1`). Do not use `127.0.0.1` or `localhost` as it will cause the NetBox healthcheck to fail and connections to get stuck in containers.
 
 ```
 export MY_EXTERNAL_IP=<IP address>
