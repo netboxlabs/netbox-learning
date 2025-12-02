@@ -102,12 +102,11 @@ source ./3_set_diode_creds.sh
 ```bash
 ./4_start_netbox.sh
 ```
-
-When this step finishes you can check that NetBox is working by logging into NetBox using the URL and credentials provided in the command line output.
-
 > [!TIP]
 >   
 > NetBox runs a lot of database migrations when starting up for the first time so this can take a few minutes 
+
+When this step finishes you can check that NetBox is working by logging into NetBox using the URL and credentials provided in the command line output.
 
 ### Step 5: Start local Git server and create initial agent config
 
