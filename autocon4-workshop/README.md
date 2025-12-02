@@ -39,18 +39,24 @@ The workshop can be run on a server or virtual machine with a private IPv4 addre
 
 ### Install the required tooling on the host and set up users
 
-```
+```bash
 ./0_install_host_tooling.sh
 ```
 
 ### Generate and export the necessary environment variables
 
-#### Set the private IPv4 address (only if reqired)
+#### Set the private IPv4 address (only if required)
 
 If this machine does not have a public IPv4 address assigned on a local interface, the private IP must be explicitly set. In the command below, replace `<IP address>` with the IP address assigned to the local machine (e.g. `10.1.1.1`). Do not use `127.0.0.1` or `localhost` as it will cause the NetBox healthcheck to fail and connections to get stuck in containers.
 
-```
+```bash
 export MY_EXTERNAL_IP=<IP address>
+```
+
+#### Export the environment variables
+
+```bash
+source ./1_set_envvars.sh
 ```
 
 > [!TIP]
@@ -58,10 +64,6 @@ export MY_EXTERNAL_IP=<IP address>
 > `1_set_envvars.sh` writes the variables it generates to a file in the root directory called `environment`  
 > This is so that you can run `1_set_envvars.sh` in separate terminals and get the same results  
 > If you need to recreate the envirionment variables, just delete `environment` and run the script again  
-
-```bash
-source 1_set_envvars.sh
-```
 
 ### Start Diode
 
