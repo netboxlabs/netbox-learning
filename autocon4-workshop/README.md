@@ -36,14 +36,26 @@ The workshop can be run on a server or virtual machine with a private IP address
 > [!WARNING]
 > Unfortunately MacOS is not supported. The workshop requires ContainerLab, which does not have native support for MacOS.  
 
+### Setup: Clone the workshop repository
 
-### Install the required tooling on the host and set up users
+```bash
+# Navigate to /opt directory (or your directory of choice)
+cd /opt
+
+# Clone the repository
+sudo git clone https://github.com/netboxlabs/netbox-learning.git
+
+# Navigate to the workshop directory
+cd netbox-learning/autocon4-workshop 
+```
+
+### Step 0: Install the required tooling on the host and set up users
 
 ```bash
 ./0_install_host_tooling.sh
 ```
 
-### Generate and export the necessary environment variables
+### Step 1: Generate and export the necessary environment variables
 
 #### Set the private IPv4 address (only if required)
 
@@ -65,13 +77,19 @@ source ./1_set_envvars.sh
 > This is so that you can run `1_set_envvars.sh` in separate terminals and get the same results  
 > If you need to recreate the envirionment variables, just delete `environment` and run the script again  
 
-### Start Diode
+### Step 2: Start Diode
 
 ```bash
 ./2_start_diode.sh
 ```
 
-Once Diode has finished installing you need to export some credentials to your environment for the following steps.
+### Step 3: Set Diode credentials
+
+Once Diode has finished installing you need to export Diode credentials to your environment for the following steps.
+
+```bash
+source ./3_set_diode_creds.sh
+```
 
 > [!TIP]
 >   
@@ -79,11 +97,7 @@ Once Diode has finished installing you need to export some credentials to your e
 > This is so that you can run `./3_set_diode_creds.sh` in separate terminals and get the same results  
 > If you need to recreate the envirionment variables, just delete `diode_creds` and run the script again 
 
-```bash
-source ./3_set_diode_creds.sh
-```
-
-### Start NetBox with the Diode plugin installed and configured and NetBox Branching enabled
+### Step 4: Start NetBox with the Diode plugin installed and configured and NetBox Branching enabled
 
 > [!TIP]
 >   
@@ -95,7 +109,7 @@ source ./3_set_diode_creds.sh
 
 When this step finishes you can check that NetBox is working by logging into NetBox using the URL and credentials provided in the command line output.
 
-### Start local Git server and create initial agent config
+### Step 5: Start local Git server and create initial agent config
 
 ```bash
 ./5_start_gitea.sh
@@ -103,7 +117,7 @@ When this step finishes you can check that NetBox is working by logging into Net
 
 When this step finishes you can check that NetBox is working by logging into Gitea using the URL and credentials provided in the command line output.
 
-### Start local Prometheus server
+### Step 6: Start local Prometheus server
 
 ```bash
 ./6_start_prometheus.sh
