@@ -282,7 +282,7 @@ We've already configured device discovery in Module 3. The Orb agent watches for
 - Orb agent polls Gitea and detects the policy change
 - Orb runs discovery against srl1 and srl2
 - Discovery results are sent to Diode
-- Diode ingests the data into the `Module 6 Discovery` branch
+- Diode ingests the data into the `Module 5 Validation` branch
 
 This takes about 1-2 minutes. Let's inspect the results!
 
