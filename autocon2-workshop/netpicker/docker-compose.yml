@@ -121,7 +121,7 @@ services:
       - autocon-workshop
 
   frontend:
-    image: netpicker/frontend@sha256:93b8f3d5182a2bbd6ece7bac0c08d6a5471c7658271513f87784661139ff75e8
+    image: netpicker/tester-frontend:2.3.9  # frontend was removed from Docker Hub
     container_name: frontend
     labels:
       service.netpicker.io: front-end

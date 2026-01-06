@@ -15,8 +15,9 @@ echo
 echo "--- Cloning Icinga2 ---"
 echo
 
-git clone -b master https://github.com/davekempe/icinga2-docker-stack.git
+git clone https://github.com/davekempe/icinga2-docker-stack.git
 pushd icinga2-docker-stack
+git checkout 6050178  # Pin to Nov 2024 commit when workshop was developed
 
 echo
 echo "--- Writing configuration ---"
@@ -36,6 +37,9 @@ sed -i 's/8080:80/${ICINGA_PORT}:80/' docker-compose.yml
 # Uncomment the credentials
 sed -i 's/^ *#- ICINGAWEB2_ADMIN_USER=icingaadmin/      - ICINGAWEB2_ADMIN_USER=icingaadmin/' docker-compose.yml
 sed -i 's/^ *#- ICINGAWEB2_ADMIN_PASS=icinga/      - ICINGAWEB2_ADMIN_PASS=icinga/' docker-compose.yml
+
+# Pin docker image to Nov 2024 version
+sed -i 's|image: sol1/icinga2-stack|image: sol1/icinga2-stack@sha256:cd0b54604c30c05f2fea16abdf7c2947e1556f3a6a22f0406f00c2997e6f17ac|' docker-compose.yml
 
 echo
 echo "--- Starting Icinga2 ---"

@@ -92,7 +92,7 @@ ___
 
 ### Use Slurpit to discover additional device data
 
-With Slurpit, pulling discovered network data into Netbox happens in two stages. The first step, which we just did, is to onboard the devices. The second step is to `Reconcile` the additional data about the devices into NetBox, but first we need to discover that additional  device data using Slurpit.
+With Slurpit, pulling discovered network data into Netbox happens in two stages. The first step, which we just did, is to onboard the devices. The second step is to `Reconcile` the additional data about the devices into NetBox, but first we need to discover that additional device data using Slurpit.
 
 > [!TIP]
 > **Slurpit URL**: `./0_set_envvars.sh | grep -i slurpit`  

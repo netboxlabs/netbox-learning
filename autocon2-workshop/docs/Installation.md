@@ -23,7 +23,7 @@
 
 ```
 git clone https://github.com/netboxlabs/netbox-learning.git
-cd netbox-learning/automation-zero-to-hero
+cd netbox-learning/autocon2-workshop
 ```
 
 ## Set environment variables
