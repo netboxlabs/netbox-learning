@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Check if all required environment variables are set
-REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT" "NETBOX_TOKEN")
+REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT")
 
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
@@ -19,22 +19,28 @@ echo
 git clone --branch 3.4.1 https://github.com/netbox-community/netbox-docker.git
 pushd netbox-docker
 
+# Workaround: for https://github.com/netbox-community/netbox-docker/issues/1589
+# NetBox v4.5 Token v2 requires API_TOKEN_PEPPERS; remove token creation from entrypoint
+sed -i '' '/Token.objects.create/d' docker/docker-entrypoint.sh
+
 echo
 echo "--- Generating configuration files ---"
 echo
 
 # Create Dockerfile for plugins
 cat <<EOF > Dockerfile-Plugins
-FROM netboxcommunity/netbox:v4.4.4
+FROM netboxcommunity/netbox:v4.5
 
-RUN uv pip install netboxlabs-netbox-custom-objects==0.4.0
+RUN uv pip install netboxlabs-netbox-custom-objects==0.4.4
 
+# Copy patched entrypoint to fix token creation issue
+COPY docker/docker-entrypoint.sh /opt/netbox/docker-entrypoint.sh
 EOF
 
 cat <<EOF > docker-compose.override.yml
 services:
   netbox:
-    image: netbox:v4.4.4-plugins
+    image: netbox:v4.5-plugins
     pull_policy: never
     ports:
       - "${NETBOX_PORT}:8080"
@@ -43,7 +49,6 @@ services:
       dockerfile: Dockerfile-Plugins
     environment:
       SKIP_SUPERUSER: "false"
-      SUPERUSER_API_TOKEN: ${NETBOX_TOKEN}
       SUPERUSER_EMAIL: ""
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
@@ -56,13 +61,21 @@ services:
     ports:
       - "5432:5432"
   netbox-worker:
-    image: netbox:v4.4.4-plugins
+    image: netbox:v4.5-plugins
     pull_policy: never
 EOF
 
-# Add the NetBox Service Mappings plugin
+# Add the NetBox Custom Objects plugin
 cat <<EOF > configuration/plugins.py
 PLUGINS = ["netbox_custom_objects"]
+EOF
+
+# Workaround: Configure API_TOKEN_PEPPERS to suppress v2 token warnings
+# See: https://github.com/netbox-community/netbox-docker/issues/1589
+cat <<EOF > configuration/extra.py
+API_TOKEN_PEPPERS = {
+    1: '$(openssl rand -hex 32)',
+}
 EOF
 
 echo
