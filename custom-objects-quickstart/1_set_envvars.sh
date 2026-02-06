@@ -23,11 +23,13 @@ else
     # Generate new variables
     MY_EXTERNAL_IP=$EXTERNAL_IP
     NETBOX_PORT="8000"
+    SUPERUSER_API_TOKEN=$(openssl rand -hex 20)
 
     # Write variables to the environment file
     cat <<EOF > "$ENV_FILE"
 MY_EXTERNAL_IP=$MY_EXTERNAL_IP
 NETBOX_PORT=$NETBOX_PORT
+SUPERUSER_API_TOKEN=$SUPERUSER_API_TOKEN
 EOF
 fi
 
@@ -43,4 +45,5 @@ echo "External IP: $MY_EXTERNAL_IP"
 echo "NetBox will be deployed at: http://$MY_EXTERNAL_IP:$NETBOX_PORT"
 echo "NetBox username: admin"
 echo "NetBox password: admin"
+echo "NetBox API Token: $SUPERUSER_API_TOKEN"
 echo "-----------------------------------"

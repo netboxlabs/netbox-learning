@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Check if all required environment variables are set
-REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT")
+REQUIRED_VARS=("MY_EXTERNAL_IP" "NETBOX_PORT" "SUPERUSER_API_TOKEN")
 
 for var in "${REQUIRED_VARS[@]}"; do
   if [ -z "${!var:-}" ]; then
@@ -16,12 +16,8 @@ echo "--- Cloning NetBox Docker ---"
 echo
 
 # Clone netbox-docker
-git clone --branch 3.4.2 https://github.com/netbox-community/netbox-docker.git
+git clone --branch 4.0.0 https://github.com/netbox-community/netbox-docker.git
 pushd netbox-docker
-
-# Workaround for https://github.com/netbox-community/netbox-docker/issues/1589
-# NetBox v4.5 Token v2 requires API_TOKEN_PEPPERS; remove token creation from entrypoint
-sed -i '' '/Token.objects.create/d' docker/docker-entrypoint.sh
 
 echo
 echo "--- Generating configuration files ---"
@@ -29,12 +25,9 @@ echo
 
 # Create Dockerfile for plugins
 cat <<EOF > Dockerfile-Plugins
-FROM netboxcommunity/netbox:v4.5
+FROM netboxcommunity/netbox:v4.5.2
 
-RUN uv pip install netboxlabs-netbox-custom-objects==0.4.5
-
-# Copy patched entrypoint to fix token creation issue
-COPY docker/docker-entrypoint.sh /opt/netbox/docker-entrypoint.sh
+RUN uv pip install netboxlabs-netbox-custom-objects==0.4.6
 EOF
 
 cat <<EOF > docker-compose.override.yml
@@ -52,6 +45,7 @@ services:
       SUPERUSER_EMAIL: ""
       SUPERUSER_NAME: "admin"
       SUPERUSER_PASSWORD: "admin"
+      SUPERUSER_API_TOKEN: "${SUPERUSER_API_TOKEN}"
     healthcheck:
       test: curl -f http://127.0.0.1:8080/login/ || exit 1
       start_period: 600s
