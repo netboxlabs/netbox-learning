@@ -114,7 +114,7 @@ When this step finishes you can check that NetBox is working by logging into Net
 ./5_start_gitea.sh
 ```
 
-When this step finishes you can check that NetBox is working by logging into Gitea using the URL and credentials provided in the command line output.
+When this step finishes you can check that Gitea is working by logging into Gitea using the URL and credentials provided in the command line output.
 
 ### Step 6: Start local Prometheus server
 
