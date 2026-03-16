@@ -1,7 +1,0 @@
----
-collections:
-  - name: community.network
-  - name: nokia.srlinux
-  - name: netbox.netbox
-
-

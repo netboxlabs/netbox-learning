@@ -1,3 +1,0 @@
-requests
-pynetbox
-requests-toolbelt
