@@ -1,0 +1,13 @@
+plugin: netbox.netbox.nb_inventory
+validate_certs: false
+config_context: true
+interfaces: true
+services: false
+device_query_filters:
+  - status: active
+compose:
+  ansible_host: primary_ip4.address | regex_replace('/.*$', '')
+keyed_groups:
+  - prefix: sites
+    key: site.slug
+    separator: "_"

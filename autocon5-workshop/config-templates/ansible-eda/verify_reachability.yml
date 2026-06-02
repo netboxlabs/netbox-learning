@@ -1,0 +1,42 @@
+---
+- name: Verify device reachability
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+
+  tasks:
+    - name: Get device version
+      nokia.srlinux.cli:
+        commands:
+          - "show version"
+      register: version_result
+
+    - name: Store reachability result
+      ansible.builtin.set_fact:
+        reachability_result: "[{{ inventory_hostname }}] ({{ ansible_host }}) — REACHABLE"
+      delegate_to: localhost
+
+- name: Report results
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build reachability report
+      ansible.builtin.set_fact:
+        full_report: |
+          === Device Reachability Check ===
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['reachability_result'] is defined %}
+          {{ hostvars[host]['reachability_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

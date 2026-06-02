@@ -1,0 +1,129 @@
+---
+- name: Deploy SR Linux configuration from NetBox
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+  vars:
+    netbox_url: "{{ lookup('env', 'NETBOX_URL') }}"
+    netbox_token: "{{ lookup('env', 'NETBOX_TOKEN') }}"
+    branch_schema_id: "{{ ansible_eda.event.payload.branch_schema_id | default('') }}"
+    netbox_headers: >-
+      {{
+        {'Authorization': 'Token ' + netbox_token, 'X-NetBox-Branch': branch_schema_id}
+        if branch_schema_id else
+        {'Authorization': 'Token ' + netbox_token}
+      }}
+    # Workshop-specific: resets the two data interfaces and OSPF back to a
+    # clean baseline so a retry push starts from a known-good state.
+    reset_commands:
+      - "enter candidate"
+      - "delete / interface ethernet-1/1"
+      - "delete / interface ethernet-1/2"
+      - "delete / network-instance default protocols ospf instance main"
+      - "delete / network-instance default interface ethernet-1/1.0"
+      - "delete / network-instance default interface ethernet-1/2.0"
+      - "commit now"
+
+  tasks:
+    - name: Look up device ID in NetBox
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/devices/?name={{ inventory_hostname }}"
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: device_info
+      delegate_to: localhost
+
+    - name: Fetch rendered configuration from NetBox
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/devices/{{ device_info.json.results[0].id }}/render-config/"
+        method: POST
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: rendered_config
+      delegate_to: localhost
+
+    - block:
+        - name: Push configuration to device
+          nokia.srlinux.cli:
+            commands: "{{ (rendered_config.json.content.split('\n') | select() | reject('equalto', 'commit now') | list) + ['diff', 'commit now'] }}"
+          when: rendered_config.json.content is defined
+          register: cli_result
+
+        - name: Store deployment result (success)
+          ansible.builtin.set_fact:
+            deploy_result: |
+              [{{ inventory_hostname }}] ({{ ansible_host }})
+              Status  : success
+              Changed : {{ (cli_result.result | default([]) | map(attribute='text') | join('')).strip() != 'All changes have been committed. Leaving candidate mode.' }}
+          when: cli_result is defined
+          delegate_to: localhost
+
+      rescue:
+        - name: Discard any uncommitted candidate changes
+          nokia.srlinux.cli:
+            commands:
+              - "discard now"
+          ignore_errors: true
+
+        - name: Reset device to clean baseline
+          nokia.srlinux.cli:
+            commands: "{{ reset_commands }}"
+          register: reset_result
+          ignore_errors: true
+
+        - name: Retry push after successful reset
+          nokia.srlinux.cli:
+            commands: "{{ (rendered_config.json.content.split('\n') | select() | reject('equalto', 'commit now') | list) + ['diff', 'commit now'] }}"
+          when:
+            - not (reset_result.failed | default(true))
+            - rendered_config.json.content is defined
+          register: retry_result
+          ignore_errors: true
+
+        - name: Store deployment result (failed path)
+          ansible.builtin.set_fact:
+            deploy_result: |
+              [{{ inventory_hostname }}] ({{ ansible_host }})
+              {% if reset_result.failed | default(true) %}
+              Status  : failed
+              Reset   : failed — manual intervention required
+              Retry   : skipped
+              {% elif retry_result.skipped | default(false) %}
+              Status  : failed
+              Reset   : succeeded
+              Retry   : skipped — no rendered config
+              {% elif not (retry_result.failed | default(true)) %}
+              Status  : success (on retry)
+              Reset   : succeeded
+              Retry   : succeeded
+              {% else %}
+              Status  : failed
+              Reset   : succeeded
+              Retry   : failed — manual intervention required
+              {% endif %}
+          delegate_to: localhost
+
+- name: Report results back to NetBox
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Collect results from deployed hosts
+      ansible.builtin.set_fact:
+        full_report: |
+          === SR Linux Configuration Deployment ===
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['deploy_result'] is defined %}
+          {{ hostvars[host]['deploy_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

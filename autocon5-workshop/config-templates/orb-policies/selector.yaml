@@ -1,0 +1,7 @@
+web_monitor:
+  selector:
+    agent_name: orb-agent
+  policies:
+    web_monitor:
+      path: web_monitor.yaml
+      enabled: true

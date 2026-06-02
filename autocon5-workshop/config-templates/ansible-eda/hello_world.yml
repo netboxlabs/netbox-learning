@@ -1,0 +1,89 @@
+---
+- name: Hello World from Event Driven Ansible
+  hosts: localhost
+  gather_facts: false
+  vars:
+    payload: "{{ ansible_eda.event.payload }}"
+
+  tasks:
+    - name: Acknowledge event
+      ansible.builtin.debug:
+        msg: "Processing event_type={{ payload.event_type | default('unknown') }} from {{ payload.source | default('unknown') }}"
+
+    - name: Simulate compliance check
+      ansible.builtin.shell: |
+        echo "Checking device configuration..."
+        sleep 1
+        echo "Policy: interface-naming — PASS"
+        echo "Policy: lldp-enabled      — PASS"
+        echo "Policy: ntp-configured    — PASS"
+      register: check_output
+      changed_when: false
+      when: payload.event_type | default('') == 'device.compliance_check'
+
+    - name: Simulate config push
+      ansible.builtin.shell: |
+        echo "Rendering Jinja2 template..."
+        sleep 1
+        echo "Generated 12 interface stanzas"
+        echo "Dry-run diff: 0 lines changed"
+      register: push_output
+      changed_when: false
+      when: payload.event_type | default('') == 'device.config_push'
+
+    - name: Simulate audit
+      ansible.builtin.shell: |
+        echo "Collecting device facts..."
+        sleep 1
+        echo "Interfaces found: 4"
+        echo "BGP peers: 2 established, 0 down"
+        echo "OSPF neighbors: 1 full"
+      register: audit_output
+      changed_when: false
+      when: payload.event_type | default('') == 'device.audit'
+
+    - name: Build result output
+      ansible.builtin.set_fact:
+        result_output: |
+          === Event Driven Ansible ===
+          Event type : {{ payload.event_type | default('unknown') }}
+          Source     : {{ payload.source | default('unknown') }}
+          {% if payload.message | default('') %}
+          Message    : {{ payload.message }}
+          {% endif %}
+          {% if payload.device is defined %}
+
+          --- Target Device ---
+          Name       : {{ payload.device.name }}
+          Site       : {{ payload.device.site | default('N/A') }}
+          Role       : {{ payload.device.role | default('N/A') }}
+          Platform   : {{ payload.device.platform | default('N/A') }}
+          Primary IP : {{ payload.device.primary_ip | default('N/A') }}
+          Status     : {{ payload.device.status | default('N/A') }}
+          {% endif %}
+          {% if check_output is defined and check_output.stdout is defined %}
+
+          --- Compliance Results ---
+          {{ check_output.stdout }}
+          {% endif %}
+          {% if push_output is defined and push_output.stdout is defined %}
+
+          --- Config Push Results ---
+          {{ push_output.stdout }}
+          {% endif %}
+          {% if audit_output is defined and audit_output.stdout is defined %}
+
+          --- Audit Results ---
+          {{ audit_output.stdout }}
+          {% endif %}
+
+    - name: Post result back to NetBox script
+      ansible.builtin.uri:
+        url: "{{ payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ result_output }}"
+        status_code: 200
+      when: payload.callback_url is defined

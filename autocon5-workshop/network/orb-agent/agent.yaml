@@ -1,0 +1,20 @@
+orb:
+  labels:
+    agent_name: &agent_name "orb-agent"
+  config_manager:
+    active: git
+    sources:
+      git:
+        url: ${GIT_TARGET}
+        schedule: "* * * * *"
+        branch: main
+  backends:
+    network_discovery:
+    device_discovery:
+    opentelemetry_infinity:
+    common:
+      diode:
+        target: ${DIODE_TARGET}
+        client_id: ${DIODE_CLIENT_ID}
+        client_secret: ${DIODE_CLIENT_SECRET}
+        agent_name: *agent_name

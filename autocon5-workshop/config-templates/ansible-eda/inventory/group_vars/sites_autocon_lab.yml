@@ -1,0 +1,4 @@
+ansible_connection: ansible.netcommon.httpapi
+ansible_network_os: nokia.srlinux.srlinux
+ansible_user: admin
+ansible_password: "NokiaSrl1!"

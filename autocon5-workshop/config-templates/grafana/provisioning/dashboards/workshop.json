@@ -1,0 +1,129 @@
+{
+  "title": "Workshop Network Observability",
+  "uid": "workshop-network",
+  "tags": ["workshop"],
+  "refresh": "10s",
+  "schemaVersion": 38,
+  "timezone": "browser",
+  "time": { "from": "now-30m", "to": "now" },
+  "timepicker": {},
+  "annotations": { "list": [] },
+  "templating": { "list": [] },
+  "links": [],
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Web Server Status",
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "expr": "httpcheck_status{http_url=\"http://192.168.2.2\", http_status_class=\"2xx\"}",
+          "instant": true
+        }
+      ],
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "textMode": "auto"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "thresholds" },
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": { "text": "Unreachable", "color": "red",   "index": 0 },
+                "1": { "text": "Reachable",   "color": "green", "index": 1 }
+              }
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "value": null, "color": "red" },
+              { "value": 1,    "color": "green" }
+            ]
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "HTTP Response Time",
+      "description": "Shows response time for successful checks only. Gaps mean the web server was unreachable — not slow.",
+      "gridPos": { "x": 6, "y": 0, "w": 18, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "expr": "httpcheck_duration_milliseconds{http_url=\"http://192.168.2.2\"} unless on() (httpcheck_status{http_url=\"http://192.168.2.2\", http_status_class=\"2xx\"} == 0)",
+          "legendFormat": "Response time (ms)"
+        }
+      ],
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": false },
+        "tooltip": { "mode": "single", "sort": "none" }
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "color": { "mode": "thresholds" },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "value": null,  "color": "green" },
+              { "value": 500,   "color": "yellow" },
+              { "value": 1000,  "color": "red" }
+            ]
+          },
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "fillOpacity": 15,
+            "showPoints": "always",
+            "pointSize": 5,
+            "spanNulls": false
+          }
+        },
+        "overrides": []
+      }
+    },
+    {
+      "id": 3,
+      "type": "alertlist",
+      "title": "Alert Status",
+      "description": "Current state of all configured alert rules. If Web Server Status shows no data, check HttpCheck_NoMetricsReceived — it indicates the Orb agent has stopped sending metrics.",
+      "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 },
+      "options": {
+        "alertInstanceLabelFilter": "",
+        "alertName": "",
+        "dashboardAlerts": false,
+        "folder": { "id": 0, "title": "Workshop" },
+        "groupBy": [],
+        "groupMode": "default",
+        "maxItems": 20,
+        "sortOrder": 1,
+        "stateFilter": {
+          "error": true,
+          "firing": true,
+          "noData": true,
+          "normal": true,
+          "pending": true
+        },
+        "viewMode": "list"
+      }
+    }
+  ]
+}

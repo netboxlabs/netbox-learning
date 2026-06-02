@@ -1,0 +1,31 @@
+# Enter configuration mode
+enter candidate
+
+# Configure network instance
+{% set vrf = device.primary_ip.vrf if device.primary_ip and device.primary_ip.vrf else none -%}
+{% set network_instance = vrf.name if vrf else "default" -%}
+set / network-instance {{ network_instance }} type default
+
+# Configure interfaces
+{% for interface in device.interfaces.all() -%}
+{% if interface.ip_addresses.all() and not interface.name.startswith('mgmt') -%}
+{% set parent_name = interface.parent.name if interface.parent else interface.name.split('.')[0] -%}
+{% for ip in interface.ip_addresses.all() -%}
+set / interface {{ parent_name }} admin-state enable
+set / interface {{ parent_name }} subinterface 0 ipv4 address {{ ip.address }}
+set / interface {{ parent_name }} subinterface 0 ipv4 admin-state enable
+
+{% endfor -%}
+{% endif -%}
+{% endfor -%}
+
+# Add interfaces to {{ network_instance }} network instance
+{% for interface in device.interfaces.all() -%}
+{% if interface.ip_addresses.all() and not interface.name.startswith('mgmt') -%}
+{% set subif_name = interface.name if '.' in interface.name else interface.name + '.0' -%}
+set / network-instance {{ network_instance }} interface {{ subif_name }}
+{% endif -%}
+{% endfor -%}
+
+# Commit
+commit now

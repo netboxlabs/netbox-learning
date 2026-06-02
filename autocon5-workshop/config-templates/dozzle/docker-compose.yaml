@@ -1,0 +1,14 @@
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    restart: unless-stopped
+    ports:
+      - "8888:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./users.yml:/data/users.yml
+    command: [
+      "--auth-provider", "simple",
+      "--filter", "name=diode-diode-reconciler-1|diode-diode-ingester-1|netbox-docker-netbox|eda-log|clab-workshop|grafana|prometheus"
+    ]

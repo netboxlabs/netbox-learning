@@ -1,0 +1,61 @@
+---
+- name: Verify OSPF routing on SR Linux devices
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+
+  tasks:
+    - name: Get OSPF neighbor state
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default protocols ospf instance main neighbor"
+        output_format: json
+      register: ospf_result
+
+    - name: Get IPv4 route table
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default route-table ipv4-unicast summary"
+        output_format: json
+      register: route_result
+
+    - name: Store verification result
+      ansible.builtin.set_fact:
+        verify_result: |
+          [{{ inventory_hostname }}] ({{ ansible_host }})
+            OSPF Neighbors:
+          {% for nbr in ospf_result.result[0].instances[0].neighbors_brief %}
+              • {{ nbr['Rtr Id'] }}  interface {{ nbr['Interface-Name'] }}  state {{ nbr['State'] | upper }}
+          {% endfor %}
+            OSPF Routes:
+          {% for route in route_result.result[0].instance[0]['ip route'] %}
+          {% if route['Route Type'] == 'ospfv2' %}
+              • {{ route['Prefix'] }}  via {{ route['Next-hop (Type)'] | regex_replace(' \(.*\)', '') }}  metric {{ route['Metric'] }}
+          {% endif %}
+          {% endfor %}
+      delegate_to: localhost
+
+- name: Report results back to NetBox
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build verification report
+      ansible.builtin.set_fact:
+        full_report: |
+          === OSPF Verification Report ===
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['verify_result'] is defined %}
+          {{ hostvars[host]['verify_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

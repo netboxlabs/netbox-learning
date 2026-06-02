@@ -1,0 +1,87 @@
+---
+- name: SR Linux Workshop Automation
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Deploy config on device.config_push
+      condition: event.payload.event_type == "device.config_push"
+      action:
+        run_playbook:
+          name: deploy_srl.yml
+
+    - name: Verify OSPF on device.verify_ospf
+      condition: event.payload.event_type == "device.verify_ospf"
+      action:
+        run_playbook:
+          name: verify_ospf.yml
+
+    - name: Verify device reachability on device.verify_reachability
+      condition: event.payload.event_type == "device.verify_reachability"
+      action:
+        run_playbook:
+          name: verify_reachability.yml
+
+    - name: Device health check on device.health_check
+      condition: event.payload.event_type == "device.health_check"
+      action:
+        run_playbook:
+          name: health_check.yml
+
+    - name: Connectivity test on device.connectivity_test or network.alert
+      condition: >-
+        event.payload.event_type == "device.connectivity_test" or
+        event.payload.event_type == "network.alert"
+      action:
+        run_playbook:
+          name: connectivity_test.yml
+
+    - name: Compliance check on device.compliance_check
+      condition: event.payload.event_type == "device.compliance_check"
+      action:
+        run_playbook:
+          name: compliance_check.yml
+
+    - name: Network audit on device.audit
+      condition: event.payload.event_type == "device.audit"
+      action:
+        run_playbook:
+          name: network_audit.yml
+
+    - name: Full network validation on device.validate
+      condition: event.payload.event_type == "device.validate"
+      action:
+        run_playbook:
+          name: validate_network.yml
+
+    - name: Show inventory on inventory.show
+      condition: event.payload.event_type == "inventory.show"
+      action:
+        run_playbook:
+          name: show_inventory.yml
+
+    - name: Sync playbooks from Gitea on git.sync
+      condition: event.payload.event_type == "git.sync"
+      action:
+        run_playbook:
+          name: git_sync.yml
+
+    - name: Hello world on any other webhook POST
+      condition: >-
+        event.payload is defined and
+        event.payload.event_type != "device.config_push" and
+        event.payload.event_type != "device.verify_ospf" and
+        event.payload.event_type != "device.verify_reachability" and
+        event.payload.event_type != "device.health_check" and
+        event.payload.event_type != "device.connectivity_test" and
+        event.payload.event_type != "network.alert" and
+        event.payload.event_type != "device.compliance_check" and
+        event.payload.event_type != "device.audit" and
+        event.payload.event_type != "device.validate" and
+        event.payload.event_type != "inventory.show" and
+        event.payload.event_type != "git.sync"
+      action:
+        run_playbook:
+          name: hello_world.yml

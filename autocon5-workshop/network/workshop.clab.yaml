@@ -1,0 +1,39 @@
+name: workshop
+
+mgmt:
+  network: autocon5-workshop
+  ipv4-subnet: 172.24.0.0/24
+
+topology:
+  nodes:
+    srl1:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:24.7.2
+      mgmt-ipv4: 172.24.0.101
+
+    srl2:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:24.7.2
+      mgmt-ipv4: 172.24.0.102
+
+    orb-agent:
+      kind: linux
+      image: netboxlabs/orb-agent:develop
+      mgmt-ipv4: 172.24.0.100
+      binds:
+        - orb-agent:/opt/orb:ro
+      entrypoint: /bin/sh
+      cmd: /opt/orb/startup.sh
+
+    web-server:
+      kind: linux
+      image: nginx:alpine
+      network-mode: none
+      exec:
+        - ip addr add 192.168.2.2/30 dev eth1
+        - ip route add default via 192.168.2.1
+
+  links:
+    - endpoints: ["srl1:e1-1", "srl2:e1-1"]
+    - endpoints: ["srl1:e1-2", "orb-agent:eth1"]
+    - endpoints: ["srl2:e1-2", "web-server:eth1"]

@@ -1,0 +1,243 @@
+---
+# Progressive network validation: all checks start as FAIL and become PASS as the workshop progresses.
+# Each check uses NetBox as the source of truth for expected state. FAIL messages indicate
+# whether the gap is in NetBox (data not yet entered) or on the device (config not yet deployed).
+#
+# CHECK 0 — Hostname Drift         (added in Module 3 exercise; PASS once hostname matches NetBox)
+# CHECK 1 — Device Reachable       (PASS from Module 0 once EDA is working)
+# CHECK 2 — LLDP Neighbors         (PASS after cables added in NetBox, Module 2)
+# CHECK 3 — Interface IPs          (PASS after IPs deployed and branch selected, Module 4)
+# CHECK 4 — OSPF Neighbors         (PASS after OSPF deployed, Module 5)
+# CHECK 5 — Web Server Route       (PASS after OSPF deployed, Module 5)
+
+- name: Gather expected state from NetBox
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+  vars:
+    netbox_url: "{{ lookup('env', 'NETBOX_URL') }}"
+    netbox_token: "{{ lookup('env', 'NETBOX_TOKEN') }}"
+    branch_schema_id: "{{ ansible_eda.event.payload.branch_schema_id | default('') }}"
+    netbox_headers: >-
+      {{
+        {'Authorization': 'Token ' + netbox_token, 'X-NetBox-Branch': branch_schema_id}
+        if branch_schema_id else
+        {'Authorization': 'Token ' + netbox_token}
+      }}
+
+  tasks:
+
+    # ── NetBox: device record ────────────────────────────────────────────────
+
+    - name: Look up device in NetBox
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/devices/?name={{ inventory_hostname }}"
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: nb_device
+      delegate_to: localhost
+
+    # ── NetBox: cables → expected LLDP neighbors ─────────────────────────────
+
+    - name: Get cables connected to this device
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/cables/?device_id={{ nb_device.json.results[0].id }}&limit=50"
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: nb_cables
+      delegate_to: localhost
+
+    - name: Derive expected remote devices from cable terminations
+      ansible.builtin.set_fact:
+        expected_remote_devices: >-
+          {{
+            (nb_cables.json.results
+              | map(attribute='a_terminations') | flatten
+              | selectattr('object_type', 'equalto', 'dcim.interface')
+              | rejectattr('object.device.id', 'equalto', nb_device.json.results[0].id)
+              | map(attribute='object.device.name') | list)
+            +
+            (nb_cables.json.results
+              | map(attribute='b_terminations') | flatten
+              | selectattr('object_type', 'equalto', 'dcim.interface')
+              | rejectattr('object.device.id', 'equalto', nb_device.json.results[0].id)
+              | map(attribute='object.device.name') | list)
+          }}
+
+    # ── NetBox: remote device config context → expected OSPF Router IDs ──────
+
+    - name: Get NetBox record for each connected remote device
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/dcim/devices/?name={{ item }}"
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: nb_remote_info
+      loop: "{{ expected_remote_devices | unique }}"
+      delegate_to: localhost
+      when: expected_remote_devices | length > 0
+
+    - name: Extract expected OSPF Router IDs from remote device config contexts
+      ansible.builtin.set_fact:
+        expected_ospf_router_ids: >-
+          {{
+            (nb_remote_info.results | default([]))
+            | map(attribute='json.results') | flatten
+            | map(attribute='config_context')
+            | selectattr('router_id', 'defined')
+            | map(attribute='router_id')
+            | list
+          }}
+
+    # ── NetBox: IP addresses → expected interface IPs ────────────────────────
+
+    - name: Get IP addresses assigned to this device
+      ansible.builtin.uri:
+        url: "{{ netbox_url }}/api/ipam/ip-addresses/?device_id={{ nb_device.json.results[0].id }}&limit=50"
+        headers: "{{ netbox_headers }}"
+        return_content: true
+      register: nb_ips
+      delegate_to: localhost
+
+    - name: Build list of expected non-management IPs
+      ansible.builtin.set_fact:
+        expected_ips: >-
+          {{
+            nb_ips.json.results
+            | rejectattr('assigned_object.name', 'match', '^mgmt')
+            | map(attribute='address')
+            | list
+          }}
+
+    # ── Device: gather actual state ──────────────────────────────────────────
+
+    - name: Check 1 — Get device version (confirms SSH reachability)
+      nokia.srlinux.cli:
+        commands:
+          - "show version"
+      register: check_reachable
+
+    - name: Check 2 — Get LLDP neighbors
+      nokia.srlinux.cli:
+        commands:
+          - "show system lldp neighbor"
+      register: check_lldp
+      ignore_errors: true
+
+    - name: Check 3 — Get route table
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default route-table ipv4-unicast summary"
+        output_format: json
+      register: check_routes
+      ignore_errors: true
+
+    - name: Check 4/5 — Get OSPF neighbors
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default protocols ospf instance main neighbor"
+        output_format: json
+      register: check_ospf
+      ignore_errors: true
+
+    # ── Evaluate and assemble validation report ──────────────────────────────
+
+    - name: Build per-device validation report
+      ansible.builtin.set_fact:
+        validation_result: |
+          [{{ inventory_hostname }}] ({{ ansible_host }})
+
+          {% set routes = check_routes.result[0].instance[0]['ip route'] | default([]) if not check_routes.failed else [] %}
+          {% set ospf_nbrs = check_ospf.result[0].instances[0].neighbors_brief | default([]) if not check_ospf.failed else [] %}
+          {% set full_nbrs = ospf_nbrs | selectattr('State', 'equalto', 'full') | list %}
+          {% set ospf_routes = routes | selectattr('Route Type', 'equalto', 'ospfv2') | list %}
+          {% set web_routes = routes | selectattr('Prefix', 'search', '192\\.168\\.2') | list %}
+          {% set lldp_ifaces = check_lldp.result[0]['LLDP-Interface'] | default([]) if not check_lldp.failed else [] %}
+          {% set lldp_seen = lldp_ifaces | map(attribute='Neighbor System Name') | list %}
+
+          {# ── CHECK 1: Device reachable ── #}
+            CHECK 1 — Device Reachable          : PASS
+
+          {# ── CHECK 2: LLDP neighbors vs NetBox cables ── #}
+          {% if expected_remote_devices | length == 0 %}
+            CHECK 2 — LLDP Neighbors (cables)   : FAIL — no cables defined in NetBox (add cables in Module 2)
+          {% elif check_lldp.failed | default(false) %}
+            CHECK 2 — LLDP Neighbors (cables)   : FAIL — LLDP not responding on device
+          {% else %}
+          {% set ns = namespace(lldp_missing=[]) %}
+          {% for device in expected_remote_devices %}
+          {% if device not in lldp_seen %}{% set ns.lldp_missing = ns.lldp_missing + [device] %}{% endif %}
+          {% endfor %}
+          {% if ns.lldp_missing %}
+            CHECK 2 — LLDP Neighbors (cables)   : FAIL — expected but not seen: {{ ns.lldp_missing | join(', ') }}
+          {% else %}
+            CHECK 2 — LLDP Neighbors (cables)   : PASS — {{ expected_remote_devices | unique | join(', ') }}
+          {% endif %}
+          {% endif %}
+
+          {# ── CHECK 3: Interface IPs vs NetBox ── #}
+          {% if expected_ips | length == 0 %}
+            CHECK 3 — Interface IPs             : FAIL — no IPs assigned in NetBox (assign IPs in Module 4)
+          {% else %}
+          {% set ns = namespace(ips_missing=[]) %}
+          {% for ip in expected_ips %}
+          {% set ip_only = ip.split('/')[0] %}
+          {% if not (routes | selectattr('Prefix', 'search', ip_only) | list) %}
+          {% set ns.ips_missing = ns.ips_missing + [ip] %}
+          {% endif %}
+          {% endfor %}
+          {% if ns.ips_missing %}
+            CHECK 3 — Interface IPs             : FAIL — not found in route table: {{ ns.ips_missing | join(', ') }}
+          {% else %}
+            CHECK 3 — Interface IPs             : PASS — {{ expected_ips | join(', ') }}
+          {% endif %}
+          {% endif %}
+
+          {# ── CHECK 4: OSPF neighbors vs NetBox config context router_id ── #}
+          {% if expected_ospf_router_ids | length == 0 %}
+            CHECK 4 — OSPF Neighbors            : FAIL — no OSPF config context in NetBox (configure OSPF in Module 5)
+          {% else %}
+          {% set actual_rtr_ids = ospf_nbrs | map(attribute='Rtr Id') | list %}
+          {% set ns = namespace(ospf_missing=[]) %}
+          {% for rid in expected_ospf_router_ids %}
+          {% if rid not in actual_rtr_ids %}{% set ns.ospf_missing = ns.ospf_missing + [rid] %}{% endif %}
+          {% endfor %}
+          {% if ns.ospf_missing %}
+            CHECK 4 — OSPF Neighbors            : FAIL — expected Router ID(s) not FULL: {{ ns.ospf_missing | join(', ') }}
+          {% else %}
+            CHECK 4 — OSPF Neighbors            : PASS — {{ full_nbrs | length }}/{{ expected_ospf_router_ids | length }} neighbors FULL
+          {% endif %}
+          {% endif %}
+
+          {# ── CHECK 5: Web server reachable via OSPF route ── #}
+          {% if not web_routes %}
+            CHECK 5 — Web Server Route          : FAIL — 192.168.2.x not in route table
+          {% else %}
+            CHECK 5 — Web Server Route          : PASS — {{ web_routes[0]['Prefix'] }} via {{ web_routes[0]['Next-hop (Type)'] | regex_replace(' \(.*\)', '') }}
+          {% endif %}
+      delegate_to: localhost
+
+- name: Report validation results
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build full validation report
+      ansible.builtin.set_fact:
+        full_report: |
+          === Network Validation Report ===
+
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['validation_result'] is defined %}
+          {{ hostvars[host]['validation_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

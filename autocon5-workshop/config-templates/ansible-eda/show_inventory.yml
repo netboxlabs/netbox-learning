@@ -1,0 +1,51 @@
+---
+# show_inventory.yml — Show what NetBox handed to Ansible via nb_inventory.
+# Educational: renders each host's key variables so participants can see exactly
+# how the data they entered in NetBox maps to Ansible's working inventory.
+- name: Collect inventory data from NetBox hostvars
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  tasks:
+    - name: Format host entry
+      ansible.builtin.set_fact:
+        host_entry: |
+          {{ inventory_hostname }}  →  {{ ansible_host }}
+            Network OS  : {{ ansible_network_os | default('(not set)') }}
+            Connection  : {{ ansible_connection | default('(not set)') }}
+            User        : {{ ansible_user | default('(not set)') }}
+            Site        : {{ site.name | default('(none)') if site is defined else '(none)' }}
+            Config Ctx  : {{ 'configured (see Module 5)' if (config_context | default({})) else '(none — added in Module 5)' }}
+            Interfaces  : {{ (interfaces | default([]) | map(attribute='name') | list | join(', ')) or '(none fetched)' }}
+      delegate_to: localhost
+
+- name: Build and post inventory report
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build full inventory report
+      ansible.builtin.set_fact:
+        full_report: |
+          === NetBox Dynamic Inventory ===
+
+          Plugin  : netbox.netbox.nb_inventory
+          Group   : sites_autocon_lab  (Active devices in site autocon-lab)
+          Source  : {{ lookup('env', 'NETBOX_URL') }}
+
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host].host_entry is defined %}
+          {{ hostvars[host].host_entry }}
+          {% endif %}
+          {% endfor %}
+          ansible_host resolved as:
+            primary_ip4.address | strip CIDR suffix → bare IP for SSH
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

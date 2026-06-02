@@ -1,0 +1,11 @@
+/diode/
+/gitea/
+/claude-mcp/
+netbox-docker/
+network/clab-workshop/
+/prometheus/
+/caddy/
+/certs/
+environment
+diode_creds
+participants.txt

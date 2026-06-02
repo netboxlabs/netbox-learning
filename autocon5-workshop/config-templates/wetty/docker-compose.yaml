@@ -1,0 +1,11 @@
+services:
+  wetty:
+    image: wettyoss/wetty:latest
+    container_name: wetty
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    entrypoint: ["node", "/usr/src/app/build/main.js"]
+    command: ["--ssh-host=host.docker.internal", "--ssh-user=admin", "--ssh-auth=password", "--base=/"]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

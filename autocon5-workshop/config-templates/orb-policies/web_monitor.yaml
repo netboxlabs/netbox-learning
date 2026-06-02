@@ -1,0 +1,22 @@
+#-- version 1
+opentelemetry_infinity:
+  web_monitor:
+    receivers:
+      httpcheck:
+        collection_interval: 10s
+        targets:
+          - endpoint: http://192.168.2.2
+    processors:
+      batch:
+        send_batch_max_size: 1000
+        send_batch_size: 100
+        timeout: 10s
+    exporters:
+      prometheusremotewrite:
+        endpoint: ${env:PROMETHEUS_TARGET}
+    service:
+      pipelines:
+        metrics:
+          receivers: [httpcheck]
+          processors: [batch]
+          exporters: [prometheusremotewrite]

@@ -1,0 +1,10 @@
+apiVersion: 1
+
+providers:
+  - name: Workshop
+    type: file
+    folder: Workshop
+    disableDeletion: true
+    updateIntervalSeconds: 30
+    options:
+      path: /etc/grafana/provisioning/dashboards
