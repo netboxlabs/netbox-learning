@@ -75,7 +75,7 @@ root  ... ansible-rulebook --rulebook rulebook.yml --inventory inventory/ --verb
 If either is missing, restart EDA from the workshop directory:
 
 ```bash
-cd ~/workspace/product-internal-skunkworks/autocon5-workshop
+cd ~/workspace/netbox-learning/autocon5-workshop
 source ./1_set_envvars.sh
 bash 7_start_eda.sh
 ```
@@ -334,7 +334,7 @@ Playbooks synced successfully. Latest commit: a1b2c3d Add CHECK 0 hostname drift
 CHECK 0 should now appear in the output, and it should **PASS** — both devices are correctly named `srl1` and `srl2`, matching their NetBox names exactly.
 
 > [!NOTE]
-> **If the script times out after 90 seconds**, the most likely cause is a YAML indentation error in the playbook — ansible-rulebook fails to parse it and never posts a result back. SSH to the VM and run `tail -50 /root/workspace/product-internal-skunkworks/autocon5-workshop/eda.log` to see the exact error. Fix the indentation in Gitea, commit, re-sync, and try again.
+> **If the script times out after 90 seconds**, the most likely cause is a YAML indentation error in the playbook — ansible-rulebook fails to parse it and never posts a result back. SSH to the VM and run `tail -50 /root/workspace/netbox-learning/autocon5-workshop/eda.log` to see the exact error. Fix the indentation in Gitea, commit, re-sync, and try again.
 
 ```
 [srl1] (172.24.0.101)

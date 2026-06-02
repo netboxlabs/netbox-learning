@@ -30,7 +30,7 @@ fi
 echo "admin:netboxlabs" | chpasswd
 usermod -aG docker admin
 
-WORKSHOP_DIR="/root/workspace/product-internal-skunkworks/autocon5-workshop"
+WORKSHOP_DIR="/root/workspace/netbox-learning/autocon5-workshop"
 
 # Suppress terminal color probing (prevents escape sequences leaking into output via WeTTY)
 echo 'export NO_COLOR=1' >> /home/admin/.bashrc

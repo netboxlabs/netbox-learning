@@ -74,7 +74,7 @@ Before we start configuring devices, we need to ensure our lab environment is ru
 > All shell commands in this module should be run from the workshop directory on your lab VM:
 >
 > ```bash
-> cd ~/workspace/product-internal-skunkworks/autocon5-workshop
+> cd ~/workspace/netbox-learning/autocon5-workshop
 > ```
 
 ## Step 1: Set Up Environment Variables
