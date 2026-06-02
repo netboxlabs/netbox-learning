@@ -1,0 +1,77 @@
+---
+- name: Network-wide audit
+  hosts: sites_autocon_lab
+  gather_facts: false
+  serial: 1
+
+  tasks:
+    - name: Get device version
+      nokia.srlinux.cli:
+        commands:
+          - "show version"
+      register: version_result
+
+    - name: Get interface status
+      nokia.srlinux.cli:
+        commands:
+          - "show interface brief"
+      register: interface_result
+
+    - name: Get OSPF neighbor state
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default protocols ospf instance main neighbor"
+        output_format: json
+      register: ospf_result
+
+    - name: Get IPv4 route table
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default route-table ipv4-unicast summary"
+        output_format: json
+      register: route_result
+
+    - name: Store audit result
+      ansible.builtin.set_fact:
+        audit_result: |
+          [{{ inventory_hostname }}] ({{ ansible_host }})
+          {% set ospf_nbrs = ospf_result.result[0].instances[0].neighbors_brief | default([]) %}
+          {% set full_nbrs = ospf_nbrs | selectattr('State', 'equalto', 'Full') | list %}
+          {% set routes = route_result.result[0].instance[0]['ip route'] | default([]) %}
+          {% set ospf_routes = routes | selectattr('Route Type', 'equalto', 'ospfv2') | list %}
+            OSPF neighbors : {{ full_nbrs | length }} FULL / {{ ospf_nbrs | length }} total
+            Route table    : {{ routes | length }} routes ({{ ospf_routes | length }} OSPF)
+          {% for nbr in ospf_nbrs %}
+              Neighbor {{ nbr['Rtr Id'] }} on {{ nbr['Interface-Name'] }} — {{ nbr['State'] | upper }}
+          {% endfor %}
+
+          --- Interfaces ---
+          {{ interface_result.result[0] }}
+      delegate_to: localhost
+
+- name: Build and report audit
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build audit report
+      ansible.builtin.set_fact:
+        full_report: |
+          === Network-Wide Audit ===
+          Devices audited: {{ groups['sites_autocon_lab'] | length }}
+
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['audit_result'] is defined %}
+          {{ hostvars[host]['audit_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

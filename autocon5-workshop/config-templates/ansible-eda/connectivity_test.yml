@@ -1,0 +1,66 @@
+---
+- name: Network connectivity test
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+
+  tasks:
+    - name: Get OSPF neighbor state
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default protocols ospf instance main neighbor"
+        output_format: json
+      register: ospf_result
+
+    - name: Get IPv4 route table
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default route-table ipv4-unicast summary"
+        output_format: json
+      register: route_result
+
+    - name: Store connectivity result
+      ansible.builtin.set_fact:
+        connectivity_result: |
+          [{{ inventory_hostname }}] ({{ ansible_host }})
+          {% set ospf_nbrs = ospf_result.result[0].instances[0].neighbors_brief | default([]) %}
+          {% set full_nbrs = ospf_nbrs | selectattr('State', 'equalto', 'Full') | list %}
+          {% set routes = route_result.result[0].instance[0]['ip route'] | default([]) %}
+          {% set ospf_routes = routes | selectattr('Route Type', 'equalto', 'ospfv2') | list %}
+          {% set web_route = routes | selectattr('Prefix', 'search', '192\\.168\\.2') | list %}
+            OSPF neighbors (FULL) : {{ 'PASS (' + (full_nbrs | length | string) + ' neighbors)' if full_nbrs else 'FAIL — no FULL neighbors' }}
+            OSPF routes learned   : {{ ospf_routes | length }}
+            Web server reachable  : {{ 'PASS — 192.168.2.x in route table' if web_route else 'FAIL — 192.168.2.x not in route table' }}
+          {% if ospf_routes %}
+
+            OSPF route table:
+          {% for route in ospf_routes %}
+              • {{ route['Prefix'] }}  via {{ route['Next-hop (Type)'] | regex_replace(' \(.*\)', '') }}  metric {{ route['Metric'] }}
+          {% endfor %}
+          {% endif %}
+      delegate_to: localhost
+
+- name: Report results
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build connectivity report
+      ansible.builtin.set_fact:
+        full_report: |
+          === Network Connectivity Test ===
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['connectivity_result'] is defined %}
+          {{ hostvars[host]['connectivity_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

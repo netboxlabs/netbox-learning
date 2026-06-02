@@ -1,0 +1,32 @@
+---
+- name: Sync playbooks from Gitea
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Fetch latest from Gitea
+      ansible.builtin.command:
+        cmd: git fetch origin
+        chdir: "{{ lookup('env', 'EDA_PLAYBOOK_DIR') }}"
+
+    - name: Reset working copy to match Gitea
+      ansible.builtin.command:
+        cmd: git reset --hard origin/main
+        chdir: "{{ lookup('env', 'EDA_PLAYBOOK_DIR') }}"
+
+    - name: Get latest commit info
+      ansible.builtin.command:
+        cmd: git log --oneline -1
+        chdir: "{{ lookup('env', 'EDA_PLAYBOOK_DIR') }}"
+      register: git_result
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "Playbooks synced successfully. Latest commit: {{ git_result.stdout }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

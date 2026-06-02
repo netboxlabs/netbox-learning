@@ -1,0 +1,62 @@
+---
+- name: Device compliance check
+  hosts: "{{ ansible_eda.event.payload.device.name if ansible_eda.event.payload.device is defined else 'sites_autocon_lab' }}"
+  gather_facts: false
+  serial: 1
+
+  tasks:
+    - name: Check LLDP neighbor discovery
+      nokia.srlinux.cli:
+        commands:
+          - "show system lldp neighbor"
+      register: lldp_result
+      ignore_errors: true
+
+    - name: Check OSPF neighbor state
+      nokia.srlinux.cli:
+        commands:
+          - "show network-instance default protocols ospf instance main neighbor"
+        output_format: json
+      register: ospf_result
+
+    - name: Check interface operational status
+      nokia.srlinux.cli:
+        commands:
+          - "show interface brief"
+      register: interface_result
+
+    - name: Store compliance result
+      ansible.builtin.set_fact:
+        compliance_result: |
+          [{{ inventory_hostname }}] ({{ ansible_host }})
+          {% set ospf_nbrs = ospf_result.result[0].instances[0].neighbors_brief | default([]) %}
+          {% set full_nbrs = ospf_nbrs | selectattr('State', 'equalto', 'Full') | list %}
+            Policy: LLDP enabled         — {{ 'PASS' if not lldp_result.failed else 'FAIL — LLDP not responding' }}
+            Policy: OSPF neighbors FULL  — {{ 'PASS (' + (full_nbrs | length | string) + ' neighbors)' if full_nbrs else 'FAIL — no FULL neighbors' }}
+            Policy: Interfaces reachable — {{ 'PASS' if not interface_result.failed else 'FAIL' }}
+      delegate_to: localhost
+
+- name: Report results
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Build compliance report
+      ansible.builtin.set_fact:
+        full_report: |
+          === Compliance Check ===
+          {% for host in groups['sites_autocon_lab'] %}
+          {% if hostvars[host]['compliance_result'] is defined %}
+          {{ hostvars[host]['compliance_result'] }}
+          {% endif %}
+          {% endfor %}
+
+    - name: Post result to callback URL
+      ansible.builtin.uri:
+        url: "{{ ansible_eda.event.payload.callback_url }}"
+        method: POST
+        body_format: json
+        body:
+          status: success
+          message: "{{ full_report }}"
+        status_code: 200
+      when: ansible_eda.event.payload.callback_url is defined

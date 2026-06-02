@@ -1,0 +1,55 @@
+apiVersion: 1
+
+groups:
+  - orgId: 1
+    name: HTTP Check Alerts
+    folder: Workshop
+    interval: 10s
+    rules:
+      - uid: ws-webserver-http-error
+        title: WebServer_HttpCheckError
+        condition: A
+        data:
+          - refId: A
+            datasourceUid: prometheus
+            relativeTimeRange:
+              from: 600
+              to: 0
+            model:
+              editorMode: code
+              expr: 'httpcheck_error{http_url="http://192.168.2.2"} == 1'
+              instant: true
+              refId: A
+        noDataState: OK
+        execErrState: Error
+        for: 0s
+        labels:
+          severity: critical
+          team: workshop
+        annotations:
+          summary: "HTTP check error for {{ $labels.http_url }}"
+          description: "HTTP check for {{ $labels.http_url }} returned an error."
+
+      - uid: ws-httpcheck-no-metrics
+        title: HttpCheck_NoMetricsReceived
+        condition: A
+        data:
+          - refId: A
+            datasourceUid: prometheus
+            relativeTimeRange:
+              from: 600
+              to: 0
+            model:
+              editorMode: code
+              expr: 'absent(httpcheck_status{http_url="http://192.168.2.2"}) or absent(httpcheck_duration_milliseconds{http_url="http://192.168.2.2"})'
+              instant: true
+              refId: A
+        noDataState: OK
+        execErrState: Error
+        for: 0s
+        labels:
+          severity: critical
+          team: workshop
+        annotations:
+          summary: "HTTP check metrics missing"
+          description: "Critical: no httpcheck metrics have been received."

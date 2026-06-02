@@ -1,0 +1,26 @@
+services:
+  gitea:
+    image: gitea/gitea:latest-rootless
+    container_name: gitea
+    restart: unless-stopped
+    environment:
+      - GITEA__server__ROOT_URL=http://${MY_EXTERNAL_IP}:3000/
+      - GITEA__server__HTTP_PORT=3000
+      - GITEA__server__SSH_DOMAIN=${MY_EXTERNAL_IP}
+      - GITEA__server__SSH_PORT=2222
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__security__INSTALL_LOCK=true
+      - GITEA__service__DISABLE_REGISTRATION=true
+    # NOTE: rootless image expects /var/lib/gitea and /etc/gitea
+    volumes:
+      - ./gitea-data:/var/lib/gitea
+      - ./gitea-config:/etc/gitea
+    ports:
+      - "3000:3000"   # HTTP
+      - "2222:2222"   # SSH
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:3000/api/healthz >/dev/null || exit 1"]
+      interval: 2s
+      timeout: 2s
+      retries: 60
+      start_period: 5s
