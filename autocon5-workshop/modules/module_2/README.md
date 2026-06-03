@@ -308,8 +308,8 @@ Devices on their own aren't a network — you need to tell NetBox how they're ph
 5. On the **Connect Cable** form:
    - **Side B Device**: `srl2`
    - **Side B Interface**: `ethernet-1/1`
-   - **Type**: `Direct Attach Copper (Passive)`
    - **Status**: `Connected`
+   - **Type**: `Direct Attach Copper (Passive)`
 6. Click **Create**
 
 You'll be returned to the `srl1` interfaces page. `ethernet-1/1` should now show a **cable badge** in the **Connection** column.
@@ -511,7 +511,7 @@ We'll connect NetBox to this repository now and register the scripts.
 > [!NOTE]
 > The sync completes in a few seconds. Refresh the page and check the **Status** field — it should show `Completed` with a timestamp and the latest commit SHA from Gitea. If it shows `Failed`, double-check the Source URL and ensure Gitea is reachable.
 
-Once the sync completes, click the **Files** tab on the Data Source page. You should see a complete listing of the repository contents including the `scripts/` and `config-templates/` directories.
+Once the sync completes, scroll down to the **Data Files** box on the Data Source page. You should see a complete listing of the repository contents including the `scripts/` and `config-templates/` directories.
 
 #### Register the Custom Scripts
 
