@@ -35,7 +35,7 @@ Traditional network automation often looks like this:
 │   Source    │ ───> │ Automation  │ ───> │  Network    │
 │  of Truth   │      │   Engine    │      │  Devices    │
 └─────────────┘      └─────────────┘      └─────────────┘
-```text
+```
 
 This is **open-loop automation**: you push configurations out, but you don't verify the result or detect when things change.
 
@@ -114,7 +114,7 @@ All five use **username `admin` / password `netboxlabs`**.
 
 | Service | Purpose |
 | --- | --- |
-| **Ansible + EDA** | Automation engine; EDA listens for NetBox webhooks and triggers Ansible playbooks |
+| **Ansible + EDA** | Automation engine; Event-Driven Ansible (EDA) listens for NetBox webhooks and triggers Ansible playbooks |
 | **Orb agent** | Discovers device inventory and runs HTTP health checks against the web server |
 | **Diode** | Receives discovery data from the Orb agent and ingests it into NetBox |
 | **ContainerLab** | Runs the two Nokia SR Linux routers (`srl1`, `srl2`) and the web server as containers |
@@ -151,7 +151,7 @@ Gitea is a lightweight, self-hosted Git service (like GitHub, but running in you
 We'll be using Gitea to:
 
 - Store the `workshop-resources` repository — the scripts, config templates, and device type definitions that NetBox syncs and runs
-- Store the `ansible-playbooks` repository — the Ansible playbooks and EDA rulebook that automate device configuration and network validation
+- Store the `ansible-playbooks` repository — the Ansible playbooks and EDA (Event-Driven Ansible) rulebook that automate device configuration and network validation
 - Store the `orb-policies` repository — the discovery policy files fetched by the Orb agent
 
 > [!TIP]
@@ -185,7 +185,7 @@ You'll be logged in and dropped directly into the AutoCon5 workshop directory �
 
 ### Dozzle — Docker Log Viewer
 
-Dozzle is a real-time Docker log viewer for watching EDA, Ansible, and Diode output — useful for seeing what's happening behind the scenes without needing to run `docker logs` in a terminal.
+Dozzle is a real-time Docker log viewer for watching EDA (Event-Driven Ansible), Ansible, and Diode output — useful for seeing what's happening behind the scenes without needing to run `docker logs` in a terminal.
 
 > [!TIP]
 > **Try it now:** `https://docker-<YOUR_ID>.autocon5.netboxlabs.tech`
