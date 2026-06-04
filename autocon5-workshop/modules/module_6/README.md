@@ -335,7 +335,22 @@ Once the script completes, run **Branch Change Summary** again to review the upd
 2. Select **Branch**: `module-6-discovery`
 3. Click **Run Script**
 
-The output should show **no meaningful changes** — which is exactly what you want to see. The network now matches main, so there's nothing left to report. Discovery has confirmed the drift is resolved.
+The output should show **no meaningful changes** to interfaces or routing — the disabled interface is back up and the network state matches main. Discovery has confirmed the drift is resolved.
+
+> [!NOTE]
+> **You may see 3 newly created IPAM prefixes — this is expected.**
+>
+> Diode infers prefix objects from the IP addresses it discovers on device interfaces. Because NetBox tracks IP addresses (e.g. `10.0.0.1/30` on `ethernet-1/1.0`) but not necessarily the parent prefix objects (`10.0.0.0/30`), discovery may surface these as new:
+>
+> ```text
+> Object Type    Name
+> -------------  --------------
+> IPAM | prefix  10.0.0.0/30
+> IPAM | prefix  192.168.1.0/30
+> IPAM | prefix  192.168.2.0/30
+> ```
+>
+> These aren't drift — they're Diode filling in IPAM data that wasn't explicitly modelled. You can safely discard the `module-6-discovery` branch without merging them, or merge the branch to add them to your source of truth as accurate prefix records. Either is a valid choice.
 
 > [!NOTE]
 > **The Next Step: Closing the Loop Fully**
