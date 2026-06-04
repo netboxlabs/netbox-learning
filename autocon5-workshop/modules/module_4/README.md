@@ -516,7 +516,9 @@ With CHECK 3 passing on both devices, the interface configuration is validated a
 1. Navigate to **Branching** → **Branches**
 2. Click on your `module-4-srl-config` branch
 3. Click **Merge**
-4. Confirm the merge
+4. Check the **Commit Changes** checkbox
+5. **Merge Strategy**: leave it set to `Iterative`
+6. Click **Merge Branch**
 
 Your interface and IP address changes are now on the main branch — the authoritative source of truth for the network.
 

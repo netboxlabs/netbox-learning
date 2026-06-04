@@ -379,7 +379,8 @@ The rendered configs now include both interfaces and OSPF. Push them to the devi
 1. Navigate to **Customization** → **Scripts** → **Trigger EDA Event**
 2. **Event Type**: `Push Device Config`
 3. **Branch**: select `module-5-ospf-config`
-4. Click **Run Script**
+4. Leave **Target Device** blank
+5. Click **Run Script**
 
 Watch the Ansible output as it applies the full config — interfaces, OSPF instance, router IDs, area membership, and passive interfaces — to both devices from a single trigger.
 
@@ -451,7 +452,20 @@ Expected output:
 
 Each neighbor at `FULL` state confirms a stable OSPF adjacency. The routes show that each router has learned the other's stub network via OSPF — exactly what enables the web server to be reachable from the orb agent.
 
-## Step 8: Merge the Branch
+## Step 8: Confirm in Grafana
+
+With all six checks passing, the network is fully configured and OSPF is routing traffic end-to-end. Open Grafana to confirm that observability agrees:
+
+1. Open `https://grafana-<YOUR_ID>.autocon5.netboxlabs.tech`
+2. Navigate to **Dashboards** → **Workshop Network Observability**
+3. Look at the **Web Server Status** panel
+
+You should see 🟢 **Reachable** — the Orb agent can now reach the web server via the OSPF-routed path through srl1 and srl2.
+
+> [!NOTE]
+> It may take up to a minute for the Orb agent's next health check to register. If it still shows red, wait a moment and refresh.
+
+## Step 9: Merge the Branch
 
 The network is working and the validation report confirms it. Merge the branch to promote the OSPF configuration to main.
 
