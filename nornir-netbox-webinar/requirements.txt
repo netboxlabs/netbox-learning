@@ -5,10 +5,10 @@ charset-normalizer==3.3.0
 colorama==0.4.6
 cryptography==46.0.7
 future==0.18.3
-idna==3.7
+idna==3.15
 Jinja2==3.1.5
 junos-eznc==2.6.8
-lxml==4.9.3
+lxml==6.1.0
 markdown-it-py==3.0.0
 MarkupSafe==2.1.3
 mdurl==0.1.2
@@ -24,7 +24,7 @@ nornir-netbox==0.3.0
 nornir-netmiko==1.0.0
 nornir-utils==0.2.0
 ntc_templates==4.0.0
-paramiko==3.4.0
+paramiko==5.0.0
 pycparser==2.21
 pyeapi==1.0.2
 Pygments==2.16.1
@@ -46,5 +46,5 @@ transitions==0.9.0
 ttp==0.9.5
 ttp-templates==0.3.5
 typing_extensions==4.8.0
-urllib3==2.6.3
+urllib3==2.7.0
 yamlordereddictloader==0.4.2
