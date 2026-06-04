@@ -379,7 +379,8 @@ The rendered configs now include both interfaces and OSPF. Push them to the devi
 1. Navigate to **Customization** → **Scripts** → **Trigger EDA Event**
 2. **Event Type**: `Push Device Config`
 3. **Branch**: select `module-5-ospf-config`
-4. Click **Run Script**
+4. Leave **Target Device** blank
+5. Click **Run Script**
 
 Watch the Ansible output as it applies the full config — interfaces, OSPF instance, router IDs, area membership, and passive interfaces — to both devices from a single trigger.
 
