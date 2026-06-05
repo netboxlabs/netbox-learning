@@ -358,6 +358,12 @@ Exit srl2 by pressing `Ctrl+D`.
 
 Now for the real test: Can srl1 reach the web server through the OSPF-routed path?
 
+> [!TIP]
+> **Nokia SR Linux Credentials**
+>
+> - Username: `admin`
+> - Password: `NokiaSrl1!`
+
 SSH into srl1:
 
 ```bash
