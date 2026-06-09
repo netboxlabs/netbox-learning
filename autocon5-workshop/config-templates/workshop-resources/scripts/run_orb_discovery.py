@@ -52,11 +52,21 @@ def _gitea_base_url():
     """Derive Gitea base URL from the workshop-resources Data Source config."""
     try:
         from core.models import DataSource
-        ds = DataSource.objects.get(name='workshop-resources')
-        m = re.match(r'(https?://[^/]+)', ds.source_url)
-        return m.group(1) if m else ''
+        ds = (
+            DataSource.objects.filter(name='workshop-resources').first()
+            or DataSource.objects.filter(source_url__icontains='gitea').first()
+        )
+        if ds:
+            m = re.match(r'(https?://[^/]+)', ds.source_url)
+            if m:
+                return m.group(1)
     except Exception:
-        return os.environ.get('GITEA_URL', '')
+        pass
+    # EDA_HOST is always injected into the NetBox container; Gitea runs on port 3000
+    eda_host = os.environ.get('EDA_HOST', '')
+    if eda_host:
+        return f'http://{eda_host}:3000'
+    return os.environ.get('GITEA_URL', '')
 
 
 class RunOrbDiscovery(Script):
@@ -188,7 +198,7 @@ class RunOrbDiscovery(Script):
         devices = Device.objects.filter(
             site=site,
             role=role,
-            device_type__manufacturer__slug="nokia",
+            device_type__manufacturer__name__iexact="nokia",
             status="active",
             primary_ip4__isnull=False,
         ).order_by("name")

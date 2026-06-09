@@ -11,15 +11,24 @@ from netbox_branching.models import Branch
 
 def _eda_default_url():
     """Derive EDA URL from the workshop-resources Data Source host."""
+    import re
     try:
         from core.models import DataSource
-        import re
-        ds = DataSource.objects.get(name='workshop-resources')
-        m = re.match(r'https?://([^/:]+)', ds.source_url)
-        host = m.group(1) if m else 'localhost'
-        return f'http://{host}:5000/endpoint'
+        ds = (
+            DataSource.objects.filter(name='workshop-resources').first()
+            or DataSource.objects.filter(source_url__icontains='gitea').first()
+        )
+        if ds:
+            m = re.match(r'https?://([^/:]+)', ds.source_url)
+            if m:
+                return f'http://{m.group(1)}:5000/endpoint'
     except Exception:
-        return 'http://localhost:5000/endpoint'
+        pass
+    # EDA_HOST is always injected into the NetBox container
+    eda_host = os.environ.get('EDA_HOST', '')
+    if eda_host:
+        return f'http://{eda_host}:5000/endpoint'
+    return 'http://localhost:5000/endpoint'
 
 EDA_URL_DEFAULT = _eda_default_url()
 RESULT_POLL_TIMEOUT = 60  # seconds
