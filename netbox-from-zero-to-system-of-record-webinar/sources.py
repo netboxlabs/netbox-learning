@@ -9,12 +9,18 @@ deliberate, so Assurance has real deviations to show:
 """
 from netboxlabs.diode.sdk.ingester import VLAN, Device, Entity, Interface, IPAddress, Platform
 
-SITE = {"core-nyc-01": "NYC-DC1", "sw-nyc-01": "NYC-DC1", "sw-nyc-02": "NYC-DC1",
-        "core-lon-01": "LON-DC1", "sw-lon-01": "LON-DC1", "sw-sin-01": "SIN-DC1"}
+import csv
+from pathlib import Path
+
+# every device reference carries site, type, manufacturer and role from the spreadsheet, so Diode can
+# match it, and could create it, without "Field role is required" or "Field device_type is required"
+SPEC = {r["name"]: r for f in ("devices.csv", "devices-new.csv")
+        for r in csv.DictReader(open(Path(__file__).parent / "data" / f))}
 
 
 def dev(name, **kw):
-    return Device(name=name, site=SITE.get(name, kw.pop("site", None)), **kw)
+    r = SPEC[name]
+    return Device(name=name, site=r["site"], device_type=r["model"], manufacturer=r["manufacturer"], role=r["role"], **kw)
 
 
 def discovery():

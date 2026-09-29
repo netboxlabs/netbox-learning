@@ -32,7 +32,10 @@ def entities():
         rack = Rack(name=r["rack"], site=r["site"], location=loc)
         yield Entity(device=Device(name=r["name"], site=r["site"], location=loc, rack=rack, position=float(r["position"]), face="front",
                                    device_type=r["model"], manufacturer=r["manufacturer"], role=r["role"], status=r["status"]))
-        mgmt = Interface(device=Device(name=r["name"], site=r["site"]), name=r["mgmt_interface"], type="1000base-t", mgmt_only=True)
+        # the interface and IP carry the full device, not just its name: for a device NetBox does not have yet
+        # (sw-lon-02, sw-sin-02, waiting in Assurance), Diode would otherwise try to create it without a type or role
+        ref = Device(name=r["name"], site=r["site"], device_type=r["model"], manufacturer=r["manufacturer"], role=r["role"])
+        mgmt = Interface(device=ref, name=r["mgmt_interface"], type="1000base-t", mgmt_only=True)
         yield Entity(interface=mgmt)
         yield Entity(ip_address=IPAddress(address=r["mgmt_ip"], status="active", assigned_object_interface=mgmt))
 
