@@ -1,5 +1,5 @@
-site,name,status,u_height
-NYC-DC1,R01,active,42
-NYC-DC1,R02,active,42
-LON-DC1,R01,active,42
-SIN-DC1,R01,active,42
+site,location,name,status,u_height
+NYC-DC1,Hall A,R01,active,42
+NYC-DC1,Hall A,R02,active,42
+LON-DC1,Hall A,R01,active,42
+SIN-DC1,Hall A,R01,active,42

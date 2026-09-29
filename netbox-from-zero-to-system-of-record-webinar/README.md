@@ -8,7 +8,7 @@ Don't have a NetBox to try it on? [NetBox Cloud Free](https://netboxlabs.com/pro
 
 | Step | Script | What it shows | Needs |
 |---|---|---|---|
-| Seed | `1_seed_csv.py` | CSV import of sites and racks in the UI, including one row that fails on purpose. `--api` loads the same files through the REST API. | Any NetBox |
+| Seed | `1_seed_csv.py` | CSV import of sites, locations and racks in the UI, including one row that fails on purpose. `--api` loads the same files through the REST API. | Any NetBox |
 | Script | `2_script_branch.py` | pynetbox loads `data/devices.csv` (types, roles, devices, management IPs) with get-or-create, so a rerun changes nothing. It loads into a branch; `--merge` merges it, and `--main` loads straight into main. | Any NetBox; branching plugin for the branch |
 | Script without Python | `2b_ansible.sh` | Ansible loads the data definition file `ansible/data/ams-dc1.yml` with the `netbox.netbox` collection. Run it twice: `changed=0`. | Any NetBox |
 | Stream | `3_stream_diode.py` | The same spreadsheet plus two new switches, sent through Diode by name in one call. Diode matches what NetBox already has; run it twice and nothing is duplicated. | Diode |
@@ -85,4 +85,5 @@ On an empty NetBox, in this order:
 
 - **NetBox versions:** the scripts were tested on NetBox 4.6 with pynetbox 7.8, the Diode SDK 1.14 and `netbox.netbox` 3.23.
 - **The Ansible collection** writes to main; it has no branch support.
+- **Bulk import only creates.** Import a file twice and NetBox rejects it where names must be unique (sites, named devices, prefixes, IPs), but copies objects without such a rule: racks without a location, VLANs without a group, unnamed devices. That is why the racks here sit in a location.
 - **What reset doesn't clear:** the change log, which NetBox keeps by design, and Assurance deviations, which you can dismiss in the UI.

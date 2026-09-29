@@ -14,7 +14,7 @@ arrives as deviations to review instead. Either way, run it again: nothing is du
 """
 import csv
 
-from netboxlabs.diode.sdk.ingester import Device, Entity, Interface, IPAddress
+from netboxlabs.diode.sdk.ingester import Device, Entity, Interface, IPAddress, Location, Rack
 
 from common import *
 
@@ -28,7 +28,9 @@ def rows():
 
 def entities():
     for r in rows():
-        yield Entity(device=Device(name=r["name"], site=r["site"], rack=r["rack"], position=float(r["position"]), face="front",
+        loc = Location(name=r["location"], site=r["site"])
+        rack = Rack(name=r["rack"], site=r["site"], location=loc)
+        yield Entity(device=Device(name=r["name"], site=r["site"], location=loc, rack=rack, position=float(r["position"]), face="front",
                                    device_type=r["model"], manufacturer=r["manufacturer"], role=r["role"], status=r["status"]))
         mgmt = Interface(device=Device(name=r["name"], site=r["site"]), name=r["mgmt_interface"], type="1000base-t", mgmt_only=True)
         yield Entity(interface=mgmt)

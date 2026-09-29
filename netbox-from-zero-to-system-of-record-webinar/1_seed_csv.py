@@ -20,9 +20,10 @@ def show(name):
 
 def check():
     nb = netbox()
-    sites, racks = nb.dcim.sites.count(), nb.dcim.racks.count()
+    sites, locs, racks = nb.dcim.sites.count(), nb.dcim.locations.count(), nb.dcim.racks.count()
     (ok if sites == 3 else warn)(f"{sites} sites (expected 3)")
-    (ok if racks == 4 else warn)(f"{racks} racks (expected 4)")
+    (ok if locs == 3 else warn)(f"{locs} locations (expected 3)")
+    (ok if racks == 4 else warn)(f"{racks} racks (expected 4; more means an import ran twice)")
 
 
 def load_api():
@@ -34,6 +35,13 @@ def load_api():
             continue
         nb.dcim.sites.create(**row)
         ok(f"site {row['name']}")
+    for row in csv.DictReader(open(DATA / "locations.csv")):
+        site = nb.dcim.sites.get(name=row["site"])
+        if nb.dcim.locations.get(site_id=site.id, slug=row["slug"]):
+            note(f"location {row['site']}/{row['name']} already there")
+            continue
+        nb.dcim.locations.create(site=site.id, name=row["name"], slug=row["slug"], status=row["status"])
+        ok(f"location {row['site']}/{row['name']}")
     for row in csv.DictReader(open(DATA / "racks.csv")):
         site = nb.dcim.sites.get(name=row["site"])
         if site is None:
@@ -42,7 +50,8 @@ def load_api():
         if nb.dcim.racks.get(site_id=site.id, name=row["name"]):
             note(f"rack {row['site']}/{row['name']} already there")
             continue
-        nb.dcim.racks.create(site=site.id, name=row["name"], status=row["status"], u_height=int(row["u_height"]))
+        loc = nb.dcim.locations.get(site_id=site.id, name=row["location"])
+        nb.dcim.racks.create(site=site.id, location=loc.id, name=row["name"], status=row["status"], u_height=int(row["u_height"]))
         ok(f"rack {row['site']}/{row['name']}")
 
 
@@ -63,6 +72,11 @@ show("sites.csv")
 note("Names are how every later step refers to these sites, so they stay exactly like this.")
 pause()
 
+step(f"Open {ui('/dcim/locations/import/')}")
+step("Paste this and submit. Racks go into a location, so a rerun cannot copy them:")
+show("locations.csv")
+pause()
+
 step(f"Open {ui('/dcim/racks/import/')}")
 step("Paste this and submit:")
 show("racks.csv")
@@ -73,6 +87,10 @@ pause("Press Enter once you have shown the error")
 step("Delete the FRA-DC1 row and submit again. The corrected file is data/racks-fixed.csv:")
 show("racks-fixed.csv")
 pause("Press Enter once the racks are in")
+
+step("Optional: paste the same racks again. NetBox rejects the whole import, because rack names")
+step("are unique within a location. Without a location, the same file would import a second copy.")
+pause()
 
 step("Checking what landed")
 check()

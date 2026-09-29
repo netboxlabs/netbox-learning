@@ -1,7 +1,7 @@
-name,site,rack,position,role,manufacturer,model,status,mgmt_interface,mgmt_ip
-core-nyc-01,NYC-DC1,R01,40,Core Switch,Arista,DCS-7280SR-48C6,active,Management1,10.10.0.1/24
-sw-nyc-01,NYC-DC1,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.10.0.11/24
-sw-nyc-02,NYC-DC1,R02,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.10.0.12/24
-core-lon-01,LON-DC1,R01,40,Core Switch,Arista,DCS-7280SR-48C6,active,Management1,10.20.0.1/24
-sw-lon-01,LON-DC1,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.20.0.11/24
-sw-sin-01,SIN-DC1,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.30.0.11/24
+name,site,location,rack,position,role,manufacturer,model,status,mgmt_interface,mgmt_ip
+core-nyc-01,NYC-DC1,Hall A,R01,40,Core Switch,Arista,DCS-7280SR-48C6,active,Management1,10.10.0.1/24
+sw-nyc-01,NYC-DC1,Hall A,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.10.0.11/24
+sw-nyc-02,NYC-DC1,Hall A,R02,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.10.0.12/24
+core-lon-01,LON-DC1,Hall A,R01,40,Core Switch,Arista,DCS-7280SR-48C6,active,Management1,10.20.0.1/24
+sw-lon-01,LON-DC1,Hall A,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.20.0.11/24
+sw-sin-01,SIN-DC1,Hall A,R01,38,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.30.0.11/24
