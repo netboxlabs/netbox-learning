@@ -1,4 +1,4 @@
-# Data definition for a new site, AMS-DC1: the source of truth for this playbook.
+# Data definition for a new site, AMS-DC1: what this playbook loads into NetBox.
 #
 # Edit this file, not the playbook. Every entry is desired state: run the playbook
 # again and NetBox is only changed where it differs from this file.
