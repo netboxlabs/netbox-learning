@@ -9,9 +9,10 @@
 #   ./2b_ansible.sh --check --diff            show what would change, without changing it
 set -euo pipefail
 cd "$(dirname "$0")"
+# load .env; it wins over the shell, so credentials exported for another NetBox or Diode cannot leak in
 while IFS='=' read -r k v; do
   [[ -z "$k" || "$k" == \#* ]] && continue
-  [ -z "${!k:-}" ] && export "$k=$v"
+  export "$k=$v"
 done < .env
 export NETBOX_URL NETBOX_TOKEN
 export ANSIBLE_COLLECTIONS_PATH="$PWD/ansible/collections" ANSIBLE_PYTHON_INTERPRETER="$PWD/.venv/bin/python"

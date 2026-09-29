@@ -11,10 +11,10 @@
 #   ./4_discover_orb.sh --dry    write agent.yaml and show it, do not start the agent
 set -euo pipefail
 cd "$(dirname "$0")"
-# load .env, keeping anything already set in the shell (same rule as common.py)
+# load .env; it wins over the shell, so credentials exported for another NetBox or Diode cannot leak in
 while IFS='=' read -r k v; do
   [[ -z "$k" || "$k" == \#* ]] && continue
-  [ -z "${!k:-}" ] && export "$k=$v"
+  export "$k=$v"
 done < .env
 export DIODE_CLIENT_ID DIODE_CLIENT_SECRET LAB_DEVICE_USERNAME LAB_DEVICE_PASSWORD LAB_SNMP_COMMUNITY 2>/dev/null || true
 

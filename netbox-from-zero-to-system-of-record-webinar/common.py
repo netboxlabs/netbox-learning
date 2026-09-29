@@ -10,7 +10,8 @@ TAG = "webinar-demo"
 
 
 def load_env():
-    """Read demo/.env into os.environ without overriding variables already set in the shell."""
+    """Read demo/.env into os.environ. It wins over the shell, so credentials exported for another
+    NetBox or Diode cannot leak in; edit .env to change them."""
     env = HERE / ".env"
     if not env.exists():
         sys.exit(f"Missing {env}. Copy .env.example to .env and fill it in.")
@@ -19,7 +20,7 @@ def load_env():
         if not line or line.startswith("#") or "=" not in line:
             continue
         k, v = line.split("=", 1)
-        os.environ.setdefault(k.strip(), v.strip())
+        os.environ[k.strip()] = v.strip()
 
 
 load_env()

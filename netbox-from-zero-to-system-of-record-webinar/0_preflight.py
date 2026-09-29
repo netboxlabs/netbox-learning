@@ -71,8 +71,27 @@ if shutil.which("docker") and subprocess.run(["docker", "info"], capture_output=
     ok("Docker is running")
 else:
     warn("Docker is not running: use the simulated discovery (4_discover_simulated.py)")
-if not os.environ.get("LAB_SNMP_TARGETS"):
-    warn("LAB_SNMP_TARGETS not set in .env: the real Orb agent has nothing to scan")
+import socket
+from urllib.parse import urlparse
+
+
+def reachable(host, port):
+    try:
+        socket.create_connection((host, port), timeout=5).close()
+        return True
+    except OSError:
+        return False
+
+
+step("Demo 2 sources")
+if os.environ.get("LAB_DEVICE_HOST"):
+    h = os.environ["LAB_DEVICE_HOST"]
+    (ok if reachable(h, 22) else warn)(f"lab switch {h}: SSH {'answers' if reachable(h, 22) else 'does not answer (Tailscale connected?)'}")
+elif os.environ.get("LAB_SNMP_TARGETS"):
+    note("SNMP targets set; not probed (UDP)")
+else:
+    warn("no LAB_DEVICE_HOST or LAB_SNMP_TARGETS in .env: use ./4_discover_simulated.py")
+
 
 print()
 if problems:
