@@ -51,7 +51,7 @@ def load_api():
             note(f"rack {row['site']}/{row['name']} already there")
             continue
         loc = nb.dcim.locations.get(site_id=site.id, name=row["location"])
-        nb.dcim.racks.create(site=site.id, location=loc.id, name=row["name"], status=row["status"], u_height=int(row["u_height"]))
+        nb.dcim.racks.create(site=site.id, location=loc.id, name=row["name"], status=row["status"], u_height=int(row["u_height"]), width=int(row["width"]))
         ok(f"rack {row['site']}/{row['name']}")
 
 
