@@ -94,7 +94,8 @@
           device_type: "{{ item.type }}"
           device_role: "{{ item.role }}"
           site: "{{ site.name }}"
-          rack: "{{ item.rack }}"
+          # rack names repeat across sites (every site has an R01), so look it up by name and site
+          rack: { name: "{{ item.rack }}", site: "{{ site.name }}" }
           position: "{{ item.position }}"
           face: front
           status: active
