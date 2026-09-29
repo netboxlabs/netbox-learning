@@ -81,6 +81,8 @@ On an empty NetBox, in this order:
 
 ## Notes
 
+- **Other ways in:** besides pynetbox and the Ansible collection, Terraform has a community NetBox provider, [`e-breuninger/netbox`](https://registry.terraform.io/providers/e-breuninger/netbox/latest). It is not part of these demos; check its compatibility table against your NetBox version.
+
 - **NetBox versions:** the scripts were tested on NetBox 4.6 with pynetbox 7.8, the Diode SDK 1.14 and `netbox.netbox` 3.23.
 - **The Ansible collection** writes to main; it has no branch support.
 - **What reset doesn't clear:** the change log, which NetBox keeps by design, and Assurance deviations, which you can dismiss in the UI.
