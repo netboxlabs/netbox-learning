@@ -11,10 +11,11 @@
 #   ./4_discover_orb.sh --dry    write agent.yaml and show it, do not start the agent
 set -euo pipefail
 cd "$(dirname "$0")"
-# load .env; it wins over the shell, so credentials exported for another NetBox or Diode cannot leak in
-while IFS='=' read -r k v; do
-  [[ -z "$k" || "$k" == \#* ]] && continue
-  export "$k=$v"
+# load .env; it wins over the shell, so credentials exported for another NetBox or Diode cannot leak in.
+# Split each line at the first "=" only: secrets can end in "=" (base64 padding), and read -r k v drops it.
+while IFS= read -r line || [ -n "$line" ]; do
+  [[ -z "$line" || "$line" == \#* || "$line" != *=* ]] && continue
+  export "${line%%=*}=${line#*=}"
 done < .env
 export DIODE_CLIENT_ID DIODE_CLIENT_SECRET LAB_DEVICE_USERNAME LAB_DEVICE_PASSWORD LAB_SNMP_COMMUNITY 2>/dev/null || true
 
