@@ -1,0 +1,124 @@
+---
+# Load a data definition file into NetBox with the netbox.netbox collection.
+#
+#   ../2b_ansible.sh                        load data/ams-dc1.yml
+#   ../2b_ansible.sh -e data_file=other.yml  load another file with the same layout
+#
+# Every task is idempotent: the second run reports changed=0.
+
+- name: Load a site from its data definition file
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - "data/{{ data_file | default('ams-dc1.yml') }}"
+
+  module_defaults:
+    group/netbox.netbox.netbox:
+      netbox_url: "{{ lookup('env', 'NETBOX_URL') }}"
+      netbox_token: "{{ lookup('env', 'NETBOX_TOKEN') }}"
+
+  tasks:
+    - name: Site
+      netbox.netbox.netbox_site:
+        data: "{{ site }}"
+
+    - name: Racks
+      netbox.netbox.netbox_rack:
+        data:
+          name: "{{ item.name }}"
+          site: "{{ site.name }}"
+          u_height: "{{ item.u_height }}"
+          status: active
+      loop: "{{ racks }}"
+      loop_control: { label: "{{ site.name }}/{{ item.name }}" }
+
+    - name: Manufacturers
+      netbox.netbox.netbox_manufacturer:
+        data: { name: "{{ item }}" }
+      loop: "{{ manufacturers }}"
+
+    - name: Device types
+      netbox.netbox.netbox_device_type:
+        data:
+          model: "{{ item.model }}"
+          slug: "{{ item.slug }}"
+          manufacturer: "{{ item.manufacturer }}"
+          u_height: "{{ item.u_height }}"
+      loop: "{{ device_types }}"
+      loop_control: { label: "{{ item.manufacturer }} {{ item.model }}" }
+
+    - name: Interface templates, so every new device gets its ports
+      netbox.netbox.netbox_device_interface_template:
+        data:
+          device_type: "{{ item.0.slug }}"
+          name: "{{ item.1.name }}"
+          type: "{{ item.1.type }}"
+          mgmt_only: "{{ item.1.mgmt_only | default(false) }}"
+      loop: "{{ device_types | subelements('interfaces') }}"
+      loop_control: { label: "{{ item.0.model }} {{ item.1.name }}" }
+
+    - name: Device roles
+      netbox.netbox.netbox_device_role:
+        data: "{{ item }}"
+      loop: "{{ device_roles }}"
+      loop_control: { label: "{{ item.name }}" }
+
+    - name: VLANs
+      netbox.netbox.netbox_vlan:
+        data:
+          vid: "{{ item.vid }}"
+          name: "{{ item.name }}"
+          site: "{{ site.name }}"
+          status: active
+      loop: "{{ vlans }}"
+      loop_control: { label: "{{ item.vid }} {{ item.name }}" }
+
+    - name: Prefixes
+      netbox.netbox.netbox_prefix:
+        data:
+          prefix: "{{ item.prefix }}"
+          description: "{{ item.description }}"
+          scope_type: dcim.site
+          scope: "{{ site.name }}"
+          vlan: "{{ {'name': item.vlan, 'site': site.name} if item.vlan is defined else omit }}"
+          status: active
+      loop: "{{ prefixes }}"
+      loop_control: { label: "{{ item.prefix }}" }
+
+    - name: Devices
+      netbox.netbox.netbox_device:
+        data:
+          name: "{{ item.name }}"
+          device_type: "{{ item.type }}"
+          device_role: "{{ item.role }}"
+          site: "{{ site.name }}"
+          # rack names repeat across sites (every site has an R01), so look it up by name and site
+          rack: { name: "{{ item.rack }}", site: "{{ site.name }}" }
+          position: "{{ item.position }}"
+          face: front
+          status: active
+      loop: "{{ devices }}"
+      loop_control: { label: "{{ item.name }}" }
+
+    - name: Interface descriptions
+      netbox.netbox.netbox_device_interface:
+        data:
+          device: "{{ item.0.name }}"
+          name: "{{ item.1.name }}"
+          description: "{{ item.1.description }}"
+        update_vc_child: false
+      loop: "{{ devices | subelements('interfaces', skip_missing=true) }}"
+      loop_control: { label: "{{ item.0.name }} {{ item.1.name }}" }
+
+    - name: Management IPs, on the management interface
+      netbox.netbox.netbox_ip_address:
+        data:
+          address: "{{ item.mgmt_ip }}"
+          status: active
+          assigned_object:
+            device: "{{ item.name }}"
+            name: "{{ (device_types | selectattr('model', 'equalto', item.type) | first).interfaces | selectattr('mgmt_only', 'defined') | map(attribute='name') | first }}"
+      loop: "{{ devices }}"
+      loop_control: { label: "{{ item.name }} {{ item.mgmt_ip }}" }

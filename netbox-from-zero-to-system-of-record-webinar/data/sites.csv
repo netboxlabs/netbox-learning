@@ -1,0 +1,4 @@
+name,slug,status,time_zone,description
+NYC-DC1,nyc-dc1,active,America/New_York,New York data centre
+LON-DC1,lon-dc1,active,Europe/London,London data centre
+SIN-DC1,sin-dc1,active,Asia/Singapore,Singapore data centre

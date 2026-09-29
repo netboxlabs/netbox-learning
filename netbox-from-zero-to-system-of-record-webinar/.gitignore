@@ -1,0 +1,6 @@
+# never commit credentials
+.env
+.venv/
+run/
+__pycache__/
+ansible/collections/

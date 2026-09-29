@@ -1,0 +1,74 @@
+# Data definition for a new site, AMS-DC1: what this playbook loads into NetBox.
+#
+# Edit this file, not the playbook. Every entry is desired state: run the playbook
+# again and NetBox is only changed where it differs from this file.
+
+site:
+  name: AMS-DC1
+  slug: ams-dc1
+  status: active
+  time_zone: Europe/Amsterdam
+  description: Amsterdam data centre
+
+racks:
+  - { name: R01, u_height: 42 }
+  - { name: R02, u_height: 42 }
+
+manufacturers:
+  - Juniper
+
+device_types:
+  - model: QFX5120-48Y
+    slug: qfx5120-48y
+    manufacturer: Juniper
+    u_height: 1
+    interfaces:
+      - { name: em0, type: 1000base-t, mgmt_only: true }
+      - { name: et-0/0/48, type: 100gbase-x-qsfp28 }
+      - { name: et-0/0/49, type: 100gbase-x-qsfp28 }
+      - { name: xe-0/0/0, type: 25gbase-x-sfp28 }
+      - { name: xe-0/0/1, type: 25gbase-x-sfp28 }
+      - { name: xe-0/0/2, type: 25gbase-x-sfp28 }
+      - { name: xe-0/0/3, type: 25gbase-x-sfp28 }
+
+device_roles:
+  - { name: Spine Switch, slug: spine-switch, color: "00a9e0" }
+  - { name: Leaf Switch, slug: leaf-switch, color: "00f2d4" }
+
+vlans:
+  - { vid: 10, name: servers }
+  - { vid: 20, name: storage }
+
+prefixes:
+  - { prefix: 10.40.0.0/24, description: Management }
+  - { prefix: 10.40.10.0/24, vlan: servers, description: Servers }
+  - { prefix: 10.40.20.0/24, vlan: storage, description: Storage }
+
+devices:
+  - name: spine-ams-01
+    role: Spine Switch
+    type: QFX5120-48Y
+    rack: R01
+    position: 42
+    mgmt_ip: 10.40.0.1/24
+    interfaces:
+      - { name: et-0/0/48, description: Downlink to leaf-ams-01 }
+      - { name: et-0/0/49, description: Downlink to leaf-ams-02 }
+
+  - name: leaf-ams-01
+    role: Leaf Switch
+    type: QFX5120-48Y
+    rack: R01
+    position: 40
+    mgmt_ip: 10.40.0.11/24
+    interfaces:
+      - { name: et-0/0/48, description: Uplink to spine-ams-01 }
+
+  - name: leaf-ams-02
+    role: Leaf Switch
+    type: QFX5120-48Y
+    rack: R02
+    position: 40
+    mgmt_ip: 10.40.0.12/24
+    interfaces:
+      - { name: et-0/0/48, description: Uplink to spine-ams-01 }

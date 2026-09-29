@@ -1,0 +1,3 @@
+name,site,location,rack,position,role,manufacturer,model,status,mgmt_interface,mgmt_ip
+sw-lon-02,LON-DC1,Hall A,R01,36,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.20.0.12/24
+sw-sin-02,SIN-DC1,Hall A,R01,36,Access Switch,Cisco,C9300-48P,active,GigabitEthernet0/0,10.30.0.12/24

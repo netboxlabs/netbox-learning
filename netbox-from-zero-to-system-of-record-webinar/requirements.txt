@@ -1,0 +1,4 @@
+pynetbox>=7.8
+netboxlabs-diode-sdk>=1.14
+requests
+ansible-core>=2.18
