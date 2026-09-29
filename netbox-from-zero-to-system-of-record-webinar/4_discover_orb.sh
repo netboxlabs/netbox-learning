@@ -24,40 +24,116 @@ if [ -z "${LAB_DEVICE_HOST:-}" ] && [ -z "${LAB_SNMP_TARGETS:-}" ]; then
 fi
 
 mkdir -p run
-# JSON is valid YAML, and writing it from Python quotes every value correctly.
-# Credentials stay as ${...} placeholders: the agent reads them from its environment.
+# Written as commented YAML, so ./4_discover_orb.sh --dry is something to show and explain on screen.
+# Values are quoted with json.dumps, which is valid YAML. Credentials stay as ${...} placeholders:
+# the agent reads them from its environment, so the password is never written to disk.
 .venv/bin/python - <<'PY' > run/agent.yaml
 import json, os
 E = os.environ.get
-defaults = {"site": E("LAB_SITE") or "NYC-DC1", "role": E("LAB_ROLE") or "Access Switch", "tags": ["webinar-demo"]}
-if E("LAB_LOCATION"):
-    defaults["location"] = E("LAB_LOCATION")
-backends, policies = {}, {}
+q = json.dumps
+site, role, loc = E("LAB_SITE") or "NYC-DC1", E("LAB_ROLE") or "Access Switch", E("LAB_LOCATION")
+L = []
+w = L.append
+w("# Orb agent configuration, written by 4_discover_orb.sh from .env. Show it with: ./4_discover_orb.sh --dry")
+w("orb:")
+w("  # Where the agent gets its policies: this file. The alternative is a Git repository.")
+w("  config_manager:")
+w("    active: local")
+w("  backends:")
 if E("LAB_DEVICE_HOST"):
-    backends["device_discovery"] = None
-    policies["device_discovery"] = {"webinar_device": {
-        "config": {
-            "defaults": {**defaults,
-                "if_type": "other",
-                "interface_patterns": [{"match": "^Ethernet[0-9]+/[0-9]+$", "type": "1000base-t"},
-                                       {"match": "^Loopback[0-9]+$", "type": "virtual"}],
-                "interface_exclude_patterns": ["^Null[0-9]*$"],
-                "device": {"manufacturer": "Cisco", "model": "IOL-XE", "platform": "IOS-XE"}},
-            "options": {"discovery_drivers": [E("LAB_DEVICE_DRIVER") or "ios"],
-                        "capture_running_config": False, "capture_startup_config": False,
-                        "emit_host_prefixes": False, "propagate_defaults_to_prefix_scope": False,
-                        "create_unknown_vlans": False, "discover_vrfs": False, "platform_omit_version": True}},
-        "scope": [{"driver": E("LAB_DEVICE_DRIVER") or "ios", "hostname": E("LAB_DEVICE_HOST"), "timeout": 90,
-                   "username": "${LAB_DEVICE_USERNAME}", "password": "${LAB_DEVICE_PASSWORD}"}]}}
+    w("    # Device discovery: logs in to each device over SSH with NAPALM and reads it.")
+    w("    device_discovery:")
 if E("LAB_SNMP_TARGETS"):
-    backends["snmp_discovery"] = None
-    policies["snmp_discovery"] = {"webinar_snmp": {
-        "config": {"timeout": 300, "defaults": defaults},
-        "scope": {"targets": [{"host": h.strip()} for h in E("LAB_SNMP_TARGETS").split(",") if h.strip()],
-                  "authentication": {"protocol_version": "SNMPv2c", "community": "${LAB_SNMP_COMMUNITY}"}}}}
-backends["common"] = {"diode": {"target": E("DIODE_TARGET"), "client_id": "${DIODE_CLIENT_ID}",
-                                "client_secret": "${DIODE_CLIENT_SECRET}", "agent_name": E("AGENT_NAME") or "webinar-agent"}}
-print(json.dumps({"orb": {"config_manager": {"active": "local"}, "backends": backends, "policies": policies}}, indent=2))
+    w("    # SNMP discovery: polls each target with SNMP (v1, v2c or v3).")
+    w("    snmp_discovery:")
+w("    # Shared by every backend: where the results go. Diode matches them against NetBox;")
+w("    # with Assurance they arrive as deviations to review.")
+w("    common:")
+w("      diode:")
+w(f"        target: {q(E('DIODE_TARGET'))}")
+w("        # OAuth2 client credentials from NetBox > Diode > Client credentials, read from the environment.")
+w("        client_id: ${DIODE_CLIENT_ID}")
+w("        client_secret: ${DIODE_CLIENT_SECRET}")
+w("        # The name this agent's data carries in Diode, and the source to filter by in Assurance.")
+w(f"        agent_name: {q(E('AGENT_NAME') or 'webinar-agent')}")
+w("  policies:")
+if E("LAB_DEVICE_HOST"):
+    drv = E("LAB_DEVICE_DRIVER") or "ios"
+    w("    device_discovery:")
+    w("      webinar_device:")
+    w("        config:")
+    w("          # No schedule: the policy runs once when the agent starts.")
+    w('          # Add  schedule: "*/15 * * * *"  (cron) to repeat it.')
+    w("          defaults:")
+    w("            # A switch does not know its site, location or role, so the policy supplies them.")
+    w(f"            site: {q(site)}")
+    if loc:
+        w(f"            location: {q(loc)}")
+    w(f"            role: {q(role)}")
+    w("            # Tags added to everything this policy finds.")
+    w('            tags: ["webinar-demo"]')
+    w("            # Interface type when none of the patterns below matches.")
+    w('            if_type: "other"')
+    w("            # Interface name (regular expression) to NetBox interface type.")
+    w("            interface_patterns:")
+    w('              - match: "^Ethernet[0-9]+/[0-9]+$"')
+    w('                type: "1000base-t"')
+    w('              - match: "^Loopback[0-9]+$"')
+    w('                type: "virtual"')
+    w("            # Interfaces to leave out entirely.")
+    w('            interface_exclude_patterns: ["^Null[0-9]*$"]')
+    w("            # Used for the device type and platform (the CML image does not report a real model).")
+    w("            device:")
+    w('              manufacturer: "Cisco"')
+    w('              model: "IOL-XE"')
+    w('              platform: "IOS-XE"')
+    w("          options:")
+    w("            # NAPALM drivers to try against each host.")
+    w(f"            discovery_drivers: [{q(drv)}]")
+    w("            # Do not read the running or startup configuration.")
+    w("            capture_running_config: false")
+    w("            capture_startup_config: false")
+    w("            # No /32 prefixes for single addresses such as loopbacks.")
+    w("            emit_host_prefixes: false")
+    w("            # Do not scope the prefixes it derives to the default site.")
+    w("            propagate_defaults_to_prefix_scope: false")
+    w("            # Do not create VLAN placeholders for VLAN IDs the device only references.")
+    w("            create_unknown_vlans: false")
+    w("            # Do not read VRFs.")
+    w("            discover_vrfs: false")
+    w('            # Platform name without the software version, so it stays "IOS-XE" across upgrades.')
+    w("            platform_omit_version: true")
+    w("        scope:")
+    w("          # One entry per device (a subnet or an IP range also works). Credentials come from the environment.")
+    w(f"          - driver: {q(drv)}")
+    w(f"            hostname: {q(E('LAB_DEVICE_HOST'))}")
+    w("            # Seconds to wait for the device to answer.")
+    w("            timeout: 90")
+    w("            username: ${LAB_DEVICE_USERNAME}")
+    w("            password: ${LAB_DEVICE_PASSWORD}")
+if E("LAB_SNMP_TARGETS"):
+    w("    snmp_discovery:")
+    w("      webinar_snmp:")
+    w("        config:")
+    w("          # Seconds the whole policy may take.")
+    w("          timeout: 300")
+    w("          defaults:")
+    w("            # SNMP does not tell NetBox the site, location or role either.")
+    w(f"            site: {q(site)}")
+    if loc:
+        w(f"            location: {q(loc)}")
+    w(f"            role: {q(role)}")
+    w('            tags: ["webinar-demo"]')
+    w("        scope:")
+    w("          # Hosts, IP ranges or subnets to poll.")
+    w("          targets:")
+    for h in [h.strip() for h in E("LAB_SNMP_TARGETS").split(",") if h.strip()]:
+        w(f"            - host: {q(h)}")
+    w("          # SNMPv2c; the community string comes from the environment.")
+    w("          authentication:")
+    w('            protocol_version: "SNMPv2c"')
+    w("            community: ${LAB_SNMP_COMMUNITY}")
+print("\n".join(L))
 PY
 
 echo "== Demo 2 · 1 Discover: the Orb agent =="
