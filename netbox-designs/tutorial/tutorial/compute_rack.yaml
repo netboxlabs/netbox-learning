@@ -1,0 +1,59 @@
+name: Compute Rack
+netbox_versions: ["4.6.*", "4.7.*"]
+description: A 42U compute rack in an existing site, with a top-of-rack switch, ten servers and their cabling.
+variables:
+  rack_name: {type: netbox_new, model: Rack, field: name, description: "The rack's name, such as R1"}
+  site: {type: netbox_ref, model: Site, description: "The site the rack stands in"}
+  status: active
+infra:
+- infra_type: Rack
+  name: '{{ variables.rack_name }}'
+  site: '{{ variables.site }}'
+  rack_type: dtl:rack-types/APC/AR3350.yaml@fdf12828
+  status: '{{ variables.status }}'
+  devices:
+  - design: nbd:devices/Cisco_3850_w_module
+    template_vars:
+      name: '{{ variables.rack_name }}-TOR-01'
+      position: 42
+      face: front
+      status: active
+      site: '{{ parent.site }}'
+      rack: '{{ parent }}'
+  - nbd_loop:
+      over: {start: 1, end: 10}
+      as: i
+    design: nbd:devices/Dell_R640_w_module
+    template_vars:
+      name: '{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}'
+      position: '{{ loop.i }}'
+      face: front
+      status: active
+      site: '{{ parent.site }}'
+      rack: '{{ parent }}'
+  cables:
+  - nbd_loop:
+      over: {start: 1, end: 10}
+      as: i
+    items:
+    - infra_type: Cable
+      label: '{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}-DATA-A'
+      type: cat6a
+      status: connected
+      termination_a: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}', 'Interface', 'Ethernet/PCIE1/1') }}"
+      termination_b: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-TOR-01', 'Interface', 'GigabitEthernet1/0/{{ loop.i * 2 - 1 }}') }}"
+    - infra_type: Cable
+      label: '{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}-DATA-B'
+      type: cat6a
+      status: connected
+      termination_a: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}', 'Interface', 'Ethernet/PCIE1/2') }}"
+      termination_b: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-TOR-01', 'Interface', 'GigabitEthernet1/0/{{ loop.i * 2 }}') }}"
+  - nbd_loop:
+      over: {start: 1, end: 10}
+      as: i
+    infra_type: Cable
+    label: '{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}-MGMT'
+    type: cat6
+    status: connected
+    termination_a: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-COMPUTE-{{ loop.i | zeropad }}', 'Interface', 'iDRAC9') }}"
+    termination_b: "{{ nbd.lookup.endpoint('{{ variables.rack_name }}-TOR-01', 'Interface', 'GigabitEthernet1/0/{{ loop.i + 20 }}') }}"

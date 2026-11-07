@@ -1,0 +1,32 @@
+name: Cisco_3850_w_module
+netbox_versions: ["4.6.*", "4.7.*"]
+description: Cisco Catalyst 3850-48P with 4x10G Network Module
+variables:
+  name: {type: netbox_new, model: Device, field: name, description: The device's name in NetBox}
+  position: {type: int, min: 1, max: 100, required: false, description: "The lowest rack unit it occupies, when racked"}
+  face: {type: netbox_field, model: Device, field: face, required: false, description: Which face of the rack it is mounted on}
+  status: {type: netbox_field, model: Device, field: status, description: The device's status}
+  serial: {type: netbox_new, model: Device, field: serial, required: false, description: "The serial number, when known"}
+  site: {type: netbox_ref, model: Site, description: The site the device stands in}
+  rack: {type: netbox_ref, model: Rack, required: false, description: "The rack it is mounted in, when racked"}
+infra:
+- infra_type: Device
+  name: '{{ variables.name }}'
+  position: '{{ variables.position }}'
+  face: '{{ variables.face }}'
+  status: '{{ variables.status }}'
+  serial: '{{ variables.serial }}'
+  site: '{{ variables.site }}'
+  role:
+    infra_type: DeviceRole
+    name: TOR Switch
+    slug: tor-switch
+    color: 2196f3
+  rack: '{{ variables.rack }}'
+  device_type: 'dtl:device-types/Cisco/WS-C3850-48P-E.yaml@fdf12828'
+  modules:
+  - infra_type: Module
+    device: '{{ parent }}'
+    module_bay: '{{ nbd.nbt.get_module_bay(parent, 1) }}'
+    module_type: 'dtl:module-types/Cisco/C3850-NM-4-10G.yaml@fdf12828'
+    module_position: 1
