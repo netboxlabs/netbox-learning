@@ -24,8 +24,26 @@ You will be able to run simple scripts to use both features of NetBox Discovery:
 > - The workshop can be run on a server or virtual machine with a public or private IP. Please see the additional step for private IP options below.
 > - We recommend using a machine with at least 4GB of RAM and 2 cores. If you're using a discount cloud or are going to run Cisco IOS images, we recommend at least 8GB of RAM and 4 cores.  
 > - The workshop has been tested on Ubuntu up to 25.04 (Plucky Puffin). It _should_ work on other Linux distros but if you hit any problems please create an [issue](https://github.com/netboxlabs/netbox-learning/issues) in GitHub  
-> - Unfortunately MacOS is not supported. The quickstart relies heavily on ContainerLab which does not have native support for MacOS  
+> - MacOS is not supported directly — ContainerLab (used later in this quickstart) has no native macOS support, and the Nokia SR Linux lab images are x86_64-only. If you're on a Mac, see **[Running on macOS](#running-on-macos)** below before continuing; everyone else can skip straight to cloning the repo.  
 
+
+## Running on macOS
+
+This quickstart needs a genuine Linux host, and specifically a genuine **x86_64** Linux kernel — not just an arm64 VM with per-process x86_64 emulation. (A native arm64 VM was tried first; the Nokia SR Linux lab images' system daemons boot-loop under QEMU's per-process binfmt emulation because they rely on kernel/ioctl behavior user-mode emulation can't provide. A full x86_64 guest, even though it's itself running under emulation on Apple Silicon, gives them a real x86_64 kernel and boots them cleanly.)
+
+A script is included to set this up for you using [Lima](https://lima-vm.io/) (requires [Homebrew](https://brew.sh)):
+
+```
+./0_macos_create_vm.sh
+```
+
+This installs Lima if needed, creates an x86_64 Ubuntu 25.04 VM sized for this workload (11 CPUs / 16GiB RAM / 60GiB disk by default — fewer CPUs has been observed to make Device Discovery's bulk writes to NetBox time out under emulation), and prints the next commands to run. Follow its output to open a shell in the VM, clone the repo, and continue with **every step below from "Install the required tooling on the host" onward, run inside that VM shell** — the rest of this README is identical whether you're on bare-metal Linux or in this VM.
+
+A couple of macOS/VM-specific notes that apply throughout the rest of this guide:
+
+- Lima automatically forwards any port the VM listens on back to `127.0.0.1` on your Mac. Once NetBox is running you can always reach it at `http://127.0.0.1:8000` from your Mac's browser, regardless of what `MY_EXTERNAL_IP` is set to inside the VM.
+- The `su - quickstart` step below expects an interactive password prompt (the account has none, so an empty-Enter normally suffices interactively). If you're driving this non-interactively, grant the `quickstart` user passwordless sudo first — `0_macos_create_vm.sh`'s output includes the exact command.
+- First-time NetBox startup (database migrations) can take considerably longer than "a few minutes" inside this VM — budget **20-30 minutes**, not 5. See [Troubleshooting](#troubleshooting) if it seems stuck.
 
 ### Clone the repo and go to the Discovery Quickstart
 
@@ -89,7 +107,7 @@ source 1_set_envvars.sh
 
 > [!TIP]
 >   
-> NetBox runs a lot of database migrations when starting up for the first time so this can take a few minutes  
+> NetBox runs a lot of database migrations when starting up for the first time so this can take a few minutes on bare-metal Linux — and considerably longer (20-30 minutes) inside the macOS VM described above  
 
 ```
 ./3_start_netbox.sh
@@ -293,6 +311,45 @@ First NetBox Discovery will load the environment and the policies we've defined 
 - Now click on the first device `srl1`. Here you can see that the `Device Type`, `Platform` and `Status` have all been set correctly.
 - Now click on the `Interfaces` tab for `srl1`. Now you'll see that all our our device interfaces have been successfully ingested into NetBox, with the correct administrative statuses which are called `Enabled` in NetBox.
 - Lastly, click on the top interface `ethernet-1/1`. Now you'll see that NetBox Discovery has correctly ingested the correct `MAC Address`, `MTU`, and `Speed/Duplex` for the interface.
+
+## Troubleshooting
+
+A few issues that can come up, particularly when running inside the macOS VM described above:
+
+**`netbox-docker-netbox-housekeeping-1` exits shortly after `3_start_netbox.sh` finishes.**
+This container can lose a startup race against Postgres on first boot and exit (`Exited (1)`). It's a periodic-maintenance service, not required for anything in this quickstart — just start it again if you want it running: `docker start netbox-docker-netbox-housekeeping-1`.
+
+**After stopping/restarting containers (e.g. after a VM reboot), Diode requests start failing with `502 Bad Gateway` or auth errors.**
+`diode-ingress-nginx-1` resolves its upstream container hostnames (like `diode-auth`) once and caches the IP; if a container it points to gets a new IP from a restart, nginx keeps routing to the stale address. Restart nginx to force it to re-resolve: `docker restart diode-ingress-nginx-1`.
+
+**Device Discovery's changes never seem to land in NetBox (`Devices` -> `Devices` stays empty), and `diode-diode-reconciler-1`'s logs show `bulk plan-apply` requests failing with a client-side timeout.**
+This means NetBox is genuinely processing the request (check `docker stats` — you'll likely see it pegged near 100% CPU) but too slowly to beat the reconciler's client timeout. This shows up specifically because Device Discovery's payload (~65 entities per device) is much heavier than Network Discovery's. On the macOS VM, give it more CPU:
+```
+limactl stop netbox-quickstart
+limactl edit netbox-quickstart --cpus 11 --memory 16
+limactl start netbox-quickstart
+```
+then restart any containers that didn't come back up on their own (`docker ps -a` to check, `docker start <name>` for anything `Exited`).
+
+**After fixing a failure and retrying discovery, some IPs/devices still never show up in NetBox — Diode's logs show them as `duplicate ingestion log` every time.**
+Diode dedupes ingested entities by a content-derived ID, and it does this regardless of whether the *first* attempt actually succeeded. If an earlier attempt failed (e.g. due to the timeout issue above) before you fixed the underlying problem, its entities are now permanently "seen" and will never be retried automatically — the discovery agent will keep re-sending the same content, and Diode will keep calling it a duplicate. Clear the stuck rows from Diode's own database (this is Diode's internal bookkeeping, not NetBox data) and then re-run discovery:
+```
+docker exec diode-postgres-1 psql -U diode -d diode -c "SELECT state, count(*) FROM ingestion_logs GROUP BY state;"
+# state 8 = stuck mid-apply, state 4 = failed — both block future retries of the same content
+docker exec diode-postgres-1 psql -U diode -d diode -c "DELETE FROM ingestion_logs WHERE state IN (4, 8);"
+```
+
+**Verifying data via the NetBox REST API yourself (rather than the UI) and getting `"Invalid v1 token"` even with a token you just created.**
+NetBox 4.6+ uses a new token format. A token's `.key` attribute alone is not a usable credential — capture the `.token` property at creation time and send it as `Authorization: Bearer nbt_<key>.<secret>` (not `Authorization: Token ...`, which is only for legacy 40-character v1 tokens):
+```
+docker exec netbox-docker-netbox-1 python3 /opt/netbox/netbox/manage.py shell -i python -c "
+from django.contrib.auth import get_user_model
+from users.models import Token
+admin = get_user_model().objects.get(username='admin')
+tok = Token(user=admin); tok.save()
+print('Authorization: Bearer nbt_' + tok.key + '.' + tok.token)
+"
+```
 
 ## Conclusion
 
